@@ -186,6 +186,14 @@ end
 function weatherCheck(ele, skill)
     local env = gData.GetEnvironment()
     
+	if (debugEnabled()) then
+		debugLog("=== weatherCheck ===")
+		debugLog("Skill: "..skill)
+		debugLog("Element: "..ele)
+		debugLog("Weather Element: "..env.WeatherElement)
+		debugLog("Day Element: ".. env.DayElement)
+	end
+
     if not (skill) then skill = null end
 
 	if ((itemInArray(magicList,skill)) or (skill==null)) then
@@ -193,6 +201,9 @@ function weatherCheck(ele, skill)
 			infoLog('Weather or Day element matches spell element')
 			equip(sets.Obis[ele]) --Equip standard obi, force fallback below
 			equip(sets.Obis['AIO']) --Force fallback onto Hachirin-no-Obi, just in case individual obis no longer exist
+			if (sets[player.MainJob]['DayWeatherBonus']) then
+				equip (sets[player.MainJob]['DayWeatherBonus'])
+			end
 		end
 	end
 end

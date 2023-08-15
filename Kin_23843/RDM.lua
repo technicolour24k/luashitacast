@@ -175,6 +175,7 @@ sets.RDM['Magic']['Helixes'] = gFunc.Combine(sets.RDM['Magic']['Elemental Magic'
 sets.RDM['Magic']['Helixes']['Light Arts'] = gFunc.Combine(sets.RDM['Magic']['Helixes'], {})
 sets.RDM['Magic']['Helixes']['Dark Arts'] = gFunc.Combine(sets.RDM['Magic']['Helixes'], {})
 
+sets.RDM['DayWeatherBonus'] = {Back="Twilight Cape"}
 --------------------------------------
 --           BEGIN JA GEARSETS      --
 --------------------------------------

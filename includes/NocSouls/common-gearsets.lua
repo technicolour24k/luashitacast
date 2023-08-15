@@ -16,13 +16,13 @@ sets.AllJobs['WeaponSkills']['Fotia'] = gFunc.Combine(sets.AllJobs['WeaponSkills
 })
 
 sets.AllJobs['MAB'] = {
-    Ammo = { Name = 'Erlene\'s Notebook', Augment = {  } },
-    Neck = { Name = 'Stoicheion Medal', Augment = {  } },
-    Ear1 = { Name = 'Hecate\'s Earring', Augment = {  } },
-    Ear2 = { Name = 'Novio Earring', Augment = {  } },
+    Ammo = 'Erlene\'s Notebook',
+    Neck = 'Stoicheion Medal',
+    Ear1 = 'Hecate\'s Earring',
+    Ear2 = 'Novio Earring',
     Ring1 = { Name = 'Dark Ring', Augment = { [1] = 'Weapon skill damage +8%', [2] = 'Accuracy+5', [3] = 'Eva.+1', [4] = 'Attack+5', [5] = 'Mag. Eva.+1' } },
-    Ring2 = { Name = 'Acumen Ring', Augment = {  } },
-    Back = { Name = 'Izdubar Mantle', Augment = {  } },
+    Ring2 = 'Acumen Ring',
+    Back ='Izdubar Mantle',
 }
 
 sets.AllJobs['TP'] = {

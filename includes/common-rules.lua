@@ -316,7 +316,7 @@ function commonMidcastRules (sets, spell, skill, type)
 		end
 	end
 
-    weatherCheck(action.Element, action.Skill)
+    weatherCheck(action.Element, action.Type)
 
 end
 

@@ -107,6 +107,7 @@ sets.THF['MAB'] = gFunc.Combine(sets.AllJobs['MAB'], {
     Head="Wayfarer Circlet",
     Waist = "Aquiline Belt",
     Legs = "Limbo Trousers"
+
 })
 
 sets.THF['Magic'] = {}
@@ -116,7 +117,13 @@ sets.THF['Magic']['BLU_Buffs'] = {}
 sets.THF['Magic']['BLU_Nukes'] = gFunc.Combine(sets.THF['MAB'], {})
 sets.THF['Magic']['Elemental Magic'] = gFunc.Combine(sets.THF['MAB'], {})
 
+sets.THF['Magic']['Helixes'] = gFunc.Combine(sets.THF['Magic']['Elemental Magic'], {})
+sets.THF['Magic']['Helixes']['Light Arts'] = gFunc.Combine(sets.THF['Magic']['Helixes'], {})
+sets.THF['Magic']['Helixes']['Dark Arts'] = gFunc.Combine(sets.THF['Magic']['Helixes'], {})
+
 sets.THF['Magic']['Enspells'] = gFunc.Combine(sets.AllJobs['Midcast']['Enspell'], {})
+
+sets.THF['DayWeatherBonus'] = {}
 
 --------------------------------------
 --           BEGIN JA GEARSETS      --
@@ -170,7 +177,9 @@ profile.Sets = sets
 profile.OnLoad = function()
     profile.Packer = {}
     gSettings.AllowAddSet = true
-    sendCommand('/lockstyleset 001')
+    sendCommand('/lockstyleset 002')
+    sendCommand('/macro book 8')
+    sendCommand('/macro set 1')
 
 end
 
