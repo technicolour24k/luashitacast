@@ -105,8 +105,10 @@ sets.default['Resting']={}
 
 sets.THF['MAB'] = gFunc.Combine(sets.AllJobs['MAB'], {
     Head="Wayfarer Circlet",
+    Body="Sombra Harness",
     Waist = "Aquiline Belt",
-    Legs = "Limbo Trousers"
+    Legs = "Limbo Trousers",
+    Feet="Sombra Leggings"
 
 })
 
