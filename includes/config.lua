@@ -50,7 +50,7 @@ Helixes = T{'Geohelix','Hydrohelix','Anemohelix','Pyrohelix','Cryohelix','Ionohe
 Storms = T{'Sandstorm','Rainstorm','Windstorm','Firestorm','Hailstorm','Thunderstorm','Voidstorm','Aurorastorm'}
 
 BLU_Buffs = {"Nat. Meditation","Occultation","Erratic Flutter","Diamondhide","Magic Fruit"}
-BLU_Nukes = {"Searing Tempest","Spectral Floe","Silent Storm","Entomb","Anvil Lightning","Scouring Spate","Palling Salvo","Atra. Libations"}
+BLU_Nukes = {"Searing Tempest","Spectral Floe","Silent Storm","Entomb","Anvil Lightning","Scouring Spate","Palling Salvo","Atra. Libations", "Dark Orb"}
 BLU_Physical = {"Thrashing Assault","Sinker Drill"}
 
 --Below 4 lists are used by oneClickRemedies to know which statuses get assigned to which medicine

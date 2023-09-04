@@ -20,16 +20,20 @@ sets.AllJobs['MAB'] = {
     Neck = 'Stoicheion Medal',
     Ear1 = 'Hecate\'s Earring',
     Ear2 = 'Novio Earring',
-    Ring1 = { Name = 'Dark Ring', Augment = { [1] = 'Weapon skill damage +8%', [2] = 'Accuracy+5', [3] = 'Eva.+1', [4] = 'Attack+5', [5] = 'Mag. Eva.+1' } },
+    Ring1 = "Shiva's Ring +1",
     Ring2 = 'Acumen Ring',
     Back ='Izdubar Mantle',
 }
 
 sets.AllJobs['TP'] = {
     Ammo = { Name = 'Staunch Tathlum', Augment = '"Counter"+20' },
+    Head = "Volte Cap",
     Neck = { Name = 'Loricate Torque +1', Augment = '"Regen"+80' },
     Ear1 = { Name = 'Telos Earring', Augment = '"Counter"+20' },
     Ear2 = { Name = 'Tati Earring', Augment = '"Counter"+20' },
+    Body="Volte Jupon",
+    Legs="Volte Hose",
+    Feet="Volte Boots",
     Back = { Name = 'Moonbeam Cape', Augment = '"Counter"+20' },
     Ring1 = { Name = 'Defending Ring', Augment = '"Regen"+80' },
     Ring2 = 'Patricius Ring',
@@ -46,7 +50,7 @@ sets.AllJobs['DT'] = {
 
 sets.AllJobs['SpellInterruption'] = {
     Hands = { Name = 'Vgd. Gloves', Augment = 'Spell interruption rate down -40%' },
-    Ring1 = { Name = 'Hermit\'s Ring', Augment = { [1] = '"Fast Cast"+16', [2] = 'Spell interruption rate down -20%' } },
+    Legs = { Name = 'Vagabond\'s Hose', Augment = 'Spell interruption rate down -40%' },
     Feet = { Name = 'Vagabond\'s Boots', Augment = 'Spell interruption rate down -40%' },
 
 }
@@ -57,6 +61,17 @@ sets.AllJobs['FastCast'] = {
     Ring2 = { Name="Hermit's Ring", },
     Neck = {Name = "Silver Name Tag", },
     Head = {Name = "Cache-Nez", },
+}
+
+sets.AllJobs['SpellInterruption'] = gFunc.Combine(sets.AllJobs['FastCast'], {
+    Hands= {Name="Vagabond's Gloves"}
+})
+
+sets.AllJobs['Quick Draw'] = {
+    Ear1 = { Name = 'Amber Earring', Augment = '"Quick Draw" ability delay -8' },
+    Ear2 = { Name = 'Amber Earring', Augment = '"Quick Draw" ability delay -8' },
+    Ring1 = { Name = 'Copper Ring', Augment = '"Quick Draw" ability delay -8' },
+    Ring2 = { Name = 'Copper Ring', Augment = '"Quick Draw" ability delay -8' },
 }
 -- Magic type specific Fast Cast
 sets.AllJobs['FastCast']['Divine Magic'] = gFunc.Combine(sets.AllJobs['FastCast'],{})
@@ -98,7 +113,9 @@ sets.AllJobs['Midcast']['Blue Magic'] = {
 }
 sets.AllJobs['Midcast']['Geomancy'] = {}
 sets.AllJobs['Midcast']['Handbell'] = {}   
-sets.AllJobs['Midcast']['Stoneskin'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{})
+sets.AllJobs['Midcast']['Stoneskin'] = gFunc.Combine(sets.AllJobs['SpellInterruption'],{
+    Neck=""
+})
 sets.AllJobs['Midcast']['Aquaveil'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{})
 sets.AllJobs['Midcast']['Refresh'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{})
 sets.AllJobs['Midcast']['Phalanx'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{})
@@ -135,9 +152,17 @@ sets.AllJobs['Midcast']['BLU_Physical'] = gFunc.Combine(sets.AllJobs['Midcast'][
 sets.AllJobs['Midcast']['BLU_Buffs'] = gFunc.Combine(sets.AllJobs['Midcast']['Blue Magic'],{})
 sets.AllJobs['Midcast']['BLU_Nukes'] = gFunc.Combine(sets.AllJobs['Midcast']['Blue Magic'],{})
 
+sets.AllJobs['Midcast']['Cure'] = {
+    Neck = "Phalaina Locket",
+    Ring1 = "Lebeche Ring",
+}
 sets.AllJobs['HolyWater'] = {}
 
 sets.AllJobs['TH'] = {
+    Head = "Volte Cap",
+    Body="Volte Jupon",
+    Legs="Volte Hose",
+    Feet="Volte Boots",
     Waist = "Chaac Belt"
 }
 

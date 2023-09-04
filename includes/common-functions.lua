@@ -17,11 +17,11 @@ end
 -- evaluateVariableValue documentation
 -- @param varName: Variable name to evaluate the contents of. Used in THF to get the contents of statusType when evaluated into either idleType or engagedType.
 function evaluateVariableValue(varName)
-    local func = loadstring("return " .. varName)
-    if func then
-      return func()
-    end
-  end
+	local func = loadstring("return " .. varName)
+	if func then
+		return func()
+	end
+end
 
 
 -- spellContains documentation

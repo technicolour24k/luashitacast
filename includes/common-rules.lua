@@ -141,6 +141,11 @@ function commonAbilityRules (sets, ability, skill, type)
         equip(sets.JobAbility[ability])
     end
 
+    if (type == "Quick Draw") then
+        equip(sets.AllJobs['Quick Draw'])
+        infoLog("Quick Draw: Equipping All Jobs set.")
+    end
+
     if spellContains(action.Name, "Spectral Jig") then
         cancelBuff(action.Name, action.CastTime, gSettings.FastCast, "71")
     end
@@ -163,6 +168,10 @@ end
 -- @param type: The 'type' of skill [recommend: gData.GetAction().Type]
 function commonIdleRules (sets)
     
+    -- if (gData.GetEquipment().Back['Name']=="Nexus Cape") then
+    --     break 
+    -- end
+
     if ((buffIsActive("Light Arts")) or (buffIsActive("Addendum: White"))) then
         activeArts = "Light Arts"
     elseif ((buffIsActive("Dark Arts")) or (buffIsActive("Addendum: Black"))) then
@@ -204,9 +213,7 @@ function commonIdleRules (sets)
             equip(sets.Zones[gData.GetEnvironment().Area])
         end
 
-        if (gData.GetEquipment().Back['Name']=="Nexus Cape") then
-            gFunc.LockSet(sets.AllJobs['Nexus'], 10)
-        end
+        
     end
 end
 
@@ -252,6 +259,7 @@ function commonMidcastRules (sets, spell, skill, type)
         debugLog("gData.GetAction.Name: "..gData.GetAction().Name)
         debugLog("gData.GetAction.Skill:"..gData.GetAction().Skill)
         debugLog("gData.GetAction.Type:"..gData.GetAction().Type)
+        debugLog("sets."..player.MainJob.."['Magic']["..action.Skill.."]")
     end
     
     if (itemInArray(autoCancelList,spell)) then
@@ -271,7 +279,7 @@ function commonMidcastRules (sets, spell, skill, type)
     if (sets[player.MainJob]['Magic'][spell]) then
         equip(sets[player.MainJob]['Magic'][spell])
     elseif sets.AllJobs['Midcast'][spell] then
-        equip(sets[player.MainJob]['Magic'][spell])
+        equip(sets.AllJobs['Midcast'][spell])
     elseif ((spellContains(spell, "Cure")) or (spellContains(spell,"Cura"))) then
         equip(sets[player.MainJob]['Magic'].Cure)
     end
