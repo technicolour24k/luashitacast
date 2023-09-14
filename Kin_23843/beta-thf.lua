@@ -1,7 +1,7 @@
 sets = {}
 profile = {}
 gFunc.LoadFile('../includes/NocSouls/common') --Load common gearsets for the Server specified in includes/lua
-gFunc.LoadFile('sets/'..mjob) --Load Beta gearsets
+gFunc.LoadFile('sets/beta-'..mjob) --Load Beta gearsets
 gFunc.LoadFile('vars/'..mjob)
 
 profile.Sets = sets
