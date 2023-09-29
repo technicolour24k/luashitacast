@@ -1,9 +1,4 @@
-
 profile.HandleCommand = function(args)
-    player = gData.GetPlayer()
-    env = gData.GetEnvironment()
-    action = gData.GetAction()
-    statusType = string.lower(player.Status) .."Type"
 
     commonCommandRules(sets, args)
     if (args[1] == 'cycle-engaged') then
@@ -32,7 +27,9 @@ profile.HandleCommand = function(args)
         elseif (weapons=="DualWield") then
             weapons="Combo"
         elseif (weapons=="Combo") then
-            weapons="Dagger"
+            weapons="Daggers"
+        elseif (weapons=="Daggers") then
+            weapons="Staff"
         else
             weapons="Sword"
         end
@@ -49,8 +46,17 @@ profile.HandleCommand = function(args)
         end
         infoLog("MagStyle updated to: " ..MagStyle)
     end
+
+    -- if (args[1] == 'crush') then
+    --     sendCommand('/blusets setn 1 "Tenebral Crush"')
+    --     coroutine.sleep(0.3)
+    --     infoLog('Tenebral Crush hopefully loaded?')
+    --     killSpell = true
+    --     sendCommand('/ma "Tenebral Crush" <t>')
+    --     infoLog('Tenebral Crush hopefully executed..?')
+    -- end
     
-    equip(sets.default[player.Status][weapons])
+    equip(sets['Engaged'][weapons])
 end
 
 profile.HandleDefault = function()
@@ -60,7 +66,6 @@ profile.HandleDefault = function()
     statusType = string.lower(player.Status) .."Type"
     -- commonPetRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
     commonIdleRules(sets)
-
 end
 
 profile.HandleAbility = function()
@@ -80,18 +85,23 @@ profile.HandlePrecast = function()
     target = gData.GetActionTarget()
     gSettings.FastCast = 80
     commonPrecastRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
+
 end
 
 profile.HandleMidcast = function()
     action = gData.GetAction()
     target = gData.GetActionTarget()
-    
+
     commonMidcastRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
     announceSpell(action.Name, target.Name, "p")
 
-    if (action.Skill=="Elemental Magic") then
-        equip(sets.RDM[MagStyle])
-    end
+    -- if (action.Skill=="Elemental Magic") then
+    --     if (sets.RDM[MagStyle][action.Element]) then
+            equip(sets.RDM[MagStyle][action.Element]) 
+        -- else
+        --     equip(sets.RDM[MagStyle])
+        -- end
+    -- end
 
     if(buffIsActive("Saboteur") and (action.Skill=="Enfeebling Magic")) then
         equip(sets.JobAbility['Saboteur'])
@@ -115,3 +125,5 @@ profile.HandleWeaponskill = function()
     target = gData.GetActionTarget()
     commonWeaponskillRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
 end
+
+infoLog('rules/'..mjob..' loaded')

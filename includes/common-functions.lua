@@ -216,4 +216,18 @@ function debugEnabled()
 	end
 end
 
+function bindKey(key, cmd, desc)
+	sendCommand('/bind '..key..' '..cmd)
+	infoLog('Bound '..desc..' to '..key)
+end
+
+function bindLACCmd(key, cmd, desc)
+	bindKey(key, '/lac fwd '..cmd, desc)
+end
+
+function createAlias(alias, cmd, desc)
+	sendCommand('/alias '..alias..' '..cmd)
+	infoLog('Alias created: '..alias..' - '..desc)
+end
+
 infoLog("Loaded common functions")

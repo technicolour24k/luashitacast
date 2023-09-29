@@ -19,44 +19,44 @@ sets.THF={}
 --------------------------------------
 --      BEGIN ENGAGED GEARSETS      --
 --------------------------------------
-sets.default['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{})
+sets['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{})
 -- Weapon options, unlikely to change for THF
-sets.default['Engaged']['Daggers'] ={
+sets['Engaged']['Daggers'] ={
     Main = { Name = 'Twashtar', Augment = 'DMG:+32' },
     Sub = { Name = 'Sandung', Augment = 'DMG:+32' },
 }
 
 -- Every day killing things
-sets.default['Engaged']['Balanced'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
     -- Feet = { Name = 'Savateur\'s Gaiters', Augment = { [1] = '"Store TP"+10', [2] = '"Subtle Blow"+30' } },
     Waist = { Name = 'Windbuffet Belt +1', Augment = '"Triple Atk."+8' },
 })
 
 -- Every day attacky things!
-sets.default['Engaged']['Aggressive'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
 })
 
 -- Every day defensive things
-sets.default['Engaged']['Defensive'] = gFunc.Combine(sets.default['Engaged']['Balanced'], {
+sets['Engaged']['Defensive'] = gFunc.Combine(sets['Engaged']['Balanced'], {
 
 })
 
-sets.default['Engaged']['MEva'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['MEva'] = gFunc.Combine(sets['Engaged'], {
 
 })
 
 -- Specific PDT defensive things
-sets.default['Engaged']['Defensive']['PDT'] = gFunc.Combine(sets.default['Engaged']['Defensive'], {
+sets['Engaged']['Defensive']['PDT'] = gFunc.Combine(sets['Engaged']['Defensive'], {
 
 })
 
 -- Specific MDT defensive things
-sets.default['Engaged']['Defensive']['MDT'] = gFunc.Combine(sets.default['Engaged']['Defensive'], {
+sets['Engaged']['Defensive']['MDT'] = gFunc.Combine(sets['Engaged']['Defensive'], {
 
 })
 
 -- Specific set for TH
-sets.default['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {
+sets['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {
     Sub = "Sandung",
 	Hands = RELIC_HANDS,
 	Feet = EMPYREAN_FEET,
@@ -66,7 +66,7 @@ sets.default['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {
 --          BEGIN IDLE GEARSETS     --
 --------------------------------------
 -- Every day idle things: Move speed, regen, refresh
-sets.default['Idle'] = gFunc.Combine(sets.AllJobs['DT'], {
+sets['Idle'] = gFunc.Combine(sets.AllJobs['DT'], {
     Feet = AF_FEET,
     Ear2 = "Moonshade Earring"
 })

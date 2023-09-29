@@ -12,6 +12,8 @@ profile.OnLoad = function()
     sendCommand('/lockstyleset 002')
     sendCommand('/macro book 8')
     sendCommand('/macro set 1')
+    bindLACCmd('F10','cycle-engaged','engaged set')
+    bindLACCmd('!F10','cycle-idle','idle set')
 end
 
 

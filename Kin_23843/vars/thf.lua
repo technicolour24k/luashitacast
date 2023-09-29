@@ -5,8 +5,6 @@ engagedType = "Balanced"
 -- Balanced, or Defensive Idle sets.
 idleType = "Balanced"
 
-gFunc.LoadFile('../includes/NocSouls/common') --Load common gearsets for the Server specified in includes/lua
-
 buffs = T{"Protect V","Shell V","Haste II", "Blink","Stoneskin","Aquaveil","Phalanx", "Temper", "Gain-DEX", "Refresh II", "Shock Spikes"}
 
 wsChain = {}

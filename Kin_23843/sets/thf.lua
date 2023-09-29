@@ -19,44 +19,35 @@ sets.THF={}
 --------------------------------------
 --      BEGIN ENGAGED GEARSETS      --
 --------------------------------------
-sets.default['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{})
+sets['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{})
 -- Weapon options, unlikely to change for THF
-sets.default['Engaged']['Daggers'] ={
+sets['Engaged']['Daggers'] ={
     Main = { Name = 'Twashtar', Augment = 'DMG:+32' },
     Sub = { Name = 'Sandung', Augment = 'DMG:+32' },
 }
 
 -- Every day killing things
-sets.default['Engaged']['Balanced'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
     -- Feet = { Name = 'Savateur\'s Gaiters', Augment = { [1] = '"Store TP"+10', [2] = '"Subtle Blow"+30' } },
     Waist = { Name = 'Windbuffet Belt +1', Augment = '"Triple Atk."+8' },
 })
 
 -- Every day attacky things!
-sets.default['Engaged']['Aggressive'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
 })
 
 -- Every day defensive things
-sets.default['Engaged']['Defensive'] = gFunc.Combine(sets.default['Engaged']['Balanced'], {
+sets['Engaged']['Defensive'] = gFunc.Combine(sets['Engaged']['Balanced'], {
 
 })
 
-sets.default['Engaged']['MEva'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['MEva'] = gFunc.Combine(sets['Engaged'], {
 
 })
 
--- Specific PDT defensive things
-sets.default['Engaged']['Defensive']['PDT'] = gFunc.Combine(sets.default['Engaged']['Defensive'], {
-
-})
-
--- Specific MDT defensive things
-sets.default['Engaged']['Defensive']['MDT'] = gFunc.Combine(sets.default['Engaged']['Defensive'], {
-
-})
 
 -- Specific set for TH
-sets.default['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {
+sets['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {
     Sub = "Sandung",
 	Hands = RELIC_HANDS,
 	Feet = EMPYREAN_FEET,
@@ -66,12 +57,21 @@ sets.default['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {
 --          BEGIN IDLE GEARSETS     --
 --------------------------------------
 -- Every day idle things: Move speed, regen, refresh
-sets.default['Idle'] = gFunc.Combine(sets.AllJobs['DT'], {
+sets['Idle'] = gFunc.Combine(sets.AllJobs['DT'], {
     Feet = AF_FEET,
     Ear2 = "Moonshade Earring"
 })
 
-sets.default['Resting']={}
+sets['Idle']['Balanced'] = gFunc.Combine(sets.Idle, {
+    Feet = AF_FEET,
+    Ear2 = "Moonshade Earring"
+})
+sets['Idle']['Defensive'] = gFunc.Combine(sets.Idle['Balanced'], {
+    Feet = AF_FEET,
+    Ear2 = "Moonshade Earring"
+})
+
+sets['Resting']={}
 
 sets.THF['MAB'] = gFunc.Combine(sets.AllJobs['MAB'], {
     Head="Wayfarer Circlet",
@@ -110,7 +110,12 @@ sets.JobAbility['Collaborator'] = gFunc.Combine(sets.AllJobs['JobAbility'],{Head
 --------------------------------------
 --           BEGIN WS GEARSETS      --
 --------------------------------------
-sets.WeaponSkills["Evisceration"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
+sets.THF['WeaponSkills'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
+    Ammo = { Name = 'Fire Bomblet', Augment = { [1] = 'Weapon Skill Acc.+2', [2] = 'Weapon skill damage +5%', [3] = 'DMG:+2', [4] = 'Attack+7', [5] = 'Accuracy+7' } }, --5% WSD
+    Hands= "Meg. Gloves +2", --WSD (All hits) +7%
+    Head = AF_HEAD, --WSD+6%
+})
+sets.THF['WeaponSkills']["Evisceration"] = gFunc.Combine(sets.THF['WeaponSkills'], {
     Ammo={Name="Yetshila +1", Augments={[1]='"Triple Atk."+4', [2]="Critical Hit Rate +10"}}, --12% Crit Rate, 6% Damage
     Head={Name="Mummu Bonnet +2",Augments={}}, -- 5% Crit Rate
     -- Body={Name=RELIC_BODY, Augments={}},
@@ -119,26 +124,25 @@ sets.WeaponSkills["Evisceration"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['
     Feet={Name="Mummu Gamash. +2",Augments={}},
 
 })
-sets.WeaponSkills["Dancing Edge"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
-sets.WeaponSkills["Mercy Stroke"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
-sets.WeaponSkills["Mandalic Stab"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
-sets.WeaponSkills["Rudra's Storm"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
-    Head = AF_HEAD, --WSD+6%
+sets.THF['WeaponSkills']["Dancing Edge"] = gFunc.Combine(sets.THF['WeaponSkills'], {})
+sets.THF['WeaponSkills']["Mercy Stroke"] = gFunc.Combine(sets.THF['WeaponSkills'], {})
+sets.THF['WeaponSkills']["Mandalic Stab"] = gFunc.Combine(sets.THF['WeaponSkills'], {})
+sets.THF['WeaponSkills']["Rudra's Storm"] = gFunc.Combine(sets.THF['WeaponSkills'], {
     Body = AF_BODY, --TA+7%
-    Hands = AF_HANDS,
     Legs = AF_LEGS, --TA 5%
     Feet = RELIC_FEET, -- TA+3%+8%(Aug) +TA damage+7%
-    Ammo = { Name = 'Fire Bomblet', Augment = { [1] = 'Weapon Skill Acc.+2', [2] = 'Weapon skill damage +5%', [3] = 'DMG:+2', [4] = 'Attack+7', [5] = 'Accuracy+7' } }, --5% WSD
-    Ear1 = { Name = 'Mache Earring +1', Augment = '"Triple Atk."+8' },
-    Ear2 = { Name = 'Mache Earring +1', Augment = '"Triple Atk."+8' },
-    Back = { Name = 'Canny Cape', Augment = '"Triple Atk."+8' }, --10% TA (2% + 8%)
-    Neck = { Name = 'Tlamiztli Collar', Augment = '"Triple Atk."+8' },   
-    Ring1 = { Name = 'Regal Ring', Augment= '"Triple Atk."+8'},
-    Ring2 = { Name = 'Epona\'s Ring', Augment= '"Triple Atk."+8'}, --11% TA (3%+8%)
+    Ear1 = { Name = 'Mache Earring +1', Augment = TA8 },
+    Ear2 = { Name = 'Mache Earring +1', Augment = TA8 },
+    Back = { Name = 'Canny Cape', Augment = TA8 }, --10% TA (2% + 8%)
+    Neck = { Name = 'Tlamiztli Collar', Augment = TA8 },   
+    Ring1 = { Name = 'Regal Ring', Augment= TA8},
+    Ring2 = { Name = 'Epona\'s Ring', Augment= TA8}, --11% TA (3%+8%)
 
 })
-sets.WeaponSkills["Aeolian Edge"] = gFunc.Combine(sets.THF['MAB'], {})
-sets.WeaponSkills["Exenterator"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
+sets.THF['WeaponSkills']["Aeolian Edge"] = gFunc.Combine(sets.THF['MAB'], {
+    Head="Chimera Hairpin"
+})
+sets.THF['WeaponSkills']["Exenterator"] = gFunc.Combine(sets.THF['WeaponSkills'], {})
 
-sets.default['Unknown'] = {}
-sets.default['Dead'] = {}
+sets['Unknown'] = {}
+sets['Dead'] = {}

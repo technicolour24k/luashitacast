@@ -21,28 +21,28 @@ sets.RDM={}
 --------------------------------------
 --      BEGIN ENGAGED GEARSETS      --
 --------------------------------------
-sets.default['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{})
+sets['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{})
 -- Weapon options
-sets.default['Engaged']['Sword'] ={
+sets['Engaged']['Sword'] ={
     Main = { Name = 'Almace' },
     Sub = { Name = 'Genbu\'s Shield' },
 }
-sets.default['Engaged']['DualWield'] = {
+sets['Engaged']['DualWield'] = {
     Main = { Name = 'Almace' },
     Sub = { Name = 'Fettering Blade'}
 }
-sets.default['Engaged']['Daggers'] = {
+sets['Engaged']['Daggers'] = {
     Main = { Name = 'Mandau' },
     Sub = { Name = 'Genbu\'s Shield' },
 }
-sets.default['Engaged']['Combo'] = {
+sets['Engaged']['Combo'] = {
     Main = { Name = 'Almace' },
     Sub = { Name = 'Mandau'}
 }
 
 
 -- Every day killing things
-sets.default['Engaged']['Balanced'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
     Head=AF_HEAD,
     Body=AF_BODY,
     Legs=AF_LEGS,
@@ -50,11 +50,11 @@ sets.default['Engaged']['Balanced'] = gFunc.Combine(sets.default['Engaged'], {
 })
 
 -- Every day attacky things!
-sets.default['Engaged']['Aggressive'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
 })
 
 -- Every day defensive things
-sets.default['Engaged']['Defensive'] = gFunc.Combine(sets.default['Engaged']['Balanced'], {
+sets['Engaged']['Defensive'] = gFunc.Combine(sets['Engaged']['Balanced'], {
     Head=AF_HEAD,
     Body=AF_BODY,
     Legs=AF_LEGS,
@@ -63,20 +63,20 @@ sets.default['Engaged']['Defensive'] = gFunc.Combine(sets.default['Engaged']['Ba
 })
 
 -- Specific set for TH
-sets.default['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {})
+sets['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {})
 
 --------------------------------------
 --          BEGIN IDLE GEARSETS     --
 --------------------------------------
 -- Every day idle things: Move speed, regen, refresh
-sets.default['Idle'] = gFunc.Combine(sets.AllJobs['DT'], {
+sets['Idle'] = gFunc.Combine(sets.AllJobs['DT'], {
     Head=RELIC_HEAD,
 	Body=EMPYREAN_BODY,
 	Legs="Crimson Cuisses",
     Ear2 = "Moonshade Earring"
 })
 -- More defensive Idle things? Try to max DT over Regen/Refresh
--- sets.default['Idle']['Defensive'] = gFunc.Combine(sets.default['Idle'], {
+-- sets['Idle']['Defensive'] = gFunc.Combine(sets['Idle'], {
 --     Ear2="Etiolation Earring", --3% MDT (19% total + Shell5 @29% MDT > 48% total)
 -- })
 

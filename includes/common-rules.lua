@@ -13,14 +13,28 @@ function commonCommandRules (sets, cmd)
        clearStatuses() 
     end
 
-    if(cmd[1]=="check-sets") then
+    -- Function to recursively display the names of subtables
+    function printSubTableNames(tbl, prefix)
+        tbl = tbl or sets
         prefix = prefix or ""
-        for key, value in pairs(sets) do
+        for key, value in pairs(tbl) do
             local name = prefix .. key
             if type(value) == "table" then
-                debugLog("Sub-table found:" ..name)
+                debugLog("Sub-table found:", name)
+                printSubTableNames(value, name .. ".")
             end
         end
+    end
+
+    if(cmd[1]=="check-sets") then
+        -- prefix = prefix or ""
+        -- for key, value in pairs(sets) do
+        --     local name = prefix .. key
+        --     if type(value) == "table" then
+        --         debugLog("Sub-table found:" ..name)
+        --     end
+        -- end
+        printSubTableNames(cmd[2])
     end
 
     if (cmd[1] == 'toggle-TH') then
@@ -167,7 +181,8 @@ end
 -- @param skill: The skill of the action [recommend: gData.GetAction().Skill]
 -- @param type: The 'type' of skill [recommend: gData.GetAction().Type]
 function commonIdleRules (sets)
-    
+    statusType = string.lower(player.Status) .."Type"
+
     -- if (gData.GetEquipment().Back['Name']=="Nexus Cape") then
     --     break 
     -- end
@@ -178,13 +193,18 @@ function commonIdleRules (sets)
         activeArts = "Dark Arts"
     end
 
+    local temp = evaluateVariableValue(statusType)
+    equip(sets[player.Status][evaluateVariableValue(statusType)]) 
+    if(debugEnabled()) then debugLog("Equipping sets[Idle]["..evaluateVariableValue(statusType).."]") end
 
-        
     if (player.Status=="Engaged") then
-        equip(sets.default[player.Status][weapons])
-        equip(sets.default[player.Status][evaluateVariableValue(statusType)])
+        equip(sets[player.Status][weapons])
+        if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..weapons.."]") end
+        equip(sets[player.Status][evaluateVariableValue(statusType)])
+        if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]") end
+
         if (thOn) then
-            equip(sets.default['Engaged']['TH'])
+            equip(sets['Engaged']['TH'])
         end
 
         if(debugEnabled()) then
@@ -198,8 +218,8 @@ function commonIdleRules (sets)
             end
             equip(sets.default['90'])
             
-            if (player.MainJobSync  > 70) then
-                if (debugEnabled()) then debugLog("player.MainJobSync is over 70 ["..player.MainJobSync.."]") end
+            if (player.MainJobSync  > 69) then
+                if (debugEnabled()) then debugLog("player.MainJobSync is over 69 ["..player.MainJobSync.."]") end
                 equip(sets.default['70'])
             elseif (player.MainJobSync  > 49) then
                 if (debugEnabled()) then debugLog("player.MainJobSync is over 49 ["..player.MainJobSync.."]") end
@@ -208,13 +228,14 @@ function commonIdleRules (sets)
         end
     else
         if not (sets.Zones[gData.GetEnvironment().Area]) then
-            equip(sets.default[player.Status])
+            equip(sets[player.Status][evaluateVariableValue(statusType)])
         else
             equip(sets.Zones[gData.GetEnvironment().Area])
-        end
-
-        
+        end        
     end
+
+
+
 end
 
 --commonPrecastRules documentation
@@ -230,6 +251,12 @@ function commonPrecastRules (sets, spell, skill, type)
 	end
 
     equip(sets.AllJobs['FastCast'][skill])
+
+    if (action.Skill == "Blue Magic") then
+        sendCommand('/blusets setn 1 '..action.Name)
+        coroutine.sleep(0.1)
+        sendCommand('/ma "'..action.Name..'" <t>')
+    end
 end
 
 --commonPreshotRules documentation

@@ -31,7 +31,7 @@ sets.WHM={}
 --------------------------------------
 --      BEGIN ENGAGED GEARSETS      --
 --------------------------------------
-sets.default['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{
+sets['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{
     Ear1="Moonshade Earring",
     Ear2="Insomnia Earring",
     Neck="Healer's Torque",
@@ -39,24 +39,24 @@ sets.default['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{
     Ring2="Castor's Ring"
 })
 -- Weapon options
-sets.default['Engaged']['Club'] ={
+sets['Engaged']['Club'] ={
     Main = { Name = 'Eosuchus Club' },
     Sub = { Name = 'Genbu\'s Shield' },
 }
-sets.default['Engaged']['DualWield'] = {
+sets['Engaged']['DualWield'] = {
     Main = { Name = 'Eosuchus Club' },
     Sub = { Name = 'Gambanteinn'}
 }
-sets.default['Engaged']['Staff'] = {
+sets['Engaged']['Staff'] = {
     Main = { Name = 'Eminent Staff' },
 }
-sets.default['Engaged']['Healer'] = {
+sets['Engaged']['Healer'] = {
     Main = { Name = 'Earth Staff' },
 }
 
 
 -- Every day killing things
-sets.default['Engaged']['Balanced'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
     Head="Aya. Zucchetto +2",
     Body="Ayanmo Corazza +2",
     Hands="Aya. Manopolas +2",
@@ -71,11 +71,11 @@ sets.default['Engaged']['Balanced'] = gFunc.Combine(sets.default['Engaged'], {
 })
 
 -- Every day attacky things!
-sets.default['Engaged']['Aggressive'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
 })
 
 -- Every day defensive things
-sets.default['Engaged']['Defensive'] = gFunc.Combine(sets.default['Engaged']['Balanced'], {
+sets['Engaged']['Defensive'] = gFunc.Combine(sets['Engaged']['Balanced'], {
     Head=AF_HEAD,
     Body=AF_BODY,
     Legs=AF_LEGS,
@@ -84,21 +84,21 @@ sets.default['Engaged']['Defensive'] = gFunc.Combine(sets.default['Engaged']['Ba
 })
 
 -- Specific set for TH
-sets.default['Engaged']['TH'] = {
+sets['Engaged']['TH'] = {
 	Waist = "Chaac Belt"
 }
 
 --------------------------------------
 --          BEGIN IDLE GEARSETS     --
 --------------------------------------
-sets.default['Idle']  = gFunc.Combine(sets.AllJobs['DT'], {
+sets['Idle']  = gFunc.Combine(sets.AllJobs['DT'], {
     Head=RELIC_HEAD,
 	Body=AF_BODY,
     Feet="Herald's Gaiters",
     Ear2 = "Moonshade Earring"
 })
 -- More defensive Idle things? Try to max DT over Regen/Refresh
--- sets.default['Idle'] = gFunc.Combine(sets.default['Idle']['Balanced'], {
+-- sets['Idle'] = gFunc.Combine(sets['Idle']['Balanced'], {
 --     Ear2="Etiolation Earring", --3% MDT (19% total + Shell5 @29% MDT > 48% total)
 -- })
 
@@ -323,7 +323,7 @@ profile.HandleCommand = function(args)
             coroutine.sleep(5)
         end
     end
-    equip(sets.default[player.Status][evaluateVariableValue(statusType)])
+    equip(sets[player.Status][evaluateVariableValue(statusType)])
 end
 
 profile.HandleDefault = function()
@@ -337,12 +337,12 @@ profile.HandleDefault = function()
             debugLog("player.Status: "..player.Status)
             debugLog("statusType: "..statusType)
         end
-        equip(sets.default[player.Status][evaluateVariableValue(statusType)])
+        equip(sets[player.Status][evaluateVariableValue(statusType)])
     end
 
     if (player.Status=="Engaged") then
         
-        equip(sets.default[player.Status][weapons])
+        equip(sets[player.Status][weapons])
     end
 
 end

@@ -8,7 +8,7 @@ RELIC_BODY = {Name="Viti. Tabard +3", Augment=ENHANCE16}
 RELIC_HANDS = "Viti. Gloves +2"
 RELIC_LEGS = "Viti. Tights +1"
 RELIC_FEET = {Name="Vitiation Boots +3", Augment=ENFEEBLE16}
-EMPYREAN_HEAD = "Leth. Chapell +1"
+EMPYREAN_HEAD = {Name="Leth. Chapell +1",Augment=MAB32}
 EMPYREAN_BODY = {Name="Lethargy Sayon +1", Augment=ENFEEBLE16}
 EMPYREAN_HANDS = {Name="Leth. Gantherots +1", Augment=ENFEEBLE16}
 EMPYREAN_LEGS = "Leth. Fuseau +1"
@@ -18,31 +18,38 @@ EMPYREAN_FEET = "Leth. Houseaux +1"
 
 sets.default={}
 sets.RDM={}
+sets.Idle = {}
+sets.Engaged = {}
 --------------------------------------
 --      BEGIN ENGAGED GEARSETS      --
 --------------------------------------
-sets.default['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{})
+sets['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{})
 -- Weapon options
-sets.default['Engaged']['Sword'] ={
+sets['Engaged']['Sword'] = gFunc.Combine(sets['Engaged'], {
     Main = { Name = 'Almace' },
-    Sub = { Name = 'Genbu\'s Shield' },
-}
-sets.default['Engaged']['DualWield'] = {
+    Sub = { Name = 'Genesis Shield' },
+})
+sets['Engaged']['DualWield'] = gFunc.Combine(sets['Engaged'], {
     Main = { Name = 'Almace' },
     Sub = { Name = 'Fettering Blade'}
-}
-sets.default['Engaged']['Daggers'] = {
+})
+sets['Engaged']['Daggers'] = gFunc.Combine(sets['Engaged'], {
     Main = { Name = 'Mandau' },
-    Sub = { Name = 'Genbu\'s Shield' },
-}
-sets.default['Engaged']['Combo'] = {
+    Sub = { Name = 'Genesis Shield' },
+})
+sets['Engaged']['Combo'] = gFunc.Combine(sets['Engaged'], {
     Main = { Name = 'Almace' },
     Sub = { Name = 'Mandau'}
-}
+})
+sets['Engaged']['Staff'] = gFunc.Combine(sets['Engaged'], {
+    Main = { Name="Lehbrailg +1" },
+    Sub = { Name="Elan Strap" },
+    Hands = { Name="Shedir Gages" }
+})
 
 
 -- Every day killing things
-sets.default['Engaged']['Balanced'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
     Head="Volte Cap",
     Body="Volte Jupon",
     Hands="Volte Gloves",
@@ -52,47 +59,73 @@ sets.default['Engaged']['Balanced'] = gFunc.Combine(sets.default['Engaged'], {
 })
 
 -- Every day attacky things!
-sets.default['Engaged']['Aggressive'] = gFunc.Combine(sets.default['Engaged'], {
+sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
 })
 
 -- Every day defensive things
-sets.default['Engaged']['Defensive'] = gFunc.Combine(sets.default['Engaged']['Balanced'], {
-    Head=AF_HEAD,
-    Body=AF_BODY,
-    Legs=AF_LEGS,
-    Feet=AF_FEET,
+sets['Engaged']['Defensive'] = gFunc.Combine(sets['Engaged']['Balanced'], {
+    Sub="Genbu's Shield",
     Ring2="Purity Ring",
 })
 
 -- Specific set for TH
-sets.default['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {})
+sets['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {})
 
 --------------------------------------
 --          BEGIN IDLE GEARSETS     --
 --------------------------------------
--- Every day idle things: Move speed, regen, refresh
-sets.default['Idle'] = gFunc.Combine(sets.AllJobs['DT'], {
-    Head=RELIC_HEAD,
-	Body=EMPYREAN_BODY,
+-- Move speed forms our base, along with any all jobs DT- we have
+sets.Idle = gFunc.Combine(sets.AllJobs['DT'], {
 	Legs="Crimson Cuisses",
     Feet="Iaso Boots",
-    Ear2 = "Moonshade Earring"
 })
--- More defensive Idle things? Try to max DT over Regen/Refresh
--- sets.default['Idle']['Defensive'] = gFunc.Combine(sets.default['Idle'], {
---     Ear2="Etiolation Earring", --3% MDT (19% total + Shell5 @29% MDT > 48% total)
--- })
 
-sets.default['Resting']={}
+-- Add refresh/regen/etc to our Idle set
+sets.Idle['Balanced'] = gFunc.Combine(sets.Idle, {
+    Head=RELIC_HEAD,
+    Body=EMPYREAN_BODY,
+    Ear2="Moonshade Earring",
+})
+
+-- More defensive Idle things? Try to max DT over Regen/Refresh
+sets.Idle['Defensive'] = gFunc.Combine(sets.Idle['Balanced'], {
+     Ear2="Etiolation Earring", --3% MDT (19% total + Shell5 @29% MDT > 48% total)
+     Head="Volte Cap",
+     Body="Volte Jupon",
+     Hands="Volte Bracers",
+     Legs="Volte Hose",
+     Feet="Volte Boots",
+
+})
+
+-- sets['Idle']['Aggressive'] = gFunc.Combine(sets['Idle']['Balanced'], {})
+
+sets['Resting']={}
 
 sets.RDM['MAB'] = gFunc.Combine(sets.AllJobs['MAB'], {
+    Main="Almace",
     Head=EMPYREAN_HEAD, --25 MAB
     Body={Name="Gyve Doublet", Augment=MAB32}, --52 MAB
-    Hands="Jhakri Cuffs +2", --37 MAB, +2 => 40 MAB
+    Hands="Jhakri Cuffs +2", --40 MAB
     Legs={Name="Gyve Trousers", Augment=MAB32},--40 MAB
-    Feet={Name="Vitiation Boots +3", Augment=MAB32}, -- 48 MAB, +3 is used for Enfeebling Magic sets
-    Waist="Othila Sash",
+    Feet={Name="Vitiation Boots +2", Augment=MAB32}, -- 48 MAB, +3 is used for Enfeebling Magic sets
+    Waist={Name="Yamabuki-no-Obi",Augment=MAB32},
 })
+
+sets.RDM['MAB']['Fire'] = gFunc.Combine(sets.RDM['MAB'],{
+    Main="Melisseus Staff", 
+})
+sets.RDM['MAB']['Wind'] = gFunc.Combine(sets.RDM['MAB'],{
+    Main="Melisseus Staff", 
+    Head="Chimera Hairpin",
+    Back="Kaikias' Cape"
+})
+sets.RDM['MAB']['Water'] = gFunc.Combine(sets.RDM['MAB'],{})
+sets.RDM['MAB']['Earth'] = gFunc.Combine(sets.RDM['MAB'],{})
+sets.RDM['MAB']['Lightning'] = gFunc.Combine(sets.RDM['MAB'],{})
+sets.RDM['MAB']['Ice'] = gFunc.Combine(sets.RDM['MAB'],{})
+sets.RDM['MAB']['Light'] = gFunc.Combine(sets.RDM['MAB'],{})
+sets.RDM['MAB']['Dark'] = gFunc.Combine(sets.RDM['MAB'],{})
 
 sets.RDM['MCrit'] = gFunc.Combine(sets.RDM['MAB'], {
     -- Head = "A'as Circlet", -- 10% MCrit TODO: Get Item & AUG 20% MCrit (total 30%)
@@ -104,7 +137,7 @@ sets.RDM['MCrit'] = gFunc.Combine(sets.RDM['MAB'], {
 sets.RDM['MBurst'] = gFunc.Combine(sets.RDM['MCrit'],{
     Head=AF_HEAD,
     Neck="Mizu. Kubikazari",
-    --Feet="Jhakri Pigaches +2"
+    Feet="Jhakri Pigaches +2"
 })
 
 sets.RDM['Magic'] = {}
@@ -165,11 +198,22 @@ sets.RDM['Magic']['Enfeebling Magic'] = gFunc.Combine(sets.RDM['Magic']['Enfeebl
     Feet=RELIC_FEET, --Enfeebling Potency+ 5(AF+2) or 10 (AF+3)
 })
 sets.RDM['Magic']['Elemental Magic'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.RDM['Magic']['Dark Magic'] = {}
+sets.RDM['Magic']['Dark Magic'] = gFunc.Combine(sets.RDM['MAB'],{})
 
 sets.RDM['Magic']['Dispel'] = gFunc.Combine(sets.RDM['Magic']['Enfeebling Magic'], {
     Neck="Dls. Torque +1"
 })
+
+sets.RDM['Magic']['Drain'] = gFunc.Combine(sets.RDM['Magic']['Dark Magic'],{
+    Ring1 = { Name = 'Scintillant Ring', Augment = { [1] = 'Magic Damage +7', [2] = 'Mag. Acc+7', [3] = '"Drain" and "Aspir" potency +3', [4] = 'Enfb.mag. skill +3' } },
+    Ring2 = { Name = 'Scintillant Ring', Augment = { [1] = 'Magic Damage +2', [2] = 'Mag. Acc+2', [3] = '"Drain" and "Aspir" potency +2', [4] = 'Enfb.mag. skill +7' } },
+    Head="Appetence Crown"
+})
+sets.RDM['Magic']['Drain II'] = gFunc.Combine(sets.RDM['Magic']['Drain'],{})
+sets.RDM['Magic']['Aspir'] = gFunc.Combine(sets.RDM['Magic']['Drain'],{})
+sets.RDM['Magic']['Aspir II'] = gFunc.Combine(sets.RDM['Magic']['Drain'],{})
+
+
 
 sets.RDM['Magic']['Helixes'] = gFunc.Combine(sets.RDM['Magic']['Elemental Magic'], {})
 sets.RDM['Magic']['Helixes']['Light Arts'] = gFunc.Combine(sets.RDM['Magic']['Helixes'], {})
@@ -190,6 +234,28 @@ sets.RDM['Magic']['Gain-AGI'] = gFunc.Combine(sets.RDM['Magic']['Gains'],{})
 sets.RDM['Magic']['Gain-VIT'] = gFunc.Combine(sets.RDM['Magic']['Gains'],{})
 sets.RDM['Magic']['Gain-CHR'] = gFunc.Combine(sets.RDM['Magic']['Gains'],{})
 
+sets.RDM['Misc'] = {}
+sets.RDM['Misc']['Max HP'] = {
+    Main="Sagasinger",
+    Sub="Bloodbead Ecu",
+    --Head="Volte Tiara",
+    Head=RELIC_HEAD,
+    Neck="Inq. Bead Necklace", --55HP
+    Ear1="Upsurge Earring", --55 MP > HP
+    Ear2="Cryptic Earring",
+    Body="Ros. Jaseran +1",
+    Hands="Boor Bracelets", --70HP
+    Ring1="Bomb Queen Ring", --75HP
+    Ring2="Meridian Ring", --90HP
+    Back="Moonbeam Cape",
+    Waist="Gold Moogle Belt",
+    --Legs="Volte Tights",
+    Legs=AF_LEGS,
+    Feet=AF_FEET
+
+}
+
+sets.RDM['Magic']['Dread Spikes'] = gFunc.Combine(sets.RDM['Misc']['Max HP'],{})
 sets.RDM['DayWeatherBonus'] = {Back="Twilight Cape"}
 --------------------------------------
 --           BEGIN JA GEARSETS      --
@@ -249,7 +315,7 @@ sets.WeaponSkills['Savage Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['
     Body="Ayanmo Corazza +2",
     Hands="Jhakri Cuffs +2",
     Legs=AF_LEGS,
-    Feet=AF_FEET,
+    Feet="Jhakri Pigaches +2",
     Ammo="Floestone",
     Neck="Tlamiztli Collar",
     Ear1="Regal Earring",
@@ -258,5 +324,5 @@ sets.WeaponSkills['Savage Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['
 }) 
 sets.WeaponSkills['Knights of Round'] = {}
 
-sets.default['Unknown'] = {}
-sets.default['Dead'] = {}
+sets['Unknown'] = {}
+sets['Dead'] = {}
