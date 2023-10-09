@@ -177,7 +177,7 @@ end
 -- @param target: The target of the spell you're using. Recommendation: spell.target.name
 -- @param chatmode: The chatmode you want to send info through. Recommendation: p
 function announceSpell(spell,target,chatmode)
-	local announcementList = T{"Accomplice","Collaborator","Stun"}
+	local announcementList = T{"Accomplice","Collaborator","Stun", "Shadowbind"}
 	if (announcementList:contains(spell)) then
 		sendCommand('/'..chatmode..' '..spell..' => '..target)
 	end
@@ -196,16 +196,26 @@ function weatherCheck(ele, skill)
 
     if not (skill) then skill = null end
 
-	if ((itemInArray(magicList,skill)) or (skill==null)) then
+	-- if ((itemInArray(obiList,skill)) or (skill==null)) then
 		if ((ele == env.WeatherElement) or (ele == env.DayElement)) then
 			infoLog('Weather or Day element matches spell element')
-			equip(sets.Obis[ele]) --Equip standard obi, force fallback below
 			equip(sets.Obis['AIO']) --Force fallback onto Hachirin-no-Obi, just in case individual obis no longer exist
+			equip(sets.Obis[ele]) --Equip standard obi, force fallback below
 			if (sets[player.MainJob]['DayWeatherBonus']) then
-				equip (sets[player.MainJob]['DayWeatherBonus'])
+			 	equip (sets[player.MainJob]['DayWeatherBonus'])
 			end
 		end
+	-- end
+end
+
+function equipAppropriateGear()
+	if (player.Status == "Idle") then
+		equip(sets.AllJobs['Regen'])
 	end
+	
+    if not ((player.Status == "Dead") or (player.Status=="Unknown") or (player.Status=="Resting") or (player.Status==nil)) then
+        equip(sets[player.Status][evaluateVariableValue(statusType)])
+    end
 end
 
 function debugEnabled()
@@ -221,6 +231,10 @@ function bindKey(key, cmd, desc)
 	infoLog('Bound '..desc..' to '..key)
 end
 
+-- bindLACCmd documentation
+-- @param: key - The key combination to be used
+-- @param: cmd - The LAC Command to execute
+-- @param: desc - A brief description of the command
 function bindLACCmd(key, cmd, desc)
 	bindKey(key, '/lac fwd '..cmd, desc)
 end
@@ -228,6 +242,14 @@ end
 function createAlias(alias, cmd, desc)
 	sendCommand('/alias '..alias..' '..cmd)
 	infoLog('Alias created: '..alias..' - '..desc)
+end
+
+function recraft(count)
+	for i = 1, count, 1 do
+		infoLog("[Recraft] Recrafting: "..i.." of "..count)
+		sendCommand('/lastsynth')
+		wait(25)
+	end
 end
 
 infoLog("Loaded common functions")

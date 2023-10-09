@@ -1,9 +1,4 @@
 profile.HandleCommand = function(args)
-    player = gData.GetPlayer()
-    env = gData.GetEnvironment()
-    action = gData.GetAction()
-    statusType = string.lower(player.Status) .."Type"
-
     commonCommandRules(sets, args)
     if (args[1] == 'cycle-engaged') then
         if (engagedType=="Balanced") then
@@ -25,20 +20,28 @@ profile.HandleCommand = function(args)
         infoLog("idleType updated to: " ..idleType)
     end
 
-    -- equip(sets[player.Status][evaluateVariableValue(statusType)])
-    equipAppropriateGear()
-
-    if (thOn) then
-        equip(sets['Engaged']['TH'])
+    if (args[1] == 'cycle-weapons') then
+        if (weapons=="GAxe") then
+            weapons="GSword"
+        elseif (weapons=="GSword") then
+            weapons="Sword"
+        elseif (weapons=="Sword") then
+            weapons="GAxe"
+        else
+            weapons="GAxe"
+        end
+        infoLog("Weapons updated to: " ..weapons)
     end
+
+    equip(sets[player.Status][weapons])
 end
 
 profile.HandleDefault = function()
     player = gData.GetPlayer()
-    statusType = string.lower(player.Status) .."Type"
-    -- commonPetRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
-    commonIdleRules(sets)
+    target = gData.GetTarget()
     
+    statusType = string.lower(player.Status) .."Type"
+    commonIdleRules(sets)
 end
 
 profile.HandleAbility = function()
@@ -58,13 +61,13 @@ profile.HandlePrecast = function()
     target = gData.GetActionTarget()
     gSettings.FastCast = 80
     commonPrecastRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
+
 end
 
 profile.HandleMidcast = function()
     action = gData.GetAction()
     target = gData.GetActionTarget()
-    
-    -- cancelBuff(action.Name, action.CastTime, gSettings.FastCast)
+
     commonMidcastRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
     announceSpell(action.Name, target.Name, "p")
 end

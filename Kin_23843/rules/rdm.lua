@@ -95,17 +95,19 @@ profile.HandleMidcast = function()
     commonMidcastRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
     announceSpell(action.Name, target.Name, "p")
 
-    -- if (action.Skill=="Elemental Magic") then
-    --     if (sets.RDM[MagStyle][action.Element]) then
+    if (action.Skill=="Elemental Magic") then
+        if (sets.RDM[MagStyle][action.Element]) then
             equip(sets.RDM[MagStyle][action.Element]) 
-        -- else
-        --     equip(sets.RDM[MagStyle])
-        -- end
-    -- end
+        else
+             equip(sets.RDM[MagStyle])
+        end
+    end
 
+    
     if(buffIsActive("Saboteur") and (action.Skill=="Enfeebling Magic")) then
         equip(sets.JobAbility['Saboteur'])
     end
+    weatherCheck(action.Element, action.Skill) -- Calling skill is checked by weatherCheck. This is called by common-rules, but needs to be reset after checking RDM specific ele sets
 end
 
 profile.HandlePreshot = function()

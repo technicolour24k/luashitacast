@@ -60,6 +60,9 @@ panacea_list = {"Bind", "Bio", "Burn", "Choke", "Dia", "Flash", "Frost", "Gravit
 holyWater_list = {"Curse","Doom"}
 
 magicList = T{"White Magic", "Black Magic", "Summoning", "Ninjutsu", "Bard Song", "Blue Magic"}
+obiList = T{"Healing Magic","Elemental Magic","Dark Magic","Blue Magic"}
 
 --Setup list of buffs to be autocancelled
 autoCancelList = T{"Enstone", "Enwater", "Enaero", "Enfire", "Enblizzard", "Enthunder", "Stoneskin", "Blaze Spikes","Ice Spikes", "Shock Spikes", "Sneak", "Spectral Jig"}
+
+meme = false -- Rapid Shot set with a pebble? :D

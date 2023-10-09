@@ -32,7 +32,7 @@ sets.AllJobs['TP'] = {
     Head = "Volte Cap",
     Neck = { Name = 'Loricate Torque +1', Augment = '"Regen"+80' },
     Ear1 = { Name = 'Telos Earring', Augment = '"Counter"+20' },
-    Ear2 = { Name = 'Tati Earring', Augment = '"Counter"+20' },
+    Ear2 = { Name = 'Ouesk Pearl', Augment = '"Subtle Blow"+40' }, --Caps Subtle Blow in a single slot. Not that many good secondary options tbh either.
     Body="Volte Jupon",
     Hands="Volte Bracers",
     Legs="Volte Hose",
@@ -119,21 +119,22 @@ sets.AllJobs['Midcast']['Aquaveil'] = gFunc.Combine(sets.AllJobs['Midcast']['Enh
 sets.AllJobs['Midcast']['Refresh'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{})
 sets.AllJobs['Midcast']['Phalanx'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{})
 sets.AllJobs['Midcast']['Enspell'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{
-    --Main = {}
     Sub={ Name="Warlock's Shield", Augment = ENSPELL40 },
     -- Ammo = {}
     Head={ Name="Copper Hairpin", Augment = ENSPELL40 },
     Neck={ Name="Justice Badge", Augment = ENSPELL40 },
     Ear1={ Name="Silver Earring", Augment = ENSPELL40 },
     Ear2={ Name="Silver Earring", Augment = ENSPELL40 },
-    -- Body = {}
-    -- Hands = {}
     Ring1={ Name="Copper Ring", Augment = ENSPELL40 },
     Ring2={ Name="Copper Ring", Augment = ENSPELL40 },
     Back={ Name="Shaper's Shawl", Augment = ENSPELL40 },		
     Waist={ Name="Friar's Rope", Augment = ENSPELL40 },		
-    -- Legs = {}
-    -- Feet = {}
+    Main = { Name = 'Lady Bell', Augment = ENSPELL40},
+    Body = { Name = 'Vgd. Tunica', Augment = ENSPELL40},
+    Hands = { Name = 'Vgd. Gloves', Augment = ENSPELL40},
+    Legs = { Name = 'Vagabond\'s Hose', Augment = ENSPELL40},
+    Feet = { Name = 'Vagabond\'s Boots', Augment = ENSPELL40},
+
 })
 sets.AllJobs['Midcast']['ConserveMP'] = gFunc.Combine(sets.AllJobs['FastCast'], {
 
@@ -143,12 +144,20 @@ sets.AllJobs['Midcast']['DrainAspir'] = {
     Ring2 = { Name = 'Scintillant Ring', Augment = { [1] = '"Drain" and "Aspir" potency +3', [2] = 'Enf. Mag. eff. dur. +10', [3] = 'Mag. Acc+7', [4] = 'Enfb.mag. skill +3', [5] = 'Magic Damage +7' } },
 }
 sets.AllJobs['Midcast']['Helixes'] = gFunc.Combine(sets.AllJobs['MAB'],{
+    Main={Name="Chatoyant Staff", Augment=MAB32 },
     Ranged="Animator",
     Head="Straw Hat",
-    Neck="Miner's Pendant",
+    Neck="Silver Name Tag",
     Ear2="Cassie Earring",
     Ear1="Shell Earring +1",
-    Waist="Gold Moogle Belt"
+    Body="Chocobo Shirt",
+    Hands={Name="Vagabond\'s Gloves", Augment=SIR40},
+    Ring1={Name="Eremite\'s Ring +1", Augment=MAB32},
+    Ring2={Name='Eremite\'s Ring +1', Augment=MAB32 },
+    Back="Nexus Cape",
+    Waist="Gold Moogle Belt",
+    Legs={Name="Vagabond\'s Hose", Augment=SIR40},
+    Feet={Name="Vagabond\'s Boots", Augment=SIR40}
 })
 
 sets.AllJobs['Midcast']['BLU_Physical'] = gFunc.Combine(sets.AllJobs['Midcast']['Blue Magic'],{})
@@ -157,13 +166,18 @@ sets.AllJobs['Midcast']['BLU_Nukes'] = gFunc.Combine(sets.AllJobs['Midcast']['Bl
 
 sets.AllJobs['Midcast']['Cure'] = {
     Neck = "Phalaina Locket",
+    Ear1 = "Mendi. Earring",
     Ring1 = "Lebeche Ring",
 }
-sets.AllJobs['HolyWater'] = {}
+sets.AllJobs['HolyWater'] = {
+    Ring1="Blenmot's Ring +1",
+    Ring2="Blenmot's Ring +1"
+}
 
 sets.AllJobs['TH'] = {
     Head = "Volte Cap",
     Body="Volte Jupon",
+    Hands="Volte Bracers",
     Legs="Volte Hose",
     Feet="Volte Boots",
     Waist = "Chaac Belt"
@@ -173,8 +187,12 @@ sets.AllJobs['Nexus'] = {
     Back="Nexus Cape"
 }
 
+sets.AllJobs['Regen'] = {
+    Ring1 = {Name="Ascetic\'s Ring", Augment=REGEN80}
+}
+
 sets.Obis = {}
-sets.Obis['AIO'] = {Waist = "Hachirin-no-Obi"}
+sets.Obis['AIO'] = { Waist={ Name = 'Hachirin-no-Obi', Augment = { [1] = '"Mag.Atk.Bns."+32', [2] = 'Mag. Acc.+32' } },}
 sets.Obis['Fire'] = gFunc.Combine(sets.Obis['AIO'], {Waist="Karin Obi"})
 sets.Obis['Earth'] = gFunc.Combine(sets.Obis['AIO'], {Waist = "Dorin Obi"})
 sets.Obis['Water'] = gFunc.Combine(sets.Obis['AIO'], {Waist="Suirin Obi"})
@@ -188,7 +206,8 @@ sets.Zones ={}
 sets.Zones['Mog Garden'] = {
     Main="Hoe",
     Head="Straw Hat",
-    Body="Overalls"
+    Body="Overalls",
+    Legs=""
 }
 
 sets.Zones['Sandy'] = {
@@ -216,5 +235,24 @@ sets.Zones['Windurst Waters'] = gFunc.Combine(sets.Zones['Windy'], {})
 sets.Zones['Windurst Walls'] = gFunc.Combine(sets.Zones['Windy'], {})
 sets.Zones['Windurst Woods'] = gFunc.Combine(sets.Zones['Windy'], {})
 sets.Zones['Heavens Tower'] = gFunc.Combine(sets.Zones['Windy'], {})
+
+sets.Meme = {
+    Main = "",
+    Sub="",
+    Range="",
+    Ammo = 'Pebble',
+    Head = { Name = 'Cache-nez', Augment = '"Rapid Shot"+24' },
+    Neck="",
+    Ear1="",
+    Ear2="",
+    Body = { Name = 'Vgd. Tunica', Augment = '"Rapid Shot"+24' },
+    Hands = { Name = 'Vgd. Gloves', Augment = '"Rapid Shot"+24' },
+    Ring1="",
+    Ring2="",
+    Back="",
+    Waist="",
+    Legs = { Name = 'Vagabond\'s Hose', Augment = '"Rapid Shot"+24' },
+    Feet = { Name = 'Vagabond\'s Boots', Augment = '"Rapid Shot"+24' },
+}
 
 infoLog("Loaded common gearsets")

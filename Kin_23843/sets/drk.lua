@@ -240,6 +240,8 @@ sets.WeaponSkills['Entropy'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['Fotia
 sets.WeaponSkills['Chant du Cygne'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['Fotia'], {})
 sets.WeaponSkills['Swift Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['Fotia'], {})
 sets.WeaponSkills['Vorpal Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['Fotia'], {})
+sets.WeaponSkills['Resolution'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['Fotia'], {})
+
 -- MAB modded WS
 sets.WeaponSkills['Sanguine Blade'] = gFunc.Combine(sets.DRK['MAB'], {})
 sets.WeaponSkills['Uriel Blade'] = gFunc.Combine(sets.DRK['MAB'], {})

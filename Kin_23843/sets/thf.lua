@@ -29,11 +29,25 @@ sets['Engaged']['Daggers'] ={
 -- Every day killing things
 sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
     -- Feet = { Name = 'Savateur\'s Gaiters', Augment = { [1] = '"Store TP"+10', [2] = '"Subtle Blow"+30' } },
-    Waist = { Name = 'Windbuffet Belt +1', Augment = '"Triple Atk."+8' },
+    Waist = { Name = 'Windbuffet Belt +1', Augment = TA8 },
 })
 
 -- Every day attacky things!
 sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
+    Range = 'Exalted C.bow',
+    Ammo = "Beryllium Bolt",
+    Head = 'Pill. Bonnet +3',
+    Neck = { Name = 'Tlamiztli Collar', Augment = TA8 },
+    Ear1 = { Name = 'Mache Earring +1', Augment = TA8 },
+    Ear2 = { Name = 'Mache Earring +1', Augment = TA8 },
+    Body = 'Plunderer\'s Vest +2',
+    Hands = 'Pill. Armlets +3',
+    Ring1 = { Name = 'Rajas Ring', Augment = STP20 },
+    Ring2 = { Name = 'Epona\'s Ring', Augment = TA8 },
+    Back = { Name = 'Canny Cape', Augment = TA8 },
+    Waist = { Name = 'Windbuffet Belt +1', Augment = TA8 },
+    Legs = 'Pill. Culottes +3',
+    Feet = { Name = 'Plun. Poulaines +1', Augment = TA8 },
 })
 
 -- Every day defensive things
@@ -110,12 +124,12 @@ sets.JobAbility['Collaborator'] = gFunc.Combine(sets.AllJobs['JobAbility'],{Head
 --------------------------------------
 --           BEGIN WS GEARSETS      --
 --------------------------------------
-sets.THF['WeaponSkills'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
+sets['WeaponSkills'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
     Ammo = { Name = 'Fire Bomblet', Augment = { [1] = 'Weapon Skill Acc.+2', [2] = 'Weapon skill damage +5%', [3] = 'DMG:+2', [4] = 'Attack+7', [5] = 'Accuracy+7' } }, --5% WSD
     Hands= "Meg. Gloves +2", --WSD (All hits) +7%
     Head = AF_HEAD, --WSD+6%
 })
-sets.THF['WeaponSkills']["Evisceration"] = gFunc.Combine(sets.THF['WeaponSkills'], {
+sets['WeaponSkills']["Evisceration"] = gFunc.Combine(sets['WeaponSkills'], {
     Ammo={Name="Yetshila +1", Augments={[1]='"Triple Atk."+4', [2]="Critical Hit Rate +10"}}, --12% Crit Rate, 6% Damage
     Head={Name="Mummu Bonnet +2",Augments={}}, -- 5% Crit Rate
     -- Body={Name=RELIC_BODY, Augments={}},
@@ -124,10 +138,10 @@ sets.THF['WeaponSkills']["Evisceration"] = gFunc.Combine(sets.THF['WeaponSkills'
     Feet={Name="Mummu Gamash. +2",Augments={}},
 
 })
-sets.THF['WeaponSkills']["Dancing Edge"] = gFunc.Combine(sets.THF['WeaponSkills'], {})
-sets.THF['WeaponSkills']["Mercy Stroke"] = gFunc.Combine(sets.THF['WeaponSkills'], {})
-sets.THF['WeaponSkills']["Mandalic Stab"] = gFunc.Combine(sets.THF['WeaponSkills'], {})
-sets.THF['WeaponSkills']["Rudra's Storm"] = gFunc.Combine(sets.THF['WeaponSkills'], {
+sets['WeaponSkills']["Dancing Edge"] = gFunc.Combine(sets['WeaponSkills'], {})
+sets['WeaponSkills']["Mercy Stroke"] = gFunc.Combine(sets['WeaponSkills'], {})
+sets['WeaponSkills']["Mandalic Stab"] = gFunc.Combine(sets['WeaponSkills'], {})
+sets['WeaponSkills']["Rudra's Storm"] = gFunc.Combine(sets['WeaponSkills'], {
     Body = AF_BODY, --TA+7%
     Legs = AF_LEGS, --TA 5%
     Feet = RELIC_FEET, -- TA+3%+8%(Aug) +TA damage+7%
@@ -139,10 +153,10 @@ sets.THF['WeaponSkills']["Rudra's Storm"] = gFunc.Combine(sets.THF['WeaponSkills
     Ring2 = { Name = 'Epona\'s Ring', Augment= TA8}, --11% TA (3%+8%)
 
 })
-sets.THF['WeaponSkills']["Aeolian Edge"] = gFunc.Combine(sets.THF['MAB'], {
+sets['WeaponSkills']["Aeolian Edge"] = gFunc.Combine(sets.THF['MAB'], {
     Head="Chimera Hairpin"
 })
-sets.THF['WeaponSkills']["Exenterator"] = gFunc.Combine(sets.THF['WeaponSkills'], {})
+sets['WeaponSkills']["Exenterator"] = gFunc.Combine(sets['WeaponSkills'], {})
 
 sets['Unknown'] = {}
 sets['Dead'] = {}

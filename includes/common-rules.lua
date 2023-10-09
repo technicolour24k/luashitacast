@@ -9,8 +9,24 @@ function commonCommandRules (sets, cmd)
         end
     end
 
+    if (cmd[1]=="meme") then
+        if (meme) then
+            meme=false
+        else
+            meme=true
+        end
+    end
+
     if (cmd[1]=="status-check") then
        clearStatuses() 
+    end
+
+    if (cmd[1]=="recraft") then
+        if (cmd[2]) then
+            recraft(cmd[2])
+        else
+            errorLog("Missing second parameter: repetitions. Number expected.")
+        end
     end
 
     -- Function to recursively display the names of subtables
@@ -189,18 +205,26 @@ function commonIdleRules (sets)
 
     if ((buffIsActive("Light Arts")) or (buffIsActive("Addendum: White"))) then
         activeArts = "Light Arts"
+        if (debugEnabled()) then debugLog("Light Arts found - setting activeArts to" ..activeArts) end
     elseif ((buffIsActive("Dark Arts")) or (buffIsActive("Addendum: Black"))) then
         activeArts = "Dark Arts"
+        if (debugEnabled()) then debugLog("Dark Arts found - setting activeArts to" ..activeArts) end
     end
 
     local temp = evaluateVariableValue(statusType)
-    equip(sets[player.Status][evaluateVariableValue(statusType)]) 
-    if(debugEnabled()) then debugLog("Equipping sets[Idle]["..evaluateVariableValue(statusType).."]") end
+    -- if not ((player.Status == "Dead") or (player.Status=="Unknown") or (player.Status==nil)) then
+    --     equip(sets[player.Status][evaluateVariableValue(statusType)])
+    -- end
+
+    equipAppropriateGear()
+    
+    if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]") end
 
     if (player.Status=="Engaged") then
         equip(sets[player.Status][weapons])
         if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..weapons.."]") end
-        equip(sets[player.Status][evaluateVariableValue(statusType)])
+        -- equip(sets[player.Status][evaluateVariableValue(statusType)])
+        equipAppropriateGear()
         if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]") end
 
         if (thOn) then
@@ -227,11 +251,16 @@ function commonIdleRules (sets)
             end
         end
     else
-        if not (sets.Zones[gData.GetEnvironment().Area]) then
-            equip(sets[player.Status][evaluateVariableValue(statusType)])
+        if (meme) then
+            equip(sets.Meme)
         else
-            equip(sets.Zones[gData.GetEnvironment().Area])
-        end        
+            if not (sets.Zones[gData.GetEnvironment().Area]) then
+                -- equip(sets[player.Status][evaluateVariableValue(statusType)])
+                equipAppropriateGear()
+            else
+                equip(sets.Zones[gData.GetEnvironment().Area])
+            end
+        end 
     end
 
 
@@ -299,16 +328,22 @@ function commonMidcastRules (sets, spell, skill, type)
         
     if (sets[player.MainJob]['Magic'][skill]) then
         equip(sets[player.MainJob]['Magic'][skill])
-    elseif sets.AllJobs['Midcast'][skill] then
-        equip(sets[player.MainJob]['Magic'][skill])
+        if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']["..skill.."]") end
+    elseif (sets.AllJobs['Midcast'][skill]) then
+        equip(sets.AllJobs['Midcast'][skill])
+        if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']["..skill.."]") end
     end
 
     if (sets[player.MainJob]['Magic'][spell]) then
         equip(sets[player.MainJob]['Magic'][spell])
+        if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']["..spell.."]") end
     elseif sets.AllJobs['Midcast'][spell] then
         equip(sets.AllJobs['Midcast'][spell])
-    elseif ((spellContains(spell, "Cure")) or (spellContains(spell,"Cura"))) then
+        if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']["..spell.."]") end
+    end
+    if ((spellContains(spell, "Cure")) or (spellContains(spell,"Cura"))) then
         equip(sets[player.MainJob]['Magic'].Cure)
+        if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic'].Cure") end
     end
 
     if (itemInArray(enspells,spell)) then
@@ -351,7 +386,8 @@ function commonMidcastRules (sets, spell, skill, type)
 		end
 	end
 
-    weatherCheck(action.Element, action.Type)
+    
+    weatherCheck(action.Element, action.Skill) -- Calling skill is checked by weatherCheck
 
 end
 
