@@ -214,7 +214,8 @@ function equipAppropriateGear()
 	end
 	
     if not ((player.Status == "Dead") or (player.Status=="Unknown") or (player.Status=="Resting") or (player.Status==nil)) then
-        equip(sets[player.Status][evaluateVariableValue(statusType)])
+		equip(sets[player.Status][evaluateVariableValue(statusType)])
+        equip(sets['Engaged'][weapons])
     end
 end
 

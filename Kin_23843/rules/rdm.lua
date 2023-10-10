@@ -63,9 +63,16 @@ profile.HandleDefault = function()
     player = gData.GetPlayer()
     target = gData.GetTarget()
     
-    statusType = string.lower(player.Status) .."Type"
-    -- commonPetRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
-    commonIdleRules(sets)
+    if not (player.Status == "Unknown") then
+        statusType = string.lower(player.Status) .."Type"
+        -- commonPetRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
+        commonIdleRules(sets)
+        
+        equipment = gData.GetEquipment()
+        if (equipment['Main'].Name == sets['Engaged']['Staff']['Main'].Name) then
+            infoLog("Your hands match your set main!")
+        end
+    end
 end
 
 profile.HandleAbility = function()
@@ -102,11 +109,17 @@ profile.HandleMidcast = function()
              equip(sets.RDM[MagStyle])
         end
     end
-
+    if (sets[player.MainJob]['Magic'][spell]) then
+        equip(sets[player.MainJob]['Magic'][spell])
+    end
     
     if(buffIsActive("Saboteur") and (action.Skill=="Enfeebling Magic")) then
         equip(sets.JobAbility['Saboteur'])
     end
+    if (action.Name=="Impact") then
+        equip(sets.RDM['Magic']['Impact'])
+    end
+    
     weatherCheck(action.Element, action.Skill) -- Calling skill is checked by weatherCheck. This is called by common-rules, but needs to be reset after checking RDM specific ele sets
 end
 

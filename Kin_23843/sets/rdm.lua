@@ -1,18 +1,18 @@
 AF_HEAD = "Atro. Chapeau +3"
 AF_BODY = "Atrophy Tabard +2"
-AF_HANDS = "Atrophy Gloves +3"
-AF_LEGS = "Atrophy Tights +3"
+AF_HANDS = {Name="Atrophy Gloves +3",Augment=ENHANCE20}
+AF_LEGS = {Name="Atrophy Tights +3",Augment=ENHANCE20}
 AF_FEET = "Atro. Boots +2"
-RELIC_HEAD = {Name="Viti. Chapeau +3", Augment=ENFEEBLE16}
-RELIC_BODY = {Name="Viti. Tabard +3", Augment=ENHANCE16}
+RELIC_HEAD = {Name="Viti. Chapeau +3", Augment=ENFEEBLE20}
+RELIC_BODY = {Name="Viti. Tabard +3", Augment=ENHANCE20}
 RELIC_HANDS = "Viti. Gloves +2"
 RELIC_LEGS = "Viti. Tights +1"
-RELIC_FEET = {Name="Vitiation Boots +3", Augment=ENFEEBLE16}
+RELIC_FEET = {Name="Vitiation Boots +3", Augment=ENFEEBLE20}
 EMPYREAN_HEAD = {Name="Leth. Chappel +1",Augment=MAB32}
-EMPYREAN_BODY = {Name="Lethargy Sayon +1", Augment=ENFEEBLE16}
-EMPYREAN_HANDS = {Name="Leth. Gantherots +1", Augment=ENFEEBLE16}
+EMPYREAN_BODY = {Name="Lethargy Sayon +1", Augment=ENFEEBLE20}
+EMPYREAN_HANDS = {Name="Leth. Gantherots +1", Augment=ENFEEBLE20}
 EMPYREAN_LEGS = "Leth. Fuseau +1"
-EMPYREAN_FEET = "Leth. Houseaux +1"
+EMPYREAN_FEET = {Name="Leth. Houseaux +1", Augment=ENHANCE20}
 
 
 
@@ -42,9 +42,9 @@ sets['Engaged']['Combo'] = gFunc.Combine(sets['Engaged'], {
     Sub = { Name = 'Mandau'}
 })
 sets['Engaged']['Staff'] = gFunc.Combine(sets['Engaged'], {
+    Hands = { Name="Shedir Gages" },
     Main = { Name="Lehbrailg +1" },
     Sub = { Name="Elan Strap" },
-    Hands = { Name="Shedir Gages" }
 })
 
 
@@ -175,28 +175,28 @@ sets.RDM['Magic']['EnfeeblingDuration'] = gFunc.Combine(sets.AllJobs['Midcast'][
 
 sets.RDM['Magic']['Enhancing Magic'] = gFunc.Combine(sets.RDM['Magic']['EnhancingDuration'],{
     Head="Umuthi Hat", --Not yet available, TODO: Grab it when it is.
-    Neck= {Name="Enhancing Torque", Augment=ENHANCE16},
-    Ear1={Name="Andoaa Earring",Augment=ENHANCE16},
+    Neck= {Name="Enhancing Torque", Augment=ENHANCE20},
+    Ear1={Name="Andoaa Earring",Augment=ENHANCE20},
     Body=RELIC_BODY,
     Hands=AF_HANDS,
     Legs=AF_LEGS,
     Feet=EMPYREAN_FEET,
-    Ring1={Name="Stikini Ring +1",Augment=ENHANCE16},
-    Ring2="Stikini Ring +1",
-    Back={Name="Estoqueur's cape", Augment=ENHANCE16},
+    Ring1={Name="Stikini Ring +1",Augment=ENHANCE20},
+    Ring2={Name="Stikini Ring +1",Augment=ENHANCE20},
+    Back={Name="Estoqueur's cape", Augment=ENHANCE20},
 })
 
 sets.RDM['Magic']['Enfeebling Magic'] = gFunc.Combine(sets.RDM['Magic']['EnfeeblingDuration'],{
-    Ammo={ Name="Quartz Tathlum", Augment=ENFEEBLE16}, --Enfeebling skill+
+    Ammo={ Name="Quartz Tathlum", Augment=ENFEEBLE20}, --Enfeebling skill+
     Head=RELIC_HEAD, --Enfeebling Skill+
     Neck={ Name="Dls. Torque +1"}, --Enfeebling Potency +7
     Ear2={ Name="Moonshade Earring", Augment={'"Refresh"+10','"Fast Cast"+5','"Regen"+10','"Store TP"+5',}}, -- Enfeebling Magic potency +3
     Body=EMPYREAN_BODY, --Enfeebling Potency +14
     Hands=EMPYREAN_HANDS, -- Enfeebling skill+ BONUS: Saboteur potency when active
-    Ring1={Name = "Stikini Ring +1"},
-    Ring2={Name = "Stikini Ring +1"},
-    Back={ Name="Sucellos's Cape", Augment=ENFEEBLE16}, --Enfeebling Potency +10
-    Legs={Name="Portent Pants", Augment=ENFEEBLE16},
+    Ring1={Name="Stikini Ring +1",Augment=ENFEEBLE20},
+    Ring2={Name="Stikini Ring +1",Augment=ENFEEBLE20},
+    Back={ Name="Sucellos's Cape", Augment=ENFEEBLE20}, --Enfeebling Potency +10
+    Legs={Name="Psycloth Lappas", Augment=ENFEEBLE20},
     Feet=RELIC_FEET, --Enfeebling Potency+ 5(AF+2) or 10 (AF+3)
 })
 sets.RDM['Magic']['Elemental Magic'] = gFunc.Combine(sets.RDM['MAB'], {})
@@ -207,26 +207,29 @@ sets.RDM['Magic']['Dispel'] = gFunc.Combine(sets.RDM['Magic']['Enfeebling Magic'
 })
 
 sets.RDM['Magic']['Drain'] = gFunc.Combine(sets.RDM['Magic']['Dark Magic'],{
-    Ring1 = { Name = 'Scintillant Ring', Augment = { [1] = 'Magic Damage +7', [2] = 'Mag. Acc+7', [3] = '"Drain" and "Aspir" potency +3', [4] = 'Enfb.mag. skill +3' } },
-    Ring2 = { Name = 'Scintillant Ring', Augment = { [1] = 'Magic Damage +2', [2] = 'Mag. Acc+2', [3] = '"Drain" and "Aspir" potency +2', [4] = 'Enfb.mag. skill +7' } },
-    Head={Name="Appetence Crown", Augment=DRAINASPIR40}
+    Head={Name="Appetence Crown", Augment=DRAINASPIR40},
+    Waist={Name="Fucho-no-Obi",Augment=DRAINASPIR40},
+    Ear1={Name="Abyssal Earring",Augment=DRAINASPIR40},
+    Ear2={Name="Silver Earring",Augment=DRAINASPIR40},
+    Back={Name="Merciful Cape",Augment=DRAINASPIR40},
+    Ring1={Name="Hermit\'s Ring",Augment=DRAINASPIR40,},
+    Ring2={Name="Hermit\'s Ring",Augment=DRAINASPIR40,},
 })
 sets.RDM['Magic']['Drain II'] = gFunc.Combine(sets.RDM['Magic']['Drain'],{})
 sets.RDM['Magic']['Aspir'] = gFunc.Combine(sets.RDM['Magic']['Drain'],{})
 sets.RDM['Magic']['Aspir II'] = gFunc.Combine(sets.RDM['Magic']['Drain'],{})
 
-
+sets.RDM['Magic']['Impact'] = {
+    Body = "Twilight Cloak"
+}
 
 sets.RDM['Magic']['Helixes'] = gFunc.Combine(sets.RDM['Magic']['Elemental Magic'], {})
 sets.RDM['Magic']['Helixes']['Light Arts'] = gFunc.Combine(sets.RDM['Magic']['Helixes'], {})
 sets.RDM['Magic']['Helixes']['Dark Arts'] = gFunc.Combine(sets.RDM['Magic']['Helixes'], {})
 
 sets.RDM['Magic']['Gains'] = gFunc.Combine(sets.RDM['Magic']['Enhancing Magic'], {
-    Body=RELIC_BODY,
     Hands=RELIC_HANDS,
-    Feet=EMPYREAN_FEET,
     Neck="Dls. Torque +1",
-    Back="Sucellos's Cape",
 })
 sets.RDM['Magic']['Gain-STR'] = gFunc.Combine(sets.RDM['Magic']['Gains'],{})
 sets.RDM['Magic']['Gain-MND'] = gFunc.Combine(sets.RDM['Magic']['Gains'],{})
@@ -257,7 +260,10 @@ sets.RDM['Misc']['Max HP'] = {
 }
 
 sets.RDM['Magic']['Dread Spikes'] = gFunc.Combine(sets.RDM['Misc']['Max HP'],{})
-sets.RDM['DayWeatherBonus'] = {Back="Twilight Cape"}
+sets.RDM['DayWeatherBonus'] = {
+    Back="Twilight Cape",
+    Waist="Hachirin-no-Obi"
+}
 --------------------------------------
 --           BEGIN JA GEARSETS      --
 --------------------------------------
