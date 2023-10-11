@@ -256,12 +256,12 @@ function commonIdleRules (sets)
         else
             if not (sets.Zones[gData.GetEnvironment().Area]) then
                 -- equip(sets[player.Status][evaluateVariableValue(statusType)])
-                equipAppropriateGear()
             else
                 equip(sets.Zones[gData.GetEnvironment().Area])
             end
         end 
     end
+    -- equipAppropriateGear()
 
 
 

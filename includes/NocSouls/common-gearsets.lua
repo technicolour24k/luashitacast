@@ -59,10 +59,9 @@ sets.AllJobs['SpellInterruption'] = {
 
 -- Magic Fast Cast sets
 sets.AllJobs['FastCast'] = {
-    Ring1 = { Name="Hermit's Ring", },
-    Ring2 = { Name="Hermit's Ring", },
-    Neck = {Name = "Silver Name Tag", },
-    Head = {Name = "Cache-Nez", },
+    Ring2 = { Name="Hermit's Ring", Augment=FASTCAST32},
+    Neck = {Name = "Silver Name Tag", Augment=FASTCAST32},
+    Head = {Name = "Cache-Nez", Augment=FASTCAST32},
 }
 
 sets.AllJobs['Quick Draw'] = {
@@ -144,18 +143,19 @@ sets.AllJobs['Midcast']['DrainAspir'] = {
     Ring2 = { Name = 'Scintillant Ring', Augment = { [1] = '"Drain" and "Aspir" potency +3', [2] = 'Enf. Mag. eff. dur. +10', [3] = 'Mag. Acc+7', [4] = 'Enfb.mag. skill +3', [5] = 'Magic Damage +7' } },
 }
 sets.AllJobs['Midcast']['Helixes'] = gFunc.Combine(sets.AllJobs['MAB'],{
-    Main={Name="Chatoyant Staff", Augment=MAB32 },
-    Ranged="Animator",
-    Head="Straw Hat",
-    Neck="Silver Name Tag",
-    Ear2="Cassie Earring",
-    Ear1="Shell Earring +1",
+    Main={Name="Nihility", Augment=MDMG48},
+    Sub={Name="Morbol Shield", Augment=MDMG48},
+    Ranged={Name="Animator", Augment=MDMG48},
+    Head={Name="Straw Hat", Augment=MDMG48},
+    Neck={Name="Silver Name Tag", Augment=MDMG48},
+    Ear2={Name="Cassie Earring",Augment=MDMG48},
+    Ear1={Name="Shell Earring +1", Augment=MDMG48},
     Body="Chocobo Shirt",
     Hands={Name="Vagabond\'s Gloves", Augment=SIR40},
     Ring1={Name="Eremite\'s Ring +1", Augment=MAB32},
     Ring2={Name='Eremite\'s Ring +1', Augment=MAB32 },
     Back="Nexus Cape",
-    Waist="Gold Moogle Belt",
+    Waist={Name="Silver Moogle Belt", Augment=MDMG48},
     Legs={Name="Vagabond\'s Hose", Augment=SIR40},
     Feet={Name="Vagabond\'s Boots", Augment=SIR40}
 })

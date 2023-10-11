@@ -241,22 +241,21 @@ sets.RDM['Magic']['Gain-CHR'] = gFunc.Combine(sets.RDM['Magic']['Gains'],{})
 
 sets.RDM['Misc'] = {}
 sets.RDM['Misc']['Max HP'] = {
-    Main="Sagasinger",
-    Sub="Bloodbead Ecu",
-    Head="Volte Tiara",
-    Neck="Inq. Bead Necklace", --55HP
-    Ear1="Upsurge Earring", --55 MP > HP
-    Ear2="Cryptic Earring",
-    Body="Ros. Jaseran +1",
-    Hands="Boor Bracelets", --70HP
-    Ring1="Bomb Queen Ring", --75HP
-    Ring2="Meridian Ring", --90HP
-    Back="Moonbeam Cape",
-    Waist="Gold Moogle Belt",
-    --Legs="Volte Tights",
-    Legs=AF_LEGS,
-    Feet=AF_FEET
-
+    Main={Name="Sagasinger", Augment=HP},
+    Sub={Name="Bloodbead Ecu", Augment=HP},
+    Head={Name="Volte Tiara", Augment=HP},
+    Neck={Name="Inq. Bead Necklace", Augment=HP}, --55HP
+    Ear1={Name="Upsurge Earring", Augment=HP}, --55 MP > HP
+    Ear2={Name="Cryptic Earring", Augment=HP},
+    Body={Name="Ros. Jaseran +1", Augment=HP},
+    Hands={Name="Boor Bracelets", Augment=HP}, --70HP
+    Ring1={Name="Bomb Queen Ring", Augment=HP}, --75HP
+    Ring2={Name="Meridian Ring", Augment=HP}, --90HP
+    Back={Name="Moonbeam Cape", Augment=HP},
+    Waist={Name="Gold Moogle Belt", Augment=HP},
+    --Legs={Name="Volte Tights", Augment=HP},
+    Legs={Name=AF_LEGS, Augment=HP},
+    Feet={Name=AF_FEET, Augment=HP},
 }
 
 sets.RDM['Magic']['Dread Spikes'] = gFunc.Combine(sets.RDM['Misc']['Max HP'],{})
