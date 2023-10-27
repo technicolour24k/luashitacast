@@ -55,7 +55,7 @@ sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
     -- Hands="Volte Bracers",
     -- Legs="Volte Hose",
     -- Feet="Volte Boots",
-    Waist={ Name="Windbuffet Belt +1", Augment = TA12 },
+    Waist={ Name="Windbuffet Belt +1", Augment = '"Triple Atk."+8' },
 })
 
 -- Every day attacky things!
@@ -132,16 +132,18 @@ sets.RDM['MAB']['Ice'] = gFunc.Combine(sets.RDM['MAB'],{
 sets.RDM['MAB']['Light'] = gFunc.Combine(sets.RDM['MAB'],{})
 sets.RDM['MAB']['Dark'] = gFunc.Combine(sets.RDM['MAB'],{})
 
-sets.RDM['MCrit'] = gFunc.Combine(sets.RDM['MAB'], {    
-    Ear2 = {Name="Choleric Earring",}, -- 10% MCrit rate
-    Ring1 = {Name="Resonance Ring",Augment=MCRIT40}, --5% MCrit rate +40% aug 
-    Ring2 = {Name="Locus Ring",Augment=MCRIT40}, --5% MCrit rate +40% aug
+sets.RDM['MCrit'] = gFunc.Combine(sets.RDM['MAB'], {
+    -- Neck = "Nefarious Collar" --3% MCrit TODO: AUG 20% MCrit 23%
+    Ear1 = "Hecate's Earring", -- 3% MCrit TODO: AUG 20% MCrit 23%
+    Ear2 = "Choleric Earring", -- 10% MCrit TODO: AUG 40% MCrit 50% (Snowtip Stone +1 x4)
+    -- Waist = "Aswang Sash", -- 5% MCrit TODO: AUG 20% 25%
+    -- Total 101% MCrit
 })
 
 sets.RDM['MBurst'] = gFunc.Combine(sets.RDM['MCrit'],{
     Head=AF_HEAD,
     Neck="Mizu. Kubikazari",
-    Feet="Jhakri Pigaches +2",
+    Feet="Jhakri Pigaches +2"
 })
 
 sets.RDM['Magic'] = {}
@@ -179,7 +181,7 @@ sets.RDM['Magic']['EnfeeblingDuration'] = gFunc.Combine(sets.AllJobs['Midcast'][
 })
 
 sets.RDM['Magic']['Enhancing Magic'] = gFunc.Combine(sets.RDM['Magic']['EnhancingDuration'],{
-    Head={Name="Umuthi Hat",Augment=ENHANCE20},
+    Head="Umuthi Hat", --Not yet available, TODO: Grab it when it is.
     Neck= {Name="Enhancing Torque", Augment=ENHANCE20},
     Ear1={Name="Andoaa Earring",Augment=ENHANCE20},
     Body=RELIC_BODY,
@@ -211,9 +213,14 @@ sets.RDM['Magic']['Dispel'] = gFunc.Combine(sets.RDM['Magic']['Enfeebling Magic'
     Neck="Dls. Torque +1"
 })
 
-sets.RDM['Magic']['Drain'] = gFunc.Combine(sets.AllJobs['Midcast']['DrainAspir'],{
+sets.RDM['Magic']['Drain'] = gFunc.Combine(sets.RDM['Magic']['Dark Magic'],{
     Head={Name="Appetence Crown", Augment=DRAINASPIR40},
     Waist={Name="Fucho-no-Obi",Augment=DRAINASPIR40},
+    Ear1={Name="Abyssal Earring",Augment=DRAINASPIR40},
+    Ear2={Name="Silver Earring",Augment=DRAINASPIR40},
+    Back={Name="Merciful Cape",Augment=DRAINASPIR40},
+    Ring1={Name="Hermit\'s Ring",Augment=DRAINASPIR40,},
+    Ring2={Name="Hermit\'s Ring",Augment=DRAINASPIR40,},
 })
 sets.RDM['Magic']['Drain II'] = gFunc.Combine(sets.RDM['Magic']['Drain'],{})
 sets.RDM['Magic']['Aspir'] = gFunc.Combine(sets.RDM['Magic']['Drain'],{})

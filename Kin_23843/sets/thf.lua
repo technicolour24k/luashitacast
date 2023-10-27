@@ -28,8 +28,7 @@ sets['Engaged']['Daggers'] ={
 
 -- Every day killing things
 sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
-    -- Feet = { Name = 'Savateur\'s Gaiters', Augment = { [1] = '"Store TP"+10', [2] = '"Subtle Blow"+30' } },
-    Waist = { Name = 'Windbuffet Belt +1', Augment = TA8 },
+    Waist = { Name = 'Windbuffet Belt +1', Augment = TA12 },
 })
 
 -- Every day attacky things!
@@ -45,7 +44,7 @@ sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
     Ring1 = { Name = 'Rajas Ring', Augment = STP20 },
     Ring2 = { Name = 'Epona\'s Ring', Augment = TA8 },
     Back = { Name = 'Canny Cape', Augment = TA8 },
-    Waist = { Name = 'Windbuffet Belt +1', Augment = TA8 },
+    Waist = { Name = 'Windbuffet Belt +1', Augment = TA12 },
     Legs = 'Pill. Culottes +3',
     Feet = { Name = 'Plun. Poulaines +1', Augment = TA8 },
 })
@@ -90,7 +89,6 @@ sets['Resting']={}
 sets.THF['MAB'] = gFunc.Combine(sets.AllJobs['MAB'], {
     Head="Wayfarer Circlet",
     Body="Sombra Harness",
-    Waist = "Aquiline Belt",
     Legs = "Limbo Trousers",
     Feet="Sombra Leggings"
 

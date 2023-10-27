@@ -159,6 +159,10 @@ function commonItemRules (sets, item, type)
     if((item=="Holy Water") or (item=="Hallowed Water")) then
         equip(sets.AllJobs['HolyWater'])
     end
+
+    if (spellContains(item,"Crystal")) then
+        equip(sets.AllJobs['Crafting'])
+    end
 end
 
 --commonAbilityRules documentation
@@ -386,6 +390,11 @@ function commonMidcastRules (sets, spell, skill, type)
 		end
 	end
 
+    if ((player.MainJob=="NIN") or (player.SubJob=="NIN")) then
+        if (itemInArray(NIN_nukes,spell)) then
+            equip(sets[player.MainJob]['Magic']['Ninjutsu'])
+        end
+    end
     
     weatherCheck(action.Element, action.Skill) -- Calling skill is checked by weatherCheck
 

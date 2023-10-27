@@ -48,15 +48,16 @@ StatSpells = T{	'Poisona', 'Paralyna', 'Blindna', 'Silena', 'Stona', 'Viruna', '
 RegenSpells = T{'Regen', 'Regen II', 'Regen III', 'Regen IV', 'Regen V'}
 Helixes = T{'Geohelix','Hydrohelix','Anemohelix','Pyrohelix','Cryohelix','Ionohelix','Noctohelix','Luminohelix'}
 Storms = T{'Sandstorm','Rainstorm','Windstorm','Firestorm','Hailstorm','Thunderstorm','Voidstorm','Aurorastorm'}
+NIN_nukes= {"Raiton: Ichi","Raiton: Ni","Raiton: San","Hyoton: Ichi","Hyoton: Ni","Hyoton: San","Huton: Ichi","Huton: Ni","Huton: San","Suiton: Ichi","Suiton: Ni","Suiton: San","Katon: Ichi","Katon: Ni","Katon: San","Doton: Ichi","Doton: Ni","Doton: San"}
 
 BLU_Buffs = {"Nat. Meditation","Occultation","Erratic Flutter","Diamondhide","Magic Fruit"}
-BLU_Nukes = {"Searing Tempest","Spectral Floe","Silent Storm","Entomb","Anvil Lightning","Scouring Spate","Palling Salvo","Atra. Libations", "Dark Orb"}
+BLU_Nukes = {"Searing Tempest","Spectral Floe","Silent Storm","Entomb","Anvil Lightning","Scouring Spate","Palling Salvo","Atra. Libations", "Dark Orb", "Thermal Pulse"}
 BLU_Physical = {"Thrashing Assault","Sinker Drill"}
 
 --Below 4 lists are used by oneClickRemedies to know which statuses get assigned to which medicine
 remedy_list = {"Blind","Paralysis","Silence","Poison"}
 remedyOintment_list = {"Disease", "Plague"}
-panacea_list = {"Bind", "Bio", "Burn", "Choke", "Dia", "Flash", "Frost", "Gravity", "Rasp", "Slow", "Stun", "Weight", "Attack Down", "Defense Down", "STR Down", "AGI Down", "DEX Down", "VIT Down","INT Down", "MND Down"}
+panacea_list = {"Bind", "Bio", "Burn", "Choke", "Dia", "Flash", "Frost", "Gravity", "Rasp", "Slow", "Stun", "Weight", "Attack Down", "Defense Down", "STR Down", "AGI Down", "DEX Down", "VIT Down","INT Down", "MND Down", "Max HP Down","Max MP Down"}
 holyWater_list = {"Curse","Doom"}
 
 magicList = T{"White Magic", "Black Magic", "Summoning", "Ninjutsu", "Bard Song", "Blue Magic"}

@@ -210,21 +210,16 @@ end
 
 function equipAppropriateGear()
 	if (player.Status == "Idle") then
-		if (debugEnabled()) then debugLog("You're Idling..") end
 		equip(sets.AllJobs['Regen'])
-		equip(sets[player.Status][evaluateVariableValue(statusType)])
-		if (debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]") end
+		equip(sets['Idle'][idleType])
+		if (debugEnabled()) then debugLog("Equipping sets[Idle]["..idleType.."]") end
 	end
 
 	if (player.Status=="Engaged") then
-		
+		equip(sets['Engaged'][weapons])
+		equip(sets['Engaged'][engagedType])
+		if (debugEnabled()) then debugLog("Equipping sets[Engaged]["..engagedType.."]") end
 	end
-	
-    if not ((player.Status == "Dead") or (player.Status=="Unknown") or (player.Status=="Resting") or (player.Status==nil)) then
-		if (debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]") end
-		equip(sets[player.Status][evaluateVariableValue(statusType)])
-        equip(sets['Engaged'][weapons])
-    end
 end
 
 function debugEnabled()
@@ -254,6 +249,7 @@ function createAlias(alias, cmd, desc)
 end
 
 function recraft(count)
+	infoLog("[Recraft] Initiating Recraft for "..count.." attempts")
 	for i = 1, count, 1 do
 		infoLog("[Recraft] Recrafting: "..i.." of "..count)
 		sendCommand('/lastsynth')

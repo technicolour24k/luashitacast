@@ -10,7 +10,7 @@ idleType = "Balanced"
 -- MAB: Full MAB setup
 -- MCrit: Focus on 100% crit rate, base set is MAB
 -- MBurst: Focus on Magic Burst damage, base set is MCrit
-MagStyle = "MCrit"
+MagStyle = "MAB"
 
 -- Buffs
 buffs = T{"Protect V","Shell V","Haste II", "Blink","Stoneskin","Aquaveil","Phalanx", "Temper", "Gain-DEX", "Refresh II", "Shock Spikes"}
