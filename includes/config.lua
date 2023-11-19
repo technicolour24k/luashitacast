@@ -65,5 +65,3 @@ obiList = T{"Healing Magic","Elemental Magic","Dark Magic","Blue Magic"}
 
 --Setup list of buffs to be autocancelled
 autoCancelList = T{"Enstone", "Enwater", "Enaero", "Enfire", "Enblizzard", "Enthunder", "Stoneskin", "Blaze Spikes","Ice Spikes", "Shock Spikes", "Sneak", "Spectral Jig"}
-
-meme = false -- Rapid Shot set with a pebble? :D

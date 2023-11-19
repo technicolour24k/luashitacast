@@ -9,14 +9,6 @@ function commonCommandRules (sets, cmd)
         end
     end
 
-    if (cmd[1]=="meme") then
-        if (meme) then
-            meme=false
-        else
-            meme=true
-        end
-    end
-
     if (cmd[1]=="status-check") then
        clearStatuses() 
     end
@@ -120,14 +112,13 @@ function commonCommandRules (sets, cmd)
         end
 
         if (cmd[2]:contains('step')) then
-            if(cmd[2]:contains(4)) then
+            if (cmd[2]:contains('4-step')) then
                 wsChain = wsChain['4 Step']
-            elseif (cmd[2]:contains(5)) then
+            elseif (cmd[2]:contains('5-step')) then
                 wsChain = wsChain['5 Step']
-            elseif (cmd[2]:contains(6)) then
+            elseif (cmd[2]:contains('6-step')) then
                 wsChain = wsChain['6 Step']
             else
-                wsChain = wsChain['6 Step']
                 errorLog("Invalid step count provided. Valid options: 4, 5, or 6. Defaulted to ".. #wsChain)
             end
             infoLog("Setting Chain Step count to: " ..#wsChain)
@@ -183,6 +174,11 @@ function commonAbilityRules (sets, ability, skill, type)
     if spellContains(action.Name, "Spectral Jig") then
         cancelBuff(action.Name, action.CastTime, gSettings.FastCast, "71")
     end
+
+    if (gData.GetAction().Name) then
+        infoLog("Action: "..gData.GetAction().Name)
+    end
+
 end
 
 --commonPetRules documentation
@@ -202,10 +198,23 @@ end
 -- @param type: The 'type' of skill [recommend: gData.GetAction().Type]
 function commonIdleRules (sets)
     statusType = string.lower(player.Status) .."Type"
+    -- Adding packet checks..
+    --ashita.events.register('packet_in', 'packet_in_callback1', function (e)
+        -- Known packet IDs
+        -- e.id 103 = status update
+        -- e.id 14 = mob movements
+        -- e.id 68 = mount up?
+        -- e.id 23 = digging?
 
-    -- if (gData.GetEquipment().Back['Name']=="Nexus Cape") then
-    --     break 
-    -- end
+        -- infoLog(e.id)
+        --if (e.id==68) then
+            --equip(sets.Chocobo['Mount'])
+        --end
+        -- if (e.id == 23) then
+        --     equip(sets.Chocobo['Dig'])
+        -- end
+    --end)
+    -- Closing packet checks..
 
     if ((buffIsActive("Light Arts")) or (buffIsActive("Addendum: White"))) then
         activeArts = "Light Arts"
@@ -216,10 +225,6 @@ function commonIdleRules (sets)
     end
 
     local temp = evaluateVariableValue(statusType)
-    -- if not ((player.Status == "Dead") or (player.Status=="Unknown") or (player.Status==nil)) then
-    --     equip(sets[player.Status][evaluateVariableValue(statusType)])
-    -- end
-
     equipAppropriateGear()
     
     if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]") end
@@ -227,7 +232,6 @@ function commonIdleRules (sets)
     if (player.Status=="Engaged") then
         equip(sets[player.Status][weapons])
         if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..weapons.."]") end
-        -- equip(sets[player.Status][evaluateVariableValue(statusType)])
         equipAppropriateGear()
         if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]") end
 
@@ -316,9 +320,15 @@ function commonMidcastRules (sets, spell, skill, type)
         debugLog("skill:"..skill)
         debugLog("type:"..type)
         debugLog("============ Raw Data Dump ============")
-        debugLog("gData.GetAction.Name: "..gData.GetAction().Name)
-        debugLog("gData.GetAction.Skill:"..gData.GetAction().Skill)
-        debugLog("gData.GetAction.Type:"..gData.GetAction().Type)
+        debugLog("gData.GetAction().Name: "..gData.GetAction().Name)
+        debugLog("gData.GetAction().Skill:"..gData.GetAction().Skill)
+        debugLog("gData.GetAction().Type:"..gData.GetAction().Type)
+        debugLog("gData.GetAction().Element:"..gData.GetAction().Element)
+        debugLog("============ Action reference Data Dump ============")
+        debugLog("action.Name: "..action.Name)
+        debugLog("action.Skill:"..action.Skill)
+        debugLog("action.Type:"..action.Type)
+        debugLog("action.Element:"..action.Element)
         debugLog("sets."..player.MainJob.."['Magic']["..action.Skill.."]")
     end
     
@@ -352,30 +362,39 @@ function commonMidcastRules (sets, spell, skill, type)
 
     if (itemInArray(enspells,spell)) then
         equip(sets.AllJobs['Midcast']['Enspell'])
+        if (debugEnabled()) then debugLof("Equipping sets.AllJobs['Midcast']['Enspell']") end
     end
 
     if (itemInArray(conserveMP_list,spell)) then
         equip(sets.AllJobs['ConserveMP'])
+        if (debugEnabled()) then debugLof("Equipping sets.AllJobs['ConserveMP']") end
+
     end
 
     if ((player.MainJob == "BLU") or (player.SubJob=="BLU")) then
         if (itemInArray(BLU_Nukes,spell)) then
             if (sets[player.MainJob]['Magic']['BLU_Nukes']) then
                 equip(sets[player.MainJob]['Magic']['BLU_Nukes'])
+                if (debugEnabled()) then debugLof("Equipping sets["..player.MainJob.."]['Magic']['BLU_Nukes']") end
             elseif (sets.AllJobs['Midcast']['BLU_Nukes']) then
                 equip(sets.AllJobs['Midcast']['BLU_Nukes'])
+                if (debugEnabled()) then debugLof("Equipping sets.AllJobs['Midcast']['BLU_Nukes']") end
             end
         elseif (itemInArray(BLU_Buffs,spell)) then
             if (sets[player.MainJob]['Magic']['BLU_Buffs']) then
                 equip(sets[player.MainJob]['Magic']['BLU_Buffs'])
+                if (debugEnabled()) then debugLof("Equipping sets["..player.MainJob.."]['Magic']['BLU_Buffs']") end
             elseif (sets.AllJobs['Midcast']['BLU_Buffs']) then
                 equip(sets.AllJobs['Midcast']['BLU_Buffs'])
+                if (debugEnabled()) then debugLof("Equipping sets.AllJobs['Midcast']['BLU_Buffs']") end
             end
         elseif (itemInArray(BLU_Physical,spell)) then
             if (sets[player.MainJob]['Magic']['BLU_Physical']) then
                 equip(sets[player.MainJob]['Magic']['BLU_Physical'])
+                if (debugEnabled()) then debugLof("Equipping sets["..player.MainJob.."]['Magic']['BLU_Physical']") end
             elseif (sets.AllJobs['Midcast']['BLU_Physical']) then
                 equip(sets.AllJobs['Midcast']['BLU_Physical'])
+                if (debugEnabled()) then debugLof("Equipping sets.AllJobs['Midcast']['BLU_Physical']") end
             end
         end
     end
@@ -384,15 +403,22 @@ function commonMidcastRules (sets, spell, skill, type)
 		if (itemInArray(Helixes,spell)) then
 			if activeArts == "default" then
 				equip(sets[player.MainJob]['Magic']['Helixes'])
+                if (debugEnabled()) then debugLof("Equipping sets["..player.MainJob.."]['Magic']['Helixes']") end
+
 			else
 				equip(sets[player.MainJob]['Magic']['Helixes'][activeArts])
+                if (debugEnabled()) then debugLof("Equipping sets["..player.MainJob.."]['Magic']['Helixes']["..activeArts.."]") end
 			end
 		end
 	end
 
     if ((player.MainJob=="NIN") or (player.SubJob=="NIN")) then
         if (itemInArray(NIN_nukes,spell)) then
-            equip(sets[player.MainJob]['Magic']['Ninjutsu'])
+            equip(sets[player.MainJob]['Nuke'])
+            if (sets[player.MainJob]['Nuke'][action.Element]) then
+                equip(sets[player.MainJob]['Nuke'][action.Element])
+                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Nuke']["..action.Element.."]") end
+            end
         end
     end
     

@@ -7,8 +7,8 @@ profile.Sets = sets
 profile.OnLoad = function()
     profile.Packer = {}
     gSettings.AllowAddSet = true
-    sendCommand('/lockstyleset 002')
-    sendCommand('/macro book 8')
+    sendCommand('/lockstyleset 004')
+    sendCommand('/macro book 11')
     sendCommand('/macro set 1')
     bindLACCmd('F10','cycle-engaged','engaged set')
     bindLACCmd('!F10','cycle-idle','idle set')

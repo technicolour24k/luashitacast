@@ -8,24 +8,29 @@ sets.AllJobs={}
 sets.AllJobs['JobAbility'] = {}
 sets.AllJobs['WeaponSkills'] = {}
 sets.AllJobs['WeaponSkills']['WSD'] = {
+    Ammo= { Name="Floestone", Augment=TPBONUS200},
+    Ear1 = {Name="Telos Earring", Augment=TPBONUS200},
+    Ear2 = {Name="Tati Earring", Augment=TPBONUS200},
     Ring1 = { Name = 'Dark Ring', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Accuracy+7', [3] = 'Eva.+5', [4] = 'Attack+7', [5] = 'Mag. Eva.+5' } },
     Ring2 = { Name = 'Dark Ring', Augment = { [1] = 'Weapon skill damage +8%', [2] = 'Accuracy+5', [3] = 'Eva.+5', [4] = 'Attack+5', [5] = 'Mag. Eva.+5' } },
     Waist = { Name = 'Moblin Cest', Augment = { [1] = '"Dbl.Atk."+7', [2] = 'Weapon skill damage +4%', [3] = '"Triple Atk."+4', [4] = 'Attack+7', [5] = 'Accuracy+7' } },
 }
 sets.AllJobs['WeaponSkills']['Fotia'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
-    Neck = { Name = 'Fotia Gorget', Augment = TA8 },
+    Neck = { Name = 'Fotia Gorget' },
     Waist = { Name = "Fotia Belt" }
 })
 
 sets.AllJobs['MAB'] = {
     Ammo = {Name='Erlene\'s Notebook', Augment=MAB32},
-    Neck = {Name='Deviant Necklace',Augment=MAB40},
-    Ear1 = {Name='Hecate\'s Earring',Augment=MAB32},
-    Ear2 = {Name='Friomisi Earring',Augment=MAB32},
-    Ring1 = {Name="Shiva Ring +1", Augment=MAB32},
-    Ring2 = {Name='Acumen Ring', Augment=MAB32},
-    Back = {Name='Toro Cape', Augment=MAB32},
-    Waist={Name='Eschan Stone',},
+    -- Neck = {Name='Deviant Necklace',Augment=MAB40},
+    Neck = {Name='Nefarious Collar', Augment=MCRITDMG16},
+    -- Ear1 = {Name='Novio Earring',Augment=MAB32},
+    Ear1 = {Name='Choleric Earring',Augment=MCRITDMG16},
+    Ear2 = {Name='Friomisi Earring',Augment=MCRITDMG16},
+    Ring1 = {Name='Resonance Ring', Augment=MCRIT40},
+    Ring2 = {Name='Locus Ring', Augment=MCRIT40},
+    Back = {Name='Toro Cape', Augment=MAB40},
+    Waist={Name='Eschan Stone',Augment=MAB40},
 }
 
 sets.AllJobs['TP'] = {
@@ -196,9 +201,10 @@ sets.AllJobs['Midcast']['BLU_Buffs'] = gFunc.Combine(sets.AllJobs['Midcast']['Bl
 sets.AllJobs['Midcast']['BLU_Nukes'] = gFunc.Combine(sets.AllJobs['Midcast']['Blue Magic'],{})
 
 sets.AllJobs['Midcast']['Cure'] = {
-    Neck = {Name="Phalaina Locket", Augment=CUREPOT16 },
+    Neck = {Name="Phalaina Locket", Augment=CUREPOT16},
     Ear1 = {Name="Mendi. Earring", Augment=CUREPOT16},
-    Ring1 = "Lebeche Ring",
+    Ear2 = {Name="Corybant Pearl", Augment=CUREPOT16},
+    Ring1 = "Kunaji Ring",
 }
 sets.AllJobs['HolyWater'] = {
     Ring1="Blenmot's Ring +1",
@@ -211,7 +217,7 @@ sets.AllJobs['TH'] = {
     Hands="Volte Bracers",
     Legs="Volte Hose",
     Feet="Volte Boots",
-    Waist = "Chaac Belt"
+    Waist = {Name="Chaac Belt",Augment=SAVETP200}
 }
 
 sets.AllJobs['Nexus'] = {
@@ -270,6 +276,14 @@ sets.Zones['Heavens Tower'] = gFunc.Combine(sets.Zones['Windy'], {})
 
 sets.AllJobs['Crafting'] = {
     Back = "Shaper's Shawl"
+}
+
+sets.Chocobo = {}
+sets.Chocobo['Mount'] = {
+    Body = 'Orange Race Silks',
+}
+sets.Chocobo['Dig'] = {
+    Body = 'Blue Race Silks',
 }
 
 infoLog("Loaded common gearsets")

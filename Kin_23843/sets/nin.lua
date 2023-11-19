@@ -2,7 +2,7 @@ AF_HEAD = {Name="Hachi. Hatsu. +2"}
 AF_BODY = {Name="Hachiya "}
 AF_HANDS = {Name="Hachiya "}
 AF_LEGS = {Name="Hachiya "}
-AF_FEET = {Name="Hachi. Kyahan +2"}
+AF_FEET = {Name="Hachiya Kyahan +2"}
 RELIC_HEAD = {Name="Mochi. Hatsuburi +3"}
 RELIC_BODY = {Name="Mochi. "}
 RELIC_HANDS = {Name="Mochi. "}
@@ -28,14 +28,14 @@ sets['Engaged']['Katana'] = {
 
 -- Every day killing things
 sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
-    Waist = { Name = 'Windbuffet Belt +1', Augment = TA12 },
+    Waist = { Name = 'Shetal Stone', Augment = { [1] = '"Dual Wield"+16', [2] = '"Store TP"+20', [3] = '"Subtle Blow"+20' } },
 })
 
 -- Every day attacky things!
 sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
     Neck = { Name = 'Tlamiztli Collar', Augment = TA8 },
     Ear1 = { Name = 'Mache Earring +1', Augment = TA8 },
-    Ear2 = { Name = 'Suppanomimi',},
+    Ear2 = { Name = 'Cessance Earring'},
     Ring1 = { Name = 'Regal Ring', Augment = TA8 },
     Ring2 = { Name = 'Epona\'s Ring', Augment = TA8 },
     Waist = { Name = 'Windbuffet Belt +1', Augment = TA12 },
@@ -64,33 +64,31 @@ sets['Resting']={}
 sets.NIN['MAB'] = gFunc.Combine(sets.AllJobs['MAB'], {
     Head=RELIC_HEAD,
     Body = {Name="Gyve Doublet", Augment=MAB32},
-
+    Hands="Pursuer's Cuffs",
     Legs = {Name="Gyve Trousers", Augment=MAB32},
     Feet=AF_FEET
 })
 
-sets.NIN['MAB']['Fire'] = gFunc.Combine(sets.NIN['MAB'],{})
-sets.NIN['MAB']['Wind'] = gFunc.Combine(sets.NIN['MAB'],{})
-sets.NIN['MAB']['Water'] = gFunc.Combine(sets.NIN['MAB'],{})
-sets.NIN['MAB']['Earth'] = gFunc.Combine(sets.NIN['MAB'],{})
-sets.NIN['MAB']['Thunder'] = gFunc.Combine(sets.NIN['MAB'],{})
-sets.NIN['MAB']['Ice'] = gFunc.Combine(sets.NIN['MAB'],{})
-sets.NIN['MAB']['Light'] = gFunc.Combine(sets.NIN['MAB'],{})
-sets.NIN['MAB']['Dark'] = gFunc.Combine(sets.NIN['MAB'],{
-    Head="Pixie Hairpin +1"
+sets.NIN['Nuke'] = gFunc.Combine(sets.NIN['MAB'],{
+    Hands=EMPYREAN_HANDS,
+    -- Ring1={Name="Shiva Ring +1", Augment=INT32},
+    -- Ring2={Name="Shiva Ring +1", Augment=INT32},
 })
+
 sets.NIN['MaxHaste'] = {
     Head=EMPYREAN_HEAD, --10%
     Body="Volte Jupon", --5% 
     Hands=EMPYREAN_HANDS, -- 5%
-    Legs = "Hiza. Hizayoroi +2", --9%
+    Legs = {Name="Hiza. Hizayoroi +2", Augment=TA12}, --9%
     Feet=EMPYREAN_FEET, --5%
     Waist="Hurch'lan Sash", -- 7%
     Ear1 = "Belatz Pearl", --1% 42% total
 }
 
 sets.NIN['Magic'] = {}
-sets.NIN['Magic']['Cure'] = gFunc.Combine(sets.AllJobs['Midcast']['Cure'], {})
+sets.NIN['Magic']['Cure'] = gFunc.Combine(sets.AllJobs['Midcast']['Cure'], {
+    Hands={Name="Buremte Gloves"}
+})
 sets.NIN['Magic']['BLU_Physical'] = {}
 sets.NIN['Magic']['BLU_Buffs'] = {}
 sets.NIN['Magic']['BLU_Nukes'] = gFunc.Combine(sets.NIN['MAB'], {})
@@ -107,6 +105,31 @@ sets.NIN['Magic']['Utsusemi: Ni'] = gFunc.Combine(sets.NIN['Magic']['Utsusemi'],
 sets.NIN['Magic']['Migawari: Ichi'] = {
     Body=EMPYREAN_BODY
 }
+
+sets.NIN['Nuke']['Fire'] = gFunc.Combine(sets.NIN['Nuke'],{})
+sets.NIN['Nuke']['Wind'] = gFunc.Combine(sets.NIN['Nuke'],{})
+sets.NIN['Nuke']['Water'] = gFunc.Combine(sets.NIN['Nuke'],{})
+sets.NIN['Nuke']['Earth'] = gFunc.Combine(sets.NIN['Nuke'],{})
+sets.NIN['Nuke']['Thunder'] = gFunc.Combine(sets.NIN['Nuke'],{})
+sets.NIN['Nuke']['Ice'] = gFunc.Combine(sets.NIN['Nuke'],{})
+sets.NIN['Nuke']['Light'] = gFunc.Combine(sets.NIN['Nuke'],{})
+sets.NIN['Nuke']['Dark'] = gFunc.Combine(sets.NIN['Nuke'],{
+    Head="Pixie Hairpin +1"
+})
+
+sets.NIN['MAB']['Fire'] = gFunc.Combine(sets.NIN['MAB'],{})
+sets.NIN['MAB']['Wind'] = gFunc.Combine(sets.NIN['MAB'],{})
+sets.NIN['MAB']['Water'] = gFunc.Combine(sets.NIN['MAB'],{})
+sets.NIN['MAB']['Earth'] = gFunc.Combine(sets.NIN['MAB'],{})
+sets.NIN['MAB']['Thunder'] = gFunc.Combine(sets.NIN['MAB'],{})
+sets.NIN['MAB']['Ice'] = gFunc.Combine(sets.NIN['MAB'],{})
+sets.NIN['MAB']['Light'] = gFunc.Combine(sets.NIN['MAB'],{})
+sets.NIN['MAB']['Dark'] = gFunc.Combine(sets.NIN['MAB'],{
+    Head="Pixie Hairpin +1"
+})
+
+
+
 
 sets.NIN['DayWeatherBonus'] = {}
 
@@ -125,13 +148,22 @@ sets.JobAbility['Mikage'] = gFunc.Combine(sets.AllJobs['JobAbility'],{})
 --------------------------------------
 --           BEGIN WS GEARSETS      --
 --------------------------------------
-sets['WeaponSkills'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
+sets['WeaponSkills']['Base'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
     Ammo = { Name = 'Fire Bomblet', Augment = { [1] = 'Weapon Skill Acc.+2', [2] = 'Weapon skill damage +5%', [3] = 'DMG:+2', [4] = 'Attack+7', [5] = 'Accuracy+7' } }, --5% WSD
-    Legs = "Hiza. Hizayoroi +2",
-    Head=AF_HEAD
+    Legs = {Name="Hiza. Hizayoroi +2",Augment=TA12},
+    Head=AF_HEAD,
+    Ring1 = {Name="Epona's Ring",Augment=TA8},
+    Ring2 = {Name="Regal Ring",Augment=TA8},
+    Back = {Name="Laic Mantle",Augment=SAVETP200},
+    Waist = {Name="Chaac Belt",Augment=SAVETP200}
 })
 
-sets['WeaponSkills']['Crit'] = gFunc.Combine(sets['WeaponSkills'], {
+sets['WeaponSkills']['Fotia'] = gFunc.Combine(sets['WeaponSkills']['Base'], {
+    Neck = { Name = 'Fotia Gorget' },
+    Waist = { Name = "Fotia Belt" }
+})
+
+sets['WeaponSkills']['Crit'] = gFunc.Combine(sets['WeaponSkills']['Base'], {
     Ammo={Name="Yetshila +1", Augments={[1]='"Triple Atk."+4', [2]="Critical Hit Rate +10"}}, --12% Crit Rate, 6% Damage
     -- Commenting out these two, because Hiza Legs are 7% All Hit WSD, and Head is 5%/10% (+2/+3) First hit WSD
     -- Head={Name="Mummu Bonnet +2",Augments={}}, -- 5% Crit Rate
@@ -146,12 +178,12 @@ sets['WeaponSkills']["Blade: Yu"] = gFunc.Combine(sets.NIN['MAB']['Water'], {})
 sets['WeaponSkills']["Blade: To"] = gFunc.Combine(sets.NIN['MAB']['Ice'], {})
 sets['WeaponSkills']["Blade: Chi"] = gFunc.Combine(sets.NIN['MAB']['Earth'], {})
 sets['WeaponSkills']["Blade: Ei"] = gFunc.Combine(sets.NIN['MAB']['Dark'], {})
-sets['WeaponSkills']["Blade: Retsu"] = gFunc.Combine(sets['WeaponSkills'], {})
-sets['WeaponSkills']["Blade: Ten"] = gFunc.Combine(sets['WeaponSkills'], {})
-sets['WeaponSkills']["Blade: Ku"] = gFunc.Combine(sets['WeaponSkills'], {})
-sets['WeaponSkills']["Blade: Shun"] = gFunc.Combine(sets['WeaponSkills'], {})
-sets['WeaponSkills']["Blade: Metsu"] = gFunc.Combine(sets['WeaponSkills'], {})
-sets['WeaponSkills']["Blade: Kamu"] = gFunc.Combine(sets['WeaponSkills'], {})
+sets['WeaponSkills']["Blade: Retsu"] = gFunc.Combine(sets['WeaponSkills']['Base'], {})
+sets['WeaponSkills']["Blade: Ten"] = gFunc.Combine(sets['WeaponSkills']['Base'], {})
+sets['WeaponSkills']["Blade: Ku"] = gFunc.Combine(sets['WeaponSkills']['Fotia'], {})
+sets['WeaponSkills']["Blade: Shun"] = gFunc.Combine(sets['WeaponSkills']['Fotia'], {})
+sets['WeaponSkills']["Blade: Metsu"] = gFunc.Combine(sets['WeaponSkills']['Base'], {})
+sets['WeaponSkills']["Blade: Kamu"] = gFunc.Combine(sets['WeaponSkills']['Base'], {})
 
 sets['Unknown'] = {}
 sets['Dead'] = {}
