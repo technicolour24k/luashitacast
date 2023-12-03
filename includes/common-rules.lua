@@ -21,6 +21,32 @@ function commonCommandRules (sets, cmd)
         end
     end
 
+    if (cmd[1]=="crystals") then
+        if (cmd[2]) then
+            r = cmd[2]
+            for i=1, r, 1 do
+                sendCommand('/item "Dark Cluster" <me>')
+                coroutine.sleep(2)
+            end
+        else
+            errorLog("Missing second parameter: repetitions. Number expected.")
+        end
+    end
+
+    if (cmd[1]=="dig") then
+        if (cmd[2]) then
+            r = cmd[2]
+            sendCommand('/equip Body "Blue racing silks"')
+            for i=1, r, 1 do
+                infoLog("[Dig] Digging: "..i.." of "..r)
+                sendCommand('/dig')
+                coroutine.sleep(1)
+            end
+        else
+            errorLog("Missing second parameter: repetitions. Number expected.")
+        end
+    end
+
     -- Function to recursively display the names of subtables
     function printSubTableNames(tbl, prefix)
         tbl = tbl or sets
@@ -362,12 +388,12 @@ function commonMidcastRules (sets, spell, skill, type)
 
     if (itemInArray(enspells,spell)) then
         equip(sets.AllJobs['Midcast']['Enspell'])
-        if (debugEnabled()) then debugLof("Equipping sets.AllJobs['Midcast']['Enspell']") end
+        if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']['Enspell']") end
     end
 
     if (itemInArray(conserveMP_list,spell)) then
         equip(sets.AllJobs['ConserveMP'])
-        if (debugEnabled()) then debugLof("Equipping sets.AllJobs['ConserveMP']") end
+        if (debugEnabled()) then debugLog("Equipping sets.AllJobs['ConserveMP']") end
 
     end
 
@@ -375,26 +401,26 @@ function commonMidcastRules (sets, spell, skill, type)
         if (itemInArray(BLU_Nukes,spell)) then
             if (sets[player.MainJob]['Magic']['BLU_Nukes']) then
                 equip(sets[player.MainJob]['Magic']['BLU_Nukes'])
-                if (debugEnabled()) then debugLof("Equipping sets["..player.MainJob.."]['Magic']['BLU_Nukes']") end
+                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']['BLU_Nukes']") end
             elseif (sets.AllJobs['Midcast']['BLU_Nukes']) then
                 equip(sets.AllJobs['Midcast']['BLU_Nukes'])
-                if (debugEnabled()) then debugLof("Equipping sets.AllJobs['Midcast']['BLU_Nukes']") end
+                if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']['BLU_Nukes']") end
             end
         elseif (itemInArray(BLU_Buffs,spell)) then
             if (sets[player.MainJob]['Magic']['BLU_Buffs']) then
                 equip(sets[player.MainJob]['Magic']['BLU_Buffs'])
-                if (debugEnabled()) then debugLof("Equipping sets["..player.MainJob.."]['Magic']['BLU_Buffs']") end
+                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']['BLU_Buffs']") end
             elseif (sets.AllJobs['Midcast']['BLU_Buffs']) then
                 equip(sets.AllJobs['Midcast']['BLU_Buffs'])
-                if (debugEnabled()) then debugLof("Equipping sets.AllJobs['Midcast']['BLU_Buffs']") end
+                if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']['BLU_Buffs']") end
             end
         elseif (itemInArray(BLU_Physical,spell)) then
             if (sets[player.MainJob]['Magic']['BLU_Physical']) then
                 equip(sets[player.MainJob]['Magic']['BLU_Physical'])
-                if (debugEnabled()) then debugLof("Equipping sets["..player.MainJob.."]['Magic']['BLU_Physical']") end
+                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']['BLU_Physical']") end
             elseif (sets.AllJobs['Midcast']['BLU_Physical']) then
                 equip(sets.AllJobs['Midcast']['BLU_Physical'])
-                if (debugEnabled()) then debugLof("Equipping sets.AllJobs['Midcast']['BLU_Physical']") end
+                if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']['BLU_Physical']") end
             end
         end
     end
@@ -403,22 +429,22 @@ function commonMidcastRules (sets, spell, skill, type)
 		if (itemInArray(Helixes,spell)) then
 			if activeArts == "default" then
 				equip(sets[player.MainJob]['Magic']['Helixes'])
-                if (debugEnabled()) then debugLof("Equipping sets["..player.MainJob.."]['Magic']['Helixes']") end
+                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']['Helixes']") end
 
 			else
 				equip(sets[player.MainJob]['Magic']['Helixes'][activeArts])
-                if (debugEnabled()) then debugLof("Equipping sets["..player.MainJob.."]['Magic']['Helixes']["..activeArts.."]") end
+                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']['Helixes']["..activeArts.."]") end
 			end
 		end
 	end
 
     if ((player.MainJob=="NIN") or (player.SubJob=="NIN")) then
         if (itemInArray(NIN_nukes,spell)) then
-            equip(sets[player.MainJob]['Nuke'])
-            if (sets[player.MainJob]['Nuke'][action.Element]) then
+            -- equip(sets[player.MainJob]['Nuke'])
+            -- if (sets[player.MainJob]['Nuke'][action.Element]) then
                 equip(sets[player.MainJob]['Nuke'][action.Element])
                 if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Nuke']["..action.Element.."]") end
-            end
+            -- end
         end
     end
     
