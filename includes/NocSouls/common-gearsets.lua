@@ -22,9 +22,7 @@ sets.AllJobs['WeaponSkills']['Fotia'] = gFunc.Combine(sets.AllJobs['WeaponSkills
 
 sets.AllJobs['MAB'] = {
     Ammo = {Name='Erlene\'s Notebook', Augment=MAB32},
-    -- Neck = {Name='Deviant Necklace',Augment=MAB40},
     Neck = {Name='Nefarious Collar', Augment=MCRITDMG16},
-    -- Ear1 = {Name='Novio Earring',Augment=MAB32},
     Ear1 = {Name='Choleric Earring',Augment=MCRITDMG16},
     Ear2 = {Name='Friomisi Earring',Augment=MCRITDMG16},
     Ring1 = {Name='Resonance Ring', Augment=MCRIT40},
