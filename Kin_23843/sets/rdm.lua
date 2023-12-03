@@ -108,7 +108,7 @@ sets.RDM['MAB'] = gFunc.Combine(sets.AllJobs['MAB'], {
     Hands="Jhakri Cuffs +2", --40 MAB
     Legs={Name="Gyve Trousers", Augment=MAB32},--40 MAB
     Feet={Name="Vitiation Boots +2", Augment=MAB32}, -- 48 MAB, +3 is used for Enfeebling Magic sets
-    Waist={Name="Yamabuki-no-Obi",Augment=MAB32},
+    Waist={Name="Eschan Stone",Augment=MAB40},
 })
 
 sets.RDM['MAB']['Fire'] = gFunc.Combine(sets.RDM['MAB'],{
