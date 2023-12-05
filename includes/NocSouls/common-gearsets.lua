@@ -35,7 +35,7 @@ sets.AllJobs['TP'] = {
     Ammo = { Name = 'Staunch Tathlum', Augment = '"Counter"+20' },
     Head = {Name="Volte Cap",Augment=MEVA48},
     Neck = { Name = 'Loricate Torque +1', Augment = STP60 }, -- Subtle Blow capped (60/50)
-    Ear1 = { Name = 'Telos Earring', Augment = '"Counter"+20' },
+    Ear1 = { Name = 'Neritic Earring', Augment = STP40 },
     Ear2 = { Name = 'Hearty Earring', },
     Body={Name="Volte Jupon",Augment=MEVA48},
     Hands={Name="Volte Bracers",Augment=MEVA48},
@@ -44,6 +44,7 @@ sets.AllJobs['TP'] = {
     Back = { Name = 'Moonbeam Cape', Augment = STP40 },
     Ring1 = { Name = 'Defending Ring', Augment = COUNTER40 },
     Ring2 = { Name = 'Patricius Ring', Augment = COUNTER40 },
+    Waist = { Name = 'Shetal Stone', Augment = { [1] = '"Dual Wield"+16', [2] = '"Store TP"+20', [3] = '"Subtle Blow"+20' } },
 }
 
 sets.AllJobs['RegenPot'] = {}
