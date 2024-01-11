@@ -244,7 +244,7 @@ sets.RDM['Misc']['Max HP'] = {
     Main={Name="Sagasinger", Augment=HP},
     Sub={Name="Bloodbead Ecu", Augment=HP},
     Head={Name="Volte Tiara", Augment=HP},
-    Neck={Name="Inq. Bead Necklace", Augment=HP}, --55HP
+    Neck={Name="Lavalier +1", Augment=HP}, --55HP
     Ear1={Name="Upsurge Earring", Augment=HP}, --55 MP > HP
     Ear2={Name="Cryptic Earring", Augment=HP},
     Body={Name="Ros. Jaseran +1", Augment=HP},

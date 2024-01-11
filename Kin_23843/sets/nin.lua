@@ -66,7 +66,7 @@ sets.NIN['MAB'] = gFunc.Combine(sets.AllJobs['MAB'], {
     Body = {Name="Gyve Doublet", Augment=MAB32},
     Hands="Pursuer's Cuffs",
     Legs = {Name="Gyve Trousers", Augment=MAB32},
-    Feet=AF_FEET
+    Feet=AF_FEET,
 })
 
 sets.NIN['Nuke'] = gFunc.Combine(sets.NIN['MAB'],{
@@ -177,7 +177,13 @@ sets['WeaponSkills']["Blade: Teki"] = gFunc.Combine(sets.NIN['MAB']['Water'], {}
 sets['WeaponSkills']["Blade: Yu"] = gFunc.Combine(sets.NIN['MAB']['Water'], {})
 sets['WeaponSkills']["Blade: To"] = gFunc.Combine(sets.NIN['MAB']['Ice'], {})
 sets['WeaponSkills']["Blade: Chi"] = gFunc.Combine(sets.NIN['MAB']['Earth'], {})
-sets['WeaponSkills']["Blade: Ei"] = gFunc.Combine(sets.NIN['MAB']['Dark'], {})
+sets['WeaponSkills']["Blade: Ei"] = gFunc.Combine(sets.NIN['MAB']['Dark'], {
+    Neck = {Name="Deviant Necklace", Augment=MAB40},
+    Ear1 = {Name="Novio Earring", Augment=MAB40},
+    Ear2 = {Name="Hecate's Earring",Augment=MAB32},
+    Ring1 = {Name="Epona's Ring",Augment=TA8},
+    Ring2 = {Name="Regal Ring", Augment=TA8}
+})
 sets['WeaponSkills']["Blade: Retsu"] = gFunc.Combine(sets['WeaponSkills']['Base'], {})
 sets['WeaponSkills']["Blade: Ten"] = gFunc.Combine(sets['WeaponSkills']['Base'], {})
 sets['WeaponSkills']["Blade: Ku"] = gFunc.Combine(sets['WeaponSkills']['Fotia'], {})

@@ -43,7 +43,7 @@ sets['Engaged']['Combo'] = {
 
 -- Every day killing things
 sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
-    Waist={ Name="Windbuffet Belt +1", Augment = '"Triple Atk."+8' },
+    Waist={ Name="Windbuffet Belt +1", Augment = TA12 },
 })
 
 -- Every day attacky things!
@@ -192,22 +192,20 @@ sets.DRK['Magic']['Gain-CHR'] = gFunc.Combine(sets.DRK['Magic']['Gains'],{})
 
 sets.DRK['Misc'] = {}
 sets.DRK['Misc']['Max HP'] = {
-    Main="Sagasinger",
-    Sub="Bloodbead Ecu",
-    --Head="Volte Tiara",
-    Head=RELIC_HEAD,
-    Neck="Inq. Bead Necklace", --55HP
+    -- Main="Sagasinger",
+    -- Sub="Bloodbead Ecu",
+    Head="Volte Tiara",
+    Neck="Lavalier +1", --55HP
     Ear1="Upsurge Earring", --55 MP > HP
     Ear2="Cryptic Earring",
-    Body="Ros. Jaseran +1",
+    -- Body="Ros. Jaseran +1",
     Hands="Boor Bracelets", --70HP
     Ring1="Bomb Queen Ring", --75HP
     Ring2="Meridian Ring", --90HP
     Back="Moonbeam Cape",
     Waist="Gold Moogle Belt",
-    --Legs="Volte Tights",
-    Legs=AF_LEGS,
-    Feet=AF_FEET
+    -- Legs=AF_LEGS,
+    -- Feet=AF_FEET
 
 }
 
