@@ -112,21 +112,21 @@ sets.AllJobs['Midcast']['EnfeeblingDuration'] = {
 sets.AllJobs['Midcast']['Divine Magic'] = {}
 sets.AllJobs['Midcast']['Healing Magic'] = {}
 sets.AllJobs['Midcast']['Enhancing Magic'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{
-    -- Main={Name="",Augment=ENHANCE20},
+    Main={Name="Lady Bell",Augment=ENHANCE20},
     -- Sub={Name="",Augment=ENHANCE20},
-    -- Ammo={Name="",Augment=ENHANCE20},
-    -- Head={Name="",Augment=ENHANCE20},
+    Range={Name="Silver Gun",Augment=ENHANCE20},
+    Head={Name="Cache-Nez",Augment=ENHANCE20},
     Neck= {Name="Enhancing Torque", Augment=ENHANCE20},
     Ear1={Name="Andoaa Earring",Augment=ENHANCE20},
     -- Ear2={Name="",Augment=ENHANCE20},
-    -- Body={Name="",Augment=ENHANCE20},
-    -- Hands={Name="",Augment=ENHANCE20},
+    Body={Name="Fisherman's Tunica",Augment=ENHANCE20},
+    Hands={Name="Fisherman's Gloves",Augment=ENHANCE20},
     Ring1={Name="Stikini Ring +1",Augment=ENHANCE20},
     Ring2={Name="Stikini Ring +1",Augment=ENHANCE20},
     -- Back={Name="",Augment=ENHANCE20},
     -- Waist={Name="",Augment=ENHANCE20},
-    -- Legs={Name="",Augment=ENHANCE20},
-    -- Feet={Name="",Augment=ENHANCE20},
+    Legs={Name="Fisherman's Hose",Augment=ENHANCE20},
+    Feet={Name="Fisherman's Boots",Augment=ENHANCE20},
 })
 sets.AllJobs['Midcast']['Enfeebling Magic'] = gFunc.Combine(sets.AllJobs['MaxMAcc'],{})
 sets.AllJobs['Midcast']['Elemental Magic'] = gFunc.Combine(sets.AllJobs['MAB'], {})
