@@ -17,7 +17,7 @@ EMPYREAN_FEET = {Name="Leth. Houseaux +1", Augment=ENHANCE20}
 
 
 sets.default={}
-sets.SMN={}
+sets.SCH={}
 sets.Idle = {}
 sets.Engaged = {}
 --------------------------------------
@@ -55,7 +55,7 @@ sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
     -- Hands="Volte Bracers",
     -- Legs="Volte Hose",
     -- Feet="Volte Boots",
-    Waist={ Name="Windbuffet Belt +1", Augment = '"Triple Atk."+8' },
+    Waist={ Name="Windbuffet Belt +1", Augment = TA12 },
 })
 
 -- Every day attacky things!
@@ -102,52 +102,50 @@ sets.Idle['Defensive'] = gFunc.Combine(sets.Idle['Balanced'], {
 
 sets['Resting']={}
 
-sets.SMN['MAB'] = gFunc.Combine(sets.AllJobs['MAB'], {
+sets.SCH['MAB'] = gFunc.Combine(sets.AllJobs['MAB'], {
     Head=EMPYREAN_HEAD, --25 MAB
     Body={Name="Gyve Doublet", Augment=MAB32}, --52 MAB
     Hands="Jhakri Cuffs +2", --40 MAB
     Legs={Name="Gyve Trousers", Augment=MAB32},--40 MAB
     Feet={Name="Vitiation Boots +2", Augment=MAB32}, -- 48 MAB, +3 is used for Enfeebling Magic sets
-    Waist={Name="Yamabuki-no-Obi",Augment=MAB32},
+    Waist={Name="Eschan Stone",Augment=MAB40},
 })
 
-sets.SMN['MAB']['Fire'] = gFunc.Combine(sets.SMN['MAB'],{
+sets.SCH['MAB']['Fire'] = gFunc.Combine(sets.SCH['MAB'],{
     Main="Melisseus Staff", 
     Sub="Elan Strap"
 })
-sets.SMN['MAB']['Wind'] = gFunc.Combine(sets.SMN['MAB'],{
+sets.SCH['MAB']['Wind'] = gFunc.Combine(sets.SCH['MAB'],{
     Main="Melisseus Staff", 
     Sub="Elan Strap",
     Back="Kaikias' Cape"
 })
-sets.SMN['MAB']['Water'] = gFunc.Combine(sets.SMN['MAB'],{})
-sets.SMN['MAB']['Earth'] = gFunc.Combine(sets.SMN['MAB'],{
+sets.SCH['MAB']['Water'] = gFunc.Combine(sets.SCH['MAB'],{})
+sets.SCH['MAB']['Earth'] = gFunc.Combine(sets.SCH['MAB'],{
     Neck="Quanpur Necklace"
 })
-sets.SMN['MAB']['Thunder'] = gFunc.Combine(sets.SMN['MAB'],{})
-sets.SMN['MAB']['Ice'] = gFunc.Combine(sets.SMN['MAB'],{
+sets.SCH['MAB']['Thunder'] = gFunc.Combine(sets.SCH['MAB'],{})
+sets.SCH['MAB']['Ice'] = gFunc.Combine(sets.SCH['MAB'],{
     Main="Ngqoqwanb",
     Sub="Elan Strap"
 })
-sets.SMN['MAB']['Light'] = gFunc.Combine(sets.SMN['MAB'],{})
-sets.SMN['MAB']['Dark'] = gFunc.Combine(sets.SMN['MAB'],{})
+sets.SCH['MAB']['Light'] = gFunc.Combine(sets.SCH['MAB'],{})
+sets.SCH['MAB']['Dark'] = gFunc.Combine(sets.SCH['MAB'],{})
 
-sets.SMN['MCrit'] = gFunc.Combine(sets.SMN['MAB'], {
-    -- Neck = "Nefarious Collar" --3% MCrit TODO: AUG 20% MCrit 23%
-    Ear1 = "Hecate's Earring", -- 3% MCrit TODO: AUG 20% MCrit 23%
-    Ear2 = "Choleric Earring", -- 10% MCrit TODO: AUG 40% MCrit 50% (Snowtip Stone +1 x4)
-    -- Waist = "Aswang Sash", -- 5% MCrit TODO: AUG 20% 25%
-    -- Total 101% MCrit
+sets.SCH['MCrit'] = gFunc.Combine(sets.SCH['MAB'], {    
+    Ear2 = {Name="Choleric Earring",}, -- 10% MCrit rate
+    Ring1 = {Name="Resonance Ring",Augment=MCRIT40}, --5% MCrit rate +40% aug 
+    Ring2 = {Name="Locus Ring",Augment=MCRIT40}, --5% MCrit rate +40% aug
 })
 
-sets.SMN['MBurst'] = gFunc.Combine(sets.SMN['MCrit'],{
+sets.SCH['MBurst'] = gFunc.Combine(sets.SCH['MCrit'],{
     Head=AF_HEAD,
     Neck="Mizu. Kubikazari",
-    Feet="Jhakri Pigaches +2"
+    Feet="Jhakri Pigaches +2",
 })
 
-sets.SMN['Magic'] = {}
-sets.SMN['Magic']['Cure'] = gFunc.Combine(sets.AllJobs['Midcast']['Cure'],{
+sets.SCH['Magic'] = {}
+sets.SCH['Magic']['Cure'] = gFunc.Combine(sets.AllJobs['Midcast']['Cure'],{
     Head="Iaso Mitra", --11%
     Hands="Bokwus Gloves", --13% => 24%
     Legs=AF_LEGS, --11% => 35%
@@ -156,32 +154,32 @@ sets.SMN['Magic']['Cure'] = gFunc.Combine(sets.AllJobs['Midcast']['Cure'],{
     Ring2="Sirona's ring"
 })
 
-sets.SMN['Magic']['Cure II'] = gFunc.Combine(sets.SMN['Magic']['Cure'],{})
-sets.SMN['Magic']['Cure III'] = gFunc.Combine(sets.SMN['Magic']['Cure'],{})
-sets.SMN['Magic']['Cure IV'] = gFunc.Combine(sets.SMN['Magic']['Cure'],{})
+sets.SCH['Magic']['Cure II'] = gFunc.Combine(sets.SCH['Magic']['Cure'],{})
+sets.SCH['Magic']['Cure III'] = gFunc.Combine(sets.SCH['Magic']['Cure'],{})
+sets.SCH['Magic']['Cure IV'] = gFunc.Combine(sets.SCH['Magic']['Cure'],{})
 
-sets.SMN['Magic']['White Wind'] = gFunc.Combine(sets.SMN['Magic']['Cure'], {})
-sets.SMN['Magic']['Restoral'] = gFunc.Combine(sets.SMN['Magic']['Cure'], {})
-sets.SMN['Magic']['Plenilune Embrace'] = gFunc.Combine(sets.SMN['Magic']['Cure'], {})
-sets.SMN['Magic']['Exuviation'] = gFunc.Combine(sets.SMN['Magic']['Cure'], {})
-sets.SMN['Magic']['Magic Fruit'] = gFunc.Combine(sets.SMN['Magic']['Cure'], {})
-sets.SMN['Magic']['Pollen'] = gFunc.Combine(sets.SMN['Magic']['Cure'], {})
+sets.SCH['Magic']['White Wind'] = gFunc.Combine(sets.SCH['Magic']['Cure'], {})
+sets.SCH['Magic']['Restoral'] = gFunc.Combine(sets.SCH['Magic']['Cure'], {})
+sets.SCH['Magic']['Plenilune Embrace'] = gFunc.Combine(sets.SCH['Magic']['Cure'], {})
+sets.SCH['Magic']['Exuviation'] = gFunc.Combine(sets.SCH['Magic']['Cure'], {})
+sets.SCH['Magic']['Magic Fruit'] = gFunc.Combine(sets.SCH['Magic']['Cure'], {})
+sets.SCH['Magic']['Pollen'] = gFunc.Combine(sets.SCH['Magic']['Cure'], {})
 
-sets.SMN['Magic']['BLU_Physical'] = {}
-sets.SMN['Magic']['BLU_Buffs'] = {}
-sets.SMN['Magic']['BLU_Nukes'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.SMN['Magic']['EnhancingDuration'] = gFunc.Combine(sets.AllJobs['Midcast']['Enhancing Magic'], {
+sets.SCH['Magic']['BLU_Physical'] = {}
+sets.SCH['Magic']['BLU_Buffs'] = {}
+sets.SCH['Magic']['BLU_Nukes'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.SCH['Magic']['EnhancingDuration'] = gFunc.Combine(sets.AllJobs['Midcast']['Enhancing Magic'], {
     Hands=AF_HANDS,
     Body=RELIC_BODY,
     Feet=EMPYREAN_FEET,
     Back="Sucellos's Cape",
 })
 
-sets.SMN['Magic']['EnfeeblingDuration'] = gFunc.Combine(sets.AllJobs['Midcast']['EnfeeblingDuration'], {
+sets.SCH['Magic']['EnfeeblingDuration'] = gFunc.Combine(sets.AllJobs['Midcast']['EnfeeblingDuration'], {
 })
 
-sets.SMN['Magic']['Enhancing Magic'] = gFunc.Combine(sets.SMN['Magic']['EnhancingDuration'],{
-    Head="Umuthi Hat", --Not yet available, TODO: Grab it when it is.
+sets.SCH['Magic']['Enhancing Magic'] = gFunc.Combine(sets.SCH['Magic']['EnhancingDuration'],{
+    Head={Name="Umuthi Hat",Augment=ENHANCE20},
     Neck= {Name="Enhancing Torque", Augment=ENHANCE20},
     Ear1={Name="Andoaa Earring",Augment=ENHANCE20},
     Body=RELIC_BODY,
@@ -193,7 +191,7 @@ sets.SMN['Magic']['Enhancing Magic'] = gFunc.Combine(sets.SMN['Magic']['Enhancin
     Back={Name="Estoqueur's cape", Augment=ENHANCE20},
 })
 
-sets.SMN['Magic']['Enfeebling Magic'] = gFunc.Combine(sets.SMN['Magic']['EnfeeblingDuration'],{
+sets.SCH['Magic']['Enfeebling Magic'] = gFunc.Combine(sets.SCH['Magic']['EnfeeblingDuration'],{
     Ammo={ Name="Quartz Tathlum", Augment=ENFEEBLE20}, --Enfeebling skill+
     Head=RELIC_HEAD, --Enfeebling Skill+
     Neck={ Name="Dls. Torque +1"}, --Enfeebling Potency +7
@@ -206,52 +204,47 @@ sets.SMN['Magic']['Enfeebling Magic'] = gFunc.Combine(sets.SMN['Magic']['Enfeebl
     Legs={Name="Psycloth Lappas", Augment=ENFEEBLE20},
     Feet=RELIC_FEET, --Enfeebling Potency+ 5(AF+2) or 10 (AF+3)
 })
-sets.SMN['Magic']['Elemental Magic'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.SMN['Magic']['Dark Magic'] = gFunc.Combine(sets.SMN['MAB'],{})
+sets.SCH['Magic']['Elemental Magic'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.SCH['Magic']['Dark Magic'] = gFunc.Combine(sets.SCH['MAB'],{})
 
-sets.SMN['Magic']['Dispel'] = gFunc.Combine(sets.SMN['Magic']['Enfeebling Magic'], {
+sets.SCH['Magic']['Dispel'] = gFunc.Combine(sets.SCH['Magic']['Enfeebling Magic'], {
     Neck="Dls. Torque +1"
 })
 
-sets.SMN['Magic']['Drain'] = gFunc.Combine(sets.SMN['Magic']['Dark Magic'],{
+sets.SCH['Magic']['Drain'] = gFunc.Combine(sets.AllJobs['Midcast']['DrainAspir'],{
     Head={Name="Appetence Crown", Augment=DRAINASPIR40},
     Waist={Name="Fucho-no-Obi",Augment=DRAINASPIR40},
-    Ear1={Name="Abyssal Earring",Augment=DRAINASPIR40},
-    Ear2={Name="Silver Earring",Augment=DRAINASPIR40},
-    Back={Name="Merciful Cape",Augment=DRAINASPIR40},
-    Ring1={Name="Hermit\'s Ring",Augment=DRAINASPIR40,},
-    Ring2={Name="Hermit\'s Ring",Augment=DRAINASPIR40,},
 })
-sets.SMN['Magic']['Drain II'] = gFunc.Combine(sets.SMN['Magic']['Drain'],{})
-sets.SMN['Magic']['Aspir'] = gFunc.Combine(sets.SMN['Magic']['Drain'],{})
-sets.SMN['Magic']['Aspir II'] = gFunc.Combine(sets.SMN['Magic']['Drain'],{})
+sets.SCH['Magic']['Drain II'] = gFunc.Combine(sets.SCH['Magic']['Drain'],{})
+sets.SCH['Magic']['Aspir'] = gFunc.Combine(sets.SCH['Magic']['Drain'],{})
+sets.SCH['Magic']['Aspir II'] = gFunc.Combine(sets.SCH['Magic']['Drain'],{})
 
-sets.SMN['Magic']['Impact'] = {
+sets.SCH['Magic']['Impact'] = {
     Body = "Twilight Cloak"
 }
 
-sets.SMN['Magic']['Helixes'] = gFunc.Combine(sets.SMN['Magic']['Elemental Magic'], {})
-sets.SMN['Magic']['Helixes']['Light Arts'] = gFunc.Combine(sets.SMN['Magic']['Helixes'], {})
-sets.SMN['Magic']['Helixes']['Dark Arts'] = gFunc.Combine(sets.SMN['Magic']['Helixes'], {})
+sets.SCH['Magic']['Helixes'] = gFunc.Combine(sets.SCH['Magic']['Elemental Magic'], {})
+sets.SCH['Magic']['Helixes']['Light Arts'] = gFunc.Combine(sets.SCH['Magic']['Helixes'], {})
+sets.SCH['Magic']['Helixes']['Dark Arts'] = gFunc.Combine(sets.SCH['Magic']['Helixes'], {})
 
-sets.SMN['Magic']['Gains'] = gFunc.Combine(sets.SMN['Magic']['Enhancing Magic'], {
+sets.SCH['Magic']['Gains'] = gFunc.Combine(sets.SCH['Magic']['Enhancing Magic'], {
     Hands=RELIC_HANDS,
     Neck="Dls. Torque +1",
 })
-sets.SMN['Magic']['Gain-STR'] = gFunc.Combine(sets.SMN['Magic']['Gains'],{})
-sets.SMN['Magic']['Gain-MND'] = gFunc.Combine(sets.SMN['Magic']['Gains'],{})
-sets.SMN['Magic']['Gain-INT'] = gFunc.Combine(sets.SMN['Magic']['Gains'],{})
-sets.SMN['Magic']['Gain-DEX'] = gFunc.Combine(sets.SMN['Magic']['Gains'],{})
-sets.SMN['Magic']['Gain-AGI'] = gFunc.Combine(sets.SMN['Magic']['Gains'],{})
-sets.SMN['Magic']['Gain-VIT'] = gFunc.Combine(sets.SMN['Magic']['Gains'],{})
-sets.SMN['Magic']['Gain-CHR'] = gFunc.Combine(sets.SMN['Magic']['Gains'],{})
+sets.SCH['Magic']['Gain-STR'] = gFunc.Combine(sets.SCH['Magic']['Gains'],{})
+sets.SCH['Magic']['Gain-MND'] = gFunc.Combine(sets.SCH['Magic']['Gains'],{})
+sets.SCH['Magic']['Gain-INT'] = gFunc.Combine(sets.SCH['Magic']['Gains'],{})
+sets.SCH['Magic']['Gain-DEX'] = gFunc.Combine(sets.SCH['Magic']['Gains'],{})
+sets.SCH['Magic']['Gain-AGI'] = gFunc.Combine(sets.SCH['Magic']['Gains'],{})
+sets.SCH['Magic']['Gain-VIT'] = gFunc.Combine(sets.SCH['Magic']['Gains'],{})
+sets.SCH['Magic']['Gain-CHR'] = gFunc.Combine(sets.SCH['Magic']['Gains'],{})
 
-sets.SMN['Misc'] = {}
-sets.SMN['Misc']['Max HP'] = {
+sets.SCH['Misc'] = {}
+sets.SCH['Misc']['Max HP'] = {
     Main={Name="Sagasinger", Augment=HP},
     Sub={Name="Bloodbead Ecu", Augment=HP},
     Head={Name="Volte Tiara", Augment=HP},
-    Neck={Name="Inq. Bead Necklace", Augment=HP}, --55HP
+    Neck={Name="Lavalier +1", Augment=HP}, --55HP
     Ear1={Name="Upsurge Earring", Augment=HP}, --55 MP > HP
     Ear2={Name="Cryptic Earring", Augment=HP},
     Body={Name="Ros. Jaseran +1", Augment=HP},
@@ -265,8 +258,8 @@ sets.SMN['Misc']['Max HP'] = {
     Feet={Name=AF_FEET, Augment=HP},
 }
 
-sets.SMN['Magic']['Dread Spikes'] = gFunc.Combine(sets.SMN['Misc']['Max HP'],{})
-sets.SMN['DayWeatherBonus'] = {
+sets.SCH['Magic']['Dread Spikes'] = gFunc.Combine(sets.SCH['Misc']['Max HP'],{})
+sets.SCH['DayWeatherBonus'] = {
     Back="Twilight Cape",
     Waist="Hachirin-no-Obi"
 }
@@ -291,7 +284,7 @@ sets.JobAbility['Stymie'] = {}
 --------------------------------------
 sets.WeaponSkills["Evisceration"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
 sets.WeaponSkills["Mercy Stroke"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
-sets.WeaponSkills["Aeolian Edge"] = gFunc.Combine(sets.SMN['MAB'],{})
+sets.WeaponSkills["Aeolian Edge"] = gFunc.Combine(sets.SCH['MAB'],{})
 sets.WeaponSkills["Exenterator"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
 
 --FTP Replicating WS
@@ -300,27 +293,26 @@ sets.WeaponSkills['Chant du Cygne'] = gFunc.Combine(sets.AllJobs['WeaponSkills']
 sets.WeaponSkills['Swift Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['Fotia'], {})
 sets.WeaponSkills['Vorpal Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['Fotia'], {})
 -- MAB modded WS
-sets.WeaponSkills['Sanguine Blade'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Uriel Blade'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Red Lotus Blade'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Burning Blade'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Shining Blade'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Seraph Blade'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Tartarus Torpor'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Earth Crusher'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Omniscience'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Rock Crusher'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Starburst'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Sunburst'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Seraph Blade'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Shining Strike'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Red Lotus Blade'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Sanguien Blade'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Burning Blade'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Flash Nova'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Shining Blade'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Seraph Strike'] = gFunc.Combine(sets.SMN['MAB'], {})
-sets.WeaponSkills['Spirits Within'] = gFunc.Combine(sets.SMN['MAB'], {})
+sets.WeaponSkills['Sanguine Blade'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Uriel Blade'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Red Lotus Blade'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Burning Blade'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Shining Blade'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Seraph Blade'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Tartarus Torpor'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Earth Crusher'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Omniscience'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Rock Crusher'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Starburst'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Sunburst'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Seraph Blade'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Shining Strike'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Red Lotus Blade'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Burning Blade'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Flash Nova'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Shining Blade'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Seraph Strike'] = gFunc.Combine(sets.SCH['MAB'], {})
+sets.WeaponSkills['Spirits Within'] = gFunc.Combine(sets.SCH['MAB'], {})
 
 -- Standard mods
 sets.WeaponSkills['Savage Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'],{--50% STR, 50% MND - Equal footing for both

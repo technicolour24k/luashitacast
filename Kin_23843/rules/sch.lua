@@ -98,10 +98,10 @@ profile.HandleMidcast = function()
     announceSpell(action.Name, target.Name, "p")
 
     if (action.Skill=="Elemental Magic") then
-        if (sets.SMN[MagStyle][action.Element]) then
-            equip(sets.SMN[MagStyle][action.Element]) 
+        if (sets.SCH[MagStyle][action.Element]) then
+            equip(sets.SCH[MagStyle][action.Element]) 
         else
-             equip(sets.SMN[MagStyle])
+             equip(sets.SCH[MagStyle])
         end
     end
     if (sets[player.MainJob]['Magic'][spell]) then
@@ -112,10 +112,10 @@ profile.HandleMidcast = function()
         equip(sets.JobAbility['Saboteur'])
     end
     if (action.Name=="Impact") then
-        equip(sets.SMN['Magic']['Impact'])
+        equip(sets.SCH['Magic']['Impact'])
     end
     
-    weatherCheck(action.Element, action.Skill) -- Calling skill is checked by weatherCheck. This is called by common-rules, but needs to be reset after checking SMN specific ele sets
+    weatherCheck(action.Element, action.Skill) -- Calling skill is checked by weatherCheck. This is called by common-rules, but needs to be reset after checking SCH specific ele sets
 end
 
 profile.HandlePreshot = function()

@@ -399,6 +399,23 @@ local sets = {
         Legs = { Name = 'Volte Hose', Augment = { [1] = 'Mag. Eva.+48', [2] = 'Eva.+48' } },
         Feet = 'Volte Boots',
     },
+    ['temp'] = {
+        Main = 'Joyeuse',
+        Sub = 'Octave Club',
+        Range = 'Gjallarhorn',
+        Head = { Name = 'Emperor Hairpin', Augment = '"Store TP"+20' },
+        Neck = { Name = 'Peacock Charm', Augment = '"Store TP"+20' },
+        Ear1 = { Name = 'Dodge Earring', Augment = '"Store TP"+20' },
+        Ear2 = 'Suppanomimi',
+        Body = { Name = 'Savage Separates', Augment = '"Store TP"+20' },
+        Hands = { Name = 'Savage Gauntlets', Augment = '"Store TP"+20' },
+        Ring1 = { Name = 'Defending Ring', Augment = '"Counter"+40' },
+        Ring2 = { Name = 'Rajas Ring', Augment = '"Store TP"+40' },
+        Back = { Name = 'Jaguar Mantle', Augment = 'Attack+40' },
+        Waist = { Name = 'Ryl.Kgt. Belt', Augment = '"Store TP"+20' },
+        Legs = { Name = 'Savage Loincloth', Augment = '"Store TP"+20' },
+        Feet = { Name = 'Savage Gaiters', Augment = '"Store TP"+20' },
+    },
 };
 profile.Sets = sets;
 

@@ -25,10 +25,10 @@ profile.HandleCommand = function(args)
         if (weapons=="Sword") then
             weapons="DualWield"
         elseif (weapons=="DualWield") then
-            weapons="Combo"
-        elseif (weapons=="Combo") then
-            weapons="Daggers"
-        elseif (weapons=="Daggers") then
+            weapons="MDT"
+        elseif (weapons=="MDT") then
+            weapons="PDT"
+        elseif (weapons=="PDT") then
             weapons="Staff"
         else
             weapons="Sword"
@@ -87,7 +87,6 @@ profile.HandlePrecast = function()
     target = gData.GetActionTarget()
     gSettings.FastCast = 80
     commonPrecastRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
-
 end
 
 profile.HandleMidcast = function()
@@ -98,10 +97,10 @@ profile.HandleMidcast = function()
     announceSpell(action.Name, target.Name, "p")
 
     if (action.Skill=="Elemental Magic") then
-        if (sets.RDM[MagStyle][action.Element]) then
-            equip(sets.RDM[MagStyle][action.Element]) 
+        if (sets.PLD[MagStyle][action.Element]) then
+            equip(sets.PLD[MagStyle][action.Element]) 
         else
-             equip(sets.RDM[MagStyle])
+             equip(sets.PLD[MagStyle])
         end
     end
     if (sets[player.MainJob]['Magic'][spell]) then
@@ -112,10 +111,14 @@ profile.HandleMidcast = function()
         equip(sets.JobAbility['Saboteur'])
     end
     if (action.Name=="Impact") then
-        equip(sets.RDM['Magic']['Impact'])
+        equip(sets.PLD['Magic']['Impact'])
+    end
+
+    if ((buffIsActive("Afflatus Solace")) and (spellContains(action.Name,"Cure") or (spellContains(action.Name,"Cura")))) then
+        equip(sets.PLD['Afflatus Cure'])
     end
     
-    weatherCheck(action.Element, action.Skill) -- Calling skill is checked by weatherCheck. This is called by common-rules, but needs to be reset after checking RDM specific ele sets
+    weatherCheck(action.Element, action.Skill) -- Calling skill is checked by weatherCheck. This is called by common-rules, but needs to be reset after checking PLD specific ele sets
 end
 
 profile.HandlePreshot = function()

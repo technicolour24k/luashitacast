@@ -25,7 +25,7 @@ function commonCommandRules (sets, cmd)
         if (cmd[2]) then
             r = cmd[2]
             for i=1, r, 1 do
-                sendCommand('/item "Dark Cluster" <me>')
+                sendCommand('/item "Wind Cluster" <me>')
                 coroutine.sleep(2)
             end
         else

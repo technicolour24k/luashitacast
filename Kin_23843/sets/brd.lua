@@ -1,18 +1,18 @@
-AF_HEAD = "Atro. Chapeau +3"
-AF_BODY = "Atrophy Tabard +2"
-AF_HANDS = {Name="Atrophy Gloves +3",Augment=ENHANCE20}
-AF_LEGS = {Name="Atrophy Tights +3",Augment=ENHANCE20}
-AF_FEET = "Atro. Boots +2"
-RELIC_HEAD = {Name="Viti. Chapeau +3", Augment=ENFEEBLE20}
-RELIC_BODY = {Name="Viti. Tabard +3", Augment=ENHANCE20}
-RELIC_HANDS = "Viti. Gloves +2"
-RELIC_LEGS = "Viti. Tights +1"
-RELIC_FEET = {Name="Vitiation Boots +3", Augment=ENFEEBLE20}
-EMPYREAN_HEAD = {Name="Aoidos' Calot +2",Augment=''}
-EMPYREAN_HANDS = {Name="Ad. Mnchtte. +2",Augment=''}
-EMPYREAN_BODY = {Name="Aoidos' Hngrln. +2", Augment=''}
-EMPYREAN_LEGS = {Name="Aoidos' Rhing. +2",Augment=''}
-EMPYREAN_FEET = {Name="Aoidos' Cothrn. +2",Augment=''}
+AF_HEAD = {}
+AF_BODY = {}
+AF_HANDS = {Name="Brioso Cuffs +1"}
+AF_LEGS = {}
+AF_FEET = {Name="Brioso Slippers +1"}
+RELIC_HEAD = {}
+RELIC_BODY = {}
+RELIC_HANDS = {}
+RELIC_LEGS = {}
+RELIC_FEET = {}
+EMPYREAN_HEAD = {}
+EMPYREAN_HANDS = {Name="Fili Manchettes. +1"}
+EMPYREAN_BODY = {Name="Fili Hongreline +1"}
+EMPYREAN_LEGS = {Name="Fili Rhingrave +1"}
+EMPYREAN_FEET = {Name="Fili Cothurnes +1"}
 
 sets.default={}
 sets.BRD={}
@@ -32,8 +32,8 @@ sets['Engaged']['DualWield'] = gFunc.Combine(sets['Engaged'], {
     Sub = { Name = 'Fettering Blade'}
 })
 sets['Engaged']['Daggers'] = gFunc.Combine(sets['Engaged'], {
-    Main = { Name = 'Mandau' },
-    Sub = { Name = 'Genesis Shield' },
+    Main = { Name = 'Twashtar' },
+    Sub = { Name = 'Genbu\'s Shield' },
 })
 sets['Engaged']['Combo'] = gFunc.Combine(sets['Engaged'], {
     Main = { Name = 'Almace' },
@@ -47,23 +47,7 @@ sets['Engaged']['Staff'] = gFunc.Combine(sets['Engaged'], {
 
 
 -- Every day killing things
-sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
-    Main = 'Mandau',
-    Sub = 'Joyeuse',
-    Range = 'Gjallarhorn',
-    Head = { Name = 'Emperor Hairpin', Augment = '"Store TP"+20' },
-    Neck = { Name = 'Peacock Charm', Augment = '"Store TP"+20' },
-    Ear1 = { Name = 'Dodge Earring', Augment = '"Store TP"+20' },
-    Ear2 = 'Suppanomimi',
-    Body = { Name = 'Brd. Jstcorps +1' },
-    Hands = { Name = 'Savage Gauntlets', Augment = '"Store TP"+20' },
-    Ring1 = { Name = 'Defending Ring', Augment = '"Counter"+40' },
-    Ring2 = { Name = 'Rajas Ring', Augment = '"Store TP"+40' },
-    Back = { Name = 'Jaguar Mantle', Augment = 'Attack+40' },
-    Waist = { Name = 'Ryl.Kgt. Belt', Augment = '"Store TP"+20' },
-    Legs = { Name = 'Savage Loincloth', Augment = '"Store TP"+20' },
-    Feet = { Name = 'Savage Gaiters', Augment = '"Store TP"+20' },    
-})
+sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {})
 
 -- Every day attacky things!
 sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
@@ -92,6 +76,7 @@ sets.Idle['Balanced'] = gFunc.Combine(sets.Idle, {
     Head=RELIC_HEAD,
     Body=EMPYREAN_BODY,
     Ear2="Moonshade Earring",
+    Feet=EMPYREAN_FEET
 })
 
 -- More defensive Idle things? Try to max DT over Regen/Refresh
@@ -183,16 +168,49 @@ sets.BRD['Magic']['Enfeebling Magic'] = gFunc.Combine(sets.BRD['Magic']['Enfeebl
 sets.BRD['Magic']['Elemental Magic'] = gFunc.Combine(sets.BRD['MAB'], {})
 sets.BRD['Magic']['Dark Magic'] = gFunc.Combine(sets.BRD['MAB'],{})
 sets.BRD['Magic']['Singing'] = gFunc.Combine(sets.AllJobs['Midcast']['Singing'],{
-    Neck="Aoidos' Matinee",
-    Head=EMPYREAN_HEAD,
-    Body=EMPYREAN_BODY,
-    Hands=EMPYREAN_HANDS,
-    Legs=EMPYREAN_LEGS,
-    Feet=EMPYREAN_FEET
+    Range="Gjallarhorn",
+    Neck="Aoidos' Matinee", --Duration+
+    Body=EMPYREAN_BODY, -- Duration+
+    Hands=EMPYREAN_HANDS, -- All skills +12 = +24 bonus
+    Legs=EMPYREAN_LEGS, -- Singing +18
+    Feet=AF_FEET -- Duration+
 })
 
-sets.BRD['Magic']['Magic Finale'] = gFunc.Combine(sets.BRD['Magic']['Singing'], {
+sets.BRD['Magic']['Magic Finale'] = gFunc.Combine(sets.BRD['Magic']['Singing'], {})
+sets.BRD['Magic']['Lullaby'] = gFunc.Combine(sets.BRD['Magic']['Singing'], {
+    Hands=AF_HANDS
 })
+
+sets.BRD['Magic']['Minuet'] = gFunc.Combine(sets.BRD['Magic']['Singing'], {
+    Body=EMPYREAN_BODY
+})
+
+sets.BRD['Magic']['Ballad'] = gFunc.Combine(sets.BRD['Magic']['Singing'], {
+    Legs=EMPYREAN_LEGS
+})
+
+sets.BRD['Magic']['Scherzo'] = gFunc.Combine(sets.BRD['Magic']['Singing'], {
+    Legs=EMPYREAN_LEGS
+})
+
+sets.BRD['Magic']['Foe Lullaby'] = gFunc.Combine(sets.BRD['Magic']['Lullaby'], {})
+sets.BRD['Magic']['Foe Lullaby II'] = gFunc.Combine(sets.BRD['Magic']['Lullaby'], {})
+sets.BRD['Magic']['Horde Lullaby'] = gFunc.Combine(sets.BRD['Magic']['Lullaby'], {})
+sets.BRD['Magic']['Horde Lullaby II'] = gFunc.Combine(sets.BRD['Magic']['Lullaby'], {})
+
+sets.BRD['Magic']['Valor Minuet'] = gFunc.Combine(sets.BRD['Magic']['Minuet'], {})
+sets.BRD['Magic']['Valor Minuet II'] = gFunc.Combine(sets.BRD['Magic']['Minuet'], {})
+sets.BRD['Magic']['Valor Minuet III'] = gFunc.Combine(sets.BRD['Magic']['Minuet'], {})
+sets.BRD['Magic']['Valor Minuet IV'] = gFunc.Combine(sets.BRD['Magic']['Minuet'], {})
+sets.BRD['Magic']['Valor Minuet V'] = gFunc.Combine(sets.BRD['Magic']['Minuet'], {})
+sets.BRD['Magic']['Valor Minuet VI'] = gFunc.Combine(sets.BRD['Magic']['Minuet'], {})
+
+sets.BRD['Magic']['Mage\'s Ballad'] = gFunc.Combine(sets.BRD['Magic']['Ballad'], {})
+sets.BRD['Magic']['Mage\'s Ballad II'] = gFunc.Combine(sets.BRD['Magic']['Ballad'], {})
+sets.BRD['Magic']['Mage\'s Ballad III'] = gFunc.Combine(sets.BRD['Magic']['Ballad'], {})
+
+sets.BRD['Magic']['Sentinel\'s Scherzo'] = gFunc.Combine(sets.BRD['Magic']['Scherzo'], {})
+
 
 sets.BRD['Magic']['Drain'] = gFunc.Combine(sets.AllJobs['Midcast']['DrainAspir'],{
     Head={Name="Appetence Crown", Augment=DRAINASPIR40},

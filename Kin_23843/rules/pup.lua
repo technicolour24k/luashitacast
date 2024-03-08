@@ -1,4 +1,8 @@
 profile.HandleCommand = function(args)
+    player = gData.GetPlayer()
+    env = gData.GetEnvironment()
+    action = gData.GetAction()
+    statusType = string.lower(player.Status) .."Type"
 
     commonCommandRules(sets, args)
     if (args[1] == 'cycle-engaged') then
@@ -21,53 +25,20 @@ profile.HandleCommand = function(args)
         infoLog("idleType updated to: " ..idleType)
     end
 
-    if (args[1] == 'cycle-weapons') then
-        if (weapons=="Sword") then
-            weapons="DualWield"
-        elseif (weapons=="DualWield") then
-            weapons="Combo"
-        elseif (weapons=="Combo") then
-            weapons="Daggers"
-        elseif (weapons=="Daggers") then
-            weapons="Staff"
-        else
-            weapons="Sword"
-        end
-        infoLog("Weapons updated to: " ..weapons)
-    end
+    -- equip(sets[player.Status][evaluateVariableValue(statusType)])
+    equipAppropriateGear()
 
-    if (args[1] == 'cycle-magic') then
-        if (MagStyle=="MAB") then
-            MagStyle="MCrit"
-        elseif (MagStyle=="MCrit") then
-            MagStyle="MBurst"
-        else
-            MagStyle="MAB"
-        end
-        infoLog("MagStyle updated to: " ..MagStyle)
+    if (thOn) then
+        equip(sets['Engaged']['TH'])
     end
-
-    -- if (args[1] == 'crush') then
-    --     sendCommand('/blusets setn 1 "Tenebral Crush"')
-    --     coroutine.sleep(0.3)
-    --     infoLog('Tenebral Crush hopefully loaded?')
-    --     killSpell = true
-    --     sendCommand('/ma "Tenebral Crush" <t>')
-    --     infoLog('Tenebral Crush hopefully executed..?')
-    -- end
-    
-    equip(sets['Engaged'][weapons])
 end
 
 profile.HandleDefault = function()
     player = gData.GetPlayer()
-    target = gData.GetTarget()
+    statusType = string.lower(player.Status) .."Type"
+    -- commonPetRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
+    commonIdleRules(sets)
     
-    if not (player.Status == "Unknown") then
-        statusType = string.lower(player.Status) .."Type"
-        -- commonPetRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
-        commonIdleRules(sets)
-    end
 end
 
 profile.HandleAbility = function()
@@ -87,35 +58,15 @@ profile.HandlePrecast = function()
     target = gData.GetActionTarget()
     gSettings.FastCast = 80
     commonPrecastRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
-
 end
 
 profile.HandleMidcast = function()
     action = gData.GetAction()
     target = gData.GetActionTarget()
-
+    
+    -- cancelBuff(action.Name, action.CastTime, gSettings.FastCast)
     commonMidcastRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
     announceSpell(action.Name, target.Name, "p")
-
-    if (action.Skill=="Elemental Magic") then
-        if (sets.SMN[MagStyle][action.Element]) then
-            equip(sets.SMN[MagStyle][action.Element]) 
-        else
-             equip(sets.SMN[MagStyle])
-        end
-    end
-    if (sets[player.MainJob]['Magic'][spell]) then
-        equip(sets[player.MainJob]['Magic'][spell])
-    end
-    
-    if(buffIsActive("Saboteur") and (action.Skill=="Enfeebling Magic")) then
-        equip(sets.JobAbility['Saboteur'])
-    end
-    if (action.Name=="Impact") then
-        equip(sets.SMN['Magic']['Impact'])
-    end
-    
-    weatherCheck(action.Element, action.Skill) -- Calling skill is checked by weatherCheck. This is called by common-rules, but needs to be reset after checking SMN specific ele sets
 end
 
 profile.HandlePreshot = function()
