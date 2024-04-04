@@ -75,11 +75,12 @@ sets['Idle'] = gFunc.Combine(sets.AllJobs['DT'], {
     Ear2 = "Moonshade Earring"
 })
 
-sets['Idle']['Balanced'] = gFunc.Combine(sets.Idle, {
+sets['Idle']['Balanced'] = gFunc.Combine(sets['Idle'], {
     Feet = AF_FEET,
     Ear2 = "Moonshade Earring"
 })
-sets['Idle']['Defensive'] = gFunc.Combine(sets.Idle['Balanced'], {
+
+sets['Idle']['Defensive'] = gFunc.Combine(sets['Idle']['Balanced'], {
     Feet = AF_FEET,
     Ear2 = "Moonshade Earring"
 })

@@ -224,22 +224,32 @@ end
 -- @param type: The 'type' of skill [recommend: gData.GetAction().Type]
 function commonIdleRules (sets)
     statusType = string.lower(player.Status) .."Type"
-    -- Adding packet checks..
-    --ashita.events.register('packet_in', 'packet_in_callback1', function (e)
-        -- Known packet IDs
-        -- e.id 103 = status update
-        -- e.id 14 = mob movements
-        -- e.id 68 = mount up?
-        -- e.id 23 = digging?
 
-        -- infoLog(e.id)
-        --if (e.id==68) then
-            --equip(sets.Chocobo['Mount'])
-        --end
-        -- if (e.id == 23) then
-        --     equip(sets.Chocobo['Dig'])
-        -- end
-    --end)
+    -- Adding packet checks..
+    -- ashita.events.register('packet_in', 'packet_in_callback1', function (e)
+    --     -- Known packet IDs
+    --     -- e.id 103 = status update
+    --     -- e.id 14 = mob movements
+    --     -- e.id 68 = mount up?
+    --     -- e.id 23 = digging?
+
+    --     infoLog(e.id)
+    --     --if (e.id==68) then
+    --         --equip(sets.Chocobo['Mount'])
+    --     --end
+    --     if (e.id == 26) then
+    --         infoLog("26 triggered")
+    --         equip(sets.Chocobo['Dig'])
+    --     end
+    --     if (e.id == 17) then
+    --         infoLog("17 triggered")
+    --         equip(sets.Chocobo['Dig'])
+    --     end
+    --     if (e.id == 47) then
+    --         infoLog("47 triggered")
+    --         equip(sets.Chocobo['Dig'])
+    --     end
+    -- end)
     -- Closing packet checks..
 
     if ((buffIsActive("Light Arts")) or (buffIsActive("Addendum: White"))) then
@@ -256,7 +266,6 @@ function commonIdleRules (sets)
     if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]") end
 
     if (player.Status=="Engaged") then
-        equip(sets[player.Status][weapons])
         if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..weapons.."]") end
         equipAppropriateGear()
         if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]") end
@@ -269,6 +278,8 @@ function commonIdleRules (sets)
             debugLog("Player Main Level: "..player.MainJobSync )
             debugLog("Player Subjob: "..player.SubJob)
         end
+        equip(sets[player.Status][weapons])
+
         if ((player.MainJobSync  < 99) and (player.SubJob == "MNK")) then
             if (debugEnabled()) then
                 debugLog("player.MainJobSync is under 99 ["..player.MainJobSync.."]")
@@ -296,10 +307,14 @@ function commonIdleRules (sets)
         end 
     end
     -- equipAppropriateGear()
-
-
-
 end
+
+-- commonUnknownRules documentation
+-- @param sets: Your sets table
+function commonUnknownRules (sets)
+    equip(sets.Chocobo['Dig'])
+end
+
 
 --commonPrecastRules documentation
 -- @param sets: Your sets table

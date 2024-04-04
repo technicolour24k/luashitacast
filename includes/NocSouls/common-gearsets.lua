@@ -5,6 +5,8 @@ sets.JobAbility={}
 sets.WeaponSkills={}
 
 sets.AllJobs={}
+sets.AllJobs['Midcast'] = {}
+
 sets.AllJobs['JobAbility'] = {}
 sets.AllJobs['WeaponSkills'] = {}
 sets.AllJobs['WeaponSkills']['WSD'] = {
@@ -32,10 +34,10 @@ sets.AllJobs['MAB'] = {
 }
 
 sets.AllJobs['TP'] = {
-    Ammo = { Name = 'Staunch Tathlum', Augment = '"Counter"+20' },
+    Ammo = { Name = 'Staunch Tathlum', Augment = PARRY24 },
     Head = {Name="Volte Cap",Augment=MEVA48},
     Neck = { Name = 'Loricate Torque +1', Augment = STP60 }, -- Subtle Blow capped (60/50)
-    Ear1 = { Name = 'Neritic Earring', Augment = STP40 },
+    Ear1 = { Name = 'Puissant Pearl', Augment = PARRY24 },
     Ear2 = { Name = 'Hearty Earring', },
     Body={Name="Volte Jupon",Augment=MEVA48},
     Hands={Name="Volte Bracers",Augment=MEVA48},
@@ -55,7 +57,7 @@ sets.AllJobs['DT'] = {
     Back = { Name = 'Moonbeam Cape', Augment = STP40 },
     Ring1 = { Name = 'Defending Ring', Augment = COUNTER40 },
     Ring2 = { Name = 'Patricius Ring', Augment = COUNTER40},
-    Ear1 = { Name = 'Etiolation Earring', },
+    Ear2 = { Name = 'Etiolation Earring', },
 }
 
 sets.AllJobs['SpellInterruption'] = {
@@ -77,14 +79,28 @@ sets.AllJobs['Quick Draw'] = {
     Ring1 = { Name = 'Copper Ring', Augment = '"Quick Draw" ability delay -8' },
     Ring2 = { Name = 'Copper Ring', Augment = '"Quick Draw" ability delay -8' },
 }
-sets.AllJobs['MaxMAcc'] = {
+
+sets.AllJobs['Midcast']['EnfeeblingDuration'] = {
+    Ring1 = { Name = 'Scintillant Ring', Augment = { [1] = '"Drain" and "Aspir" potency +2', [2] = 'Enf. Mag. eff. dur. +9', [3] = 'Mag. Acc+2', [4] = 'Enfb.mag. skill +7', [5] = 'Magic Damage +2' } },
+    Ring2 = { Name = 'Scintillant Ring', Augment = { [1] = '"Drain" and "Aspir" potency +3', [2] = 'Enf. Mag. eff. dur. +10', [3] = 'Mag. Acc+7', [4] = 'Enfb.mag. skill +3', [5] = 'Magic Damage +7' } },
+    Head = {Name="Cache-Nez",Augment=ENFDUR40},
+    Neck={Name='Justice Badge',Augment=ENFDUR40},
+    Body={Name='Vgd. Tunica',Augment=ENFDUR40},
+    Hands={Name='Vgd. Gloves',Augment=ENFDUR40},
+    Legs={Name='Vagabond\'s Hose',Augment=ENFDUR40},
+    Feet={Name='Vagabond\'s Boots',Augment=ENFDUR40},
+}
+
+sets.AllJobs['MaxMAcc'] = gFunc.Combine(sets.AllJobs['Midcast']['EnfeeblingDuration'],{ --Combines with Duration to have long term durations
     -- Ammo = {Name="", Augment=MAXMACC16 }
     -- Ear1 = {Name="", Augment=MAXMACC16 }
     -- Ear2 = {Name="", Augment=MAXMACC16 }
     Ring1 = {Name="Hermit's Ring", Augment=MAXMACC16 }
     -- Ring2 = {Name="", Augment=MAXMACC16 }
     -- Waist = {Name="", Augment=MAXMACC16 }
-}
+    -- Back = {Name="", Augment=MAXMACC16 }
+})
+
 -- Magic type specific Fast Cast
 sets.AllJobs['FastCast']['Divine Magic'] = gFunc.Combine(sets.AllJobs['FastCast'],{})
 sets.AllJobs['FastCast']['Healing Magic'] = gFunc.Combine(sets.AllJobs['FastCast'],{})
@@ -102,16 +118,25 @@ sets.AllJobs['FastCast']['Geomancy'] = gFunc.Combine(sets.AllJobs['FastCast'],{}
 sets.AllJobs['FastCast']['Handbell'] = gFunc.Combine(sets.AllJobs['FastCast'],{})
 
 -- Magic specific Midcasts
-sets.AllJobs['Midcast'] = {}
-sets.AllJobs['Midcast']['EnhancingDuration'] = {}
-sets.AllJobs['Midcast']['EnfeeblingDuration'] = {
-    Ring1 = { Name = 'Scintillant Ring', Augment = { [1] = '"Drain" and "Aspir" potency +2', [2] = 'Enf. Mag. eff. dur. +9', [3] = 'Mag. Acc+2', [4] = 'Enfb.mag. skill +7', [5] = 'Magic Damage +2' } },
-    Ring2 = { Name = 'Scintillant Ring', Augment = { [1] = '"Drain" and "Aspir" potency +3', [2] = 'Enf. Mag. eff. dur. +10', [3] = 'Mag. Acc+7', [4] = 'Enfb.mag. skill +3', [5] = 'Magic Damage +7' } },
+sets.AllJobs['Midcast']['Enhancing Magic'] = {
+    Ammo={Name='Hedgehog Bomb',Augment=ENHDUR40},
+    Head={Name='Cache-nez',Augment=ENHDUR40},
+    Neck={Name='Justice Badge',Augment=ENHDUR40},
+    Ear1={Name='Opal Earring',Augment=ENHDUR40},
+    Ear2={Name='Opal Earring',Augment=ENHDUR40},
+    Body={Name='Vgd. Tunica',Augment=ENHDUR40},
+    Hands={Name='Vgd. Gloves',Augment=ENHDUR40},
+    Ring1={Name='Hermit\'s Ring',Augment=ENHDUR40},
+    Ring2={Name='Hermit\'s Ring',Augment=ENHDUR40},
+    Back={Name='Warlock\'s Mantle',Augment=ENHDUR40},
+    Waist={Name='Friar\'s Rope',Augment=ENHDUR40},
+    Legs={Name='Vagabond\'s Hose',Augment=ENHDUR40},
+    Feet={Name='Vagabond\'s Boots',Augment=ENHDUR40},
 }
 
 sets.AllJobs['Midcast']['Divine Magic'] = {}
 sets.AllJobs['Midcast']['Healing Magic'] = {}
-sets.AllJobs['Midcast']['Enhancing Magic'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{
+sets.AllJobs['Midcast']['EnhancingPotency'] = gFunc.Combine(sets.AllJobs['Midcast']['Enhancing Magic'],{
     Main={Name="Lady Bell",Augment=ENHANCE20},
     -- Sub={Name="",Augment=ENHANCE20},
     Range={Name="Silver Gun",Augment=ENHANCE20},
@@ -145,10 +170,10 @@ sets.AllJobs['Midcast']['Handbell'] = {}
 sets.AllJobs['Midcast']['Stoneskin'] = gFunc.Combine(sets.AllJobs['SpellInterruption'],{
     Neck="Stone Gorget"
 })
-sets.AllJobs['Midcast']['Aquaveil'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{})
-sets.AllJobs['Midcast']['Refresh'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{})
-sets.AllJobs['Midcast']['Phalanx'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{})
-sets.AllJobs['Midcast']['Enspell'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingDuration'],{
+sets.AllJobs['Midcast']['Aquaveil'] = gFunc.Combine(sets.AllJobs['Midcast']['Enhancing Magic'],{})
+sets.AllJobs['Midcast']['Refresh'] = gFunc.Combine(sets.AllJobs['Midcast']['Enhancing Magic'],{})
+sets.AllJobs['Midcast']['Phalanx'] = gFunc.Combine(sets.AllJobs['Midcast']['Enhancing Magic'],{})
+sets.AllJobs['Midcast']['Enspell'] = gFunc.Combine(sets.AllJobs['Midcast']['Enhancing Magic'],{
     Main = { Name = 'Lady Bell', Augment = ENSPELL40},
     Sub={ Name="Warlock's Shield", Augment = ENSPELL40 },
     Ammo = { Name="Optical Needle", Augment = ENSPELL40},
@@ -164,11 +189,8 @@ sets.AllJobs['Midcast']['Enspell'] = gFunc.Combine(sets.AllJobs['Midcast']['Enha
     Waist={ Name="Friar's Rope", Augment = ENSPELL40 },		
     Legs = { Name = 'Vagabond\'s Hose', Augment = ENSPELL40},
     Feet = { Name = 'Vagabond\'s Boots', Augment = ENSPELL40},
-
 })
-sets.AllJobs['Midcast']['ConserveMP'] = gFunc.Combine(sets.AllJobs['FastCast'], {
-
-})
+sets.AllJobs['Midcast']['ConserveMP'] = gFunc.Combine(sets.AllJobs['FastCast'], {})
 sets.AllJobs['Midcast']['DrainAspir'] = {
     Ear1={Name="Abyssal Earring",Augment=DRAINASPIR40},
     Ear2={Name="Silver Earring",Augment=DRAINASPIR40},
@@ -194,6 +216,7 @@ sets.AllJobs['Midcast']['Helixes'] = gFunc.Combine(sets.AllJobs['MAB'],{
     Legs={Name="Vagabond\'s Hose", Augment=SIR40},
     Feet={Name="Vagabond\'s Boots", Augment=SIR40}
 })
+sets.AllJobs['Midcast']['Temper'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingPotency'], {})
 
 sets.AllJobs['Midcast']['BLU_Physical'] = gFunc.Combine(sets.AllJobs['Midcast']['Blue Magic'],{})
 sets.AllJobs['Midcast']['BLU_Buffs'] = gFunc.Combine(sets.AllJobs['Midcast']['Blue Magic'],{})

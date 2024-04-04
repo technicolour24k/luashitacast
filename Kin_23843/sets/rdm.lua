@@ -43,7 +43,7 @@ sets['Engaged']['Combo'] = gFunc.Combine(sets['Engaged'], {
 })
 sets['Engaged']['Staff'] = gFunc.Combine(sets['Engaged'], {
     Hands = { Name="Shedir Gages" },
-    Main = { Name="Lehbrailg +1" },
+    Main = { Name="Ngqoqwanb" },
     Sub = { Name="Elan Strap" },
 })
 
@@ -168,7 +168,7 @@ sets.RDM['Magic']['Pollen'] = gFunc.Combine(sets.RDM['Magic']['Cure'], {})
 sets.RDM['Magic']['BLU_Physical'] = {}
 sets.RDM['Magic']['BLU_Buffs'] = {}
 sets.RDM['Magic']['BLU_Nukes'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.RDM['Magic']['EnhancingDuration'] = gFunc.Combine(sets.AllJobs['Midcast']['Enhancing Magic'], {
+sets.RDM['Magic']['Enhancing Magic'] = gFunc.Combine(sets.AllJobs['Midcast']['Enhancing Magic'], {
     Hands=AF_HANDS,
     Body=RELIC_BODY,
     Feet=EMPYREAN_FEET,
@@ -178,7 +178,7 @@ sets.RDM['Magic']['EnhancingDuration'] = gFunc.Combine(sets.AllJobs['Midcast']['
 sets.RDM['Magic']['EnfeeblingDuration'] = gFunc.Combine(sets.AllJobs['Midcast']['EnfeeblingDuration'], {
 })
 
-sets.RDM['Magic']['Enhancing Magic'] = gFunc.Combine(sets.RDM['Magic']['EnhancingDuration'],{
+sets.RDM['Magic']['EnhancingPotency'] = gFunc.Combine(sets.RDM['Magic']['Enhancing Magic'],{
     Head={Name="Umuthi Hat",Augment=ENHANCE20},
     Neck= {Name="Enhancing Torque", Augment=ENHANCE20},
     Ear1={Name="Andoaa Earring",Augment=ENHANCE20},
@@ -227,7 +227,7 @@ sets.RDM['Magic']['Helixes'] = gFunc.Combine(sets.RDM['Magic']['Elemental Magic'
 sets.RDM['Magic']['Helixes']['Light Arts'] = gFunc.Combine(sets.RDM['Magic']['Helixes'], {})
 sets.RDM['Magic']['Helixes']['Dark Arts'] = gFunc.Combine(sets.RDM['Magic']['Helixes'], {})
 
-sets.RDM['Magic']['Gains'] = gFunc.Combine(sets.RDM['Magic']['Enhancing Magic'], {
+sets.RDM['Magic']['Gains'] = gFunc.Combine(sets.RDM['Magic']['EnhancingPotency'], {
     Hands=RELIC_HANDS,
     Neck="Dls. Torque +1",
 })
@@ -238,7 +238,7 @@ sets.RDM['Magic']['Gain-DEX'] = gFunc.Combine(sets.RDM['Magic']['Gains'],{})
 sets.RDM['Magic']['Gain-AGI'] = gFunc.Combine(sets.RDM['Magic']['Gains'],{})
 sets.RDM['Magic']['Gain-VIT'] = gFunc.Combine(sets.RDM['Magic']['Gains'],{})
 sets.RDM['Magic']['Gain-CHR'] = gFunc.Combine(sets.RDM['Magic']['Gains'],{})
-
+sets.RDM['Magic']['Temper'] = gFunc.Combine(sets.RDM['Magic']['EnhancingPotency'], {})
 sets.RDM['Misc'] = {}
 sets.RDM['Misc']['Max HP'] = {
     Main={Name="Sagasinger", Augment=HP},

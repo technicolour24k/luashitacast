@@ -63,10 +63,15 @@ profile.HandleDefault = function()
     player = gData.GetPlayer()
     target = gData.GetTarget()
     
-    if not (player.Status == "Unknown") then
-        statusType = string.lower(player.Status) .."Type"
-        -- commonPetRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
-        commonIdleRules(sets)
+    if not (player.Status==nil) then
+        if not (player.Status == "Unknown") then
+            statusType = string.lower(player.Status) .."Type"
+            -- commonPetRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
+            commonIdleRules(sets)
+        end
+        if (player.Status=="Unknown") then
+            commonUnknownRules(sets)
+        end
     end
 end
 
@@ -80,6 +85,7 @@ profile.HandleItem = function()
     item = gData.GetAction()
     target = gData.GetActionTarget()
     commonItemRules(sets, item.Name, item.Type)
+    
 end
 
 profile.HandlePrecast = function()
