@@ -325,7 +325,7 @@ sets.WeaponSkills['Savage Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['
     Neck="Tlamiztli Collar",
     Ear1="Regal Earring",
     Ear2="Mache Earring +1",
-    Back="Laic Mantle",
+    Back={Name="Laic Mantle",Augment=SAVETP200}
 }) 
 sets.WeaponSkills['Knights of Round'] = {}
 

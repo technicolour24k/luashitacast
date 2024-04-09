@@ -38,8 +38,12 @@ local sets = {
         Ring2 = { Name = 'Hermit\'s Ring', Augment = '"Fast Cast"+32' },
     },
     ['regen'] = {
-        Ring1 = { Name = 'Hermit\'s Ring', Augment = { [1] = '"Refresh"+20', [2] = 'Pet: "Regen"+50', [3] = '"Regen"+20' } },
-        Ring2 = { Name = 'Ascetic\'s Ring', Augment = '"Regen"+80' },
+        Ear1={Name="Opal Earring",Augment='"Regen"+80'},
+        Ear2={Name="Opal Earring",Augment='"Refresh"+80'},
+        Ring1={Name="Ascetic\'s Ring", Augment='"Regen"+80'},
+        Neck={Name="Justice Badge", Augment='"Regen"+80'},
+        Body={Name="Vgd. Tunica", Augment='"Regen"+80'},
+        Hands={Name="Vgd. Gloves",Augment='"Regen"+80'}
     },
 
     ['chat'] = {

@@ -33,8 +33,13 @@ STP20 = '"Store TP"+20'
 STP40 = { [1] = '"Store TP"+40', [2] = '"Subtle Blow"+40' }
 STP60 = { [1] = '"Store TP"+60', [2] = '"Subtle Blow"+60' }
 
+-- Ranged utility augs
+RAPID32 = '"Rapid Shot"+32'
+SNAPSHOT40 = '"Snapshot"+40'
+
 -- General Utility augs
 REGEN80 = '"Regen"+80'
+REFRESH80 = '"Refresh"+80'
 HP =  { [1] = 'MP+128', [2] = 'HP+128' }
 REGPOT20 = {}
 

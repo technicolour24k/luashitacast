@@ -6,8 +6,8 @@ AF_FEET = "Pill. Poulaines +3"
 RELIC_HEAD = "Plun. Bonnet +1"
 RELIC_BODY = "Plun. Vest +1"
 RELIC_HANDS = "Plun. Armlets +2"
-RELIC_LEGS = "Plun. Culottes +1"
-RELIC_FEET = "Plun. Poulaines +1"
+RELIC_LEGS = {Name="Plun. Culottes +2",Augment={}}
+RELIC_FEET = {Name="Plun. Poulaines +2",Augment=TA8}
 EMPYREAN_HEAD = { Name="Skulker's Bonnet +1", Augment = {[1]='DEX+4',[2]='"Triple Atk."+6'} }
 EMPYREAN_BODY = "Skulker's Vest +1"
 EMPYREAN_HANDS = "Skulk. Armlets +1"
@@ -28,7 +28,6 @@ sets['Engaged']['Daggers'] ={
 
 -- Every day killing things
 sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
-    Waist = { Name = 'Windbuffet Belt +1', Augment = TA12 },
 })
 
 -- Every day attacky things!
@@ -36,17 +35,17 @@ sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
     Range = 'Exalted C.bow',
     Ammo = "Beryllium Bolt",
     Head = 'Pill. Bonnet +3',
-    Neck = { Name = 'Tlamiztli Collar', Augment = TA8 },
+    Neck = { Name = 'Tlamiztli Collar', Augment = TA12 },
     Ear1 = { Name = 'Mache Earring +1', Augment = TA8 },
     Ear2 = { Name = 'Mache Earring +1', Augment = TA8 },
     Body = 'Plunderer\'s Vest +2',
     Hands = 'Pill. Armlets +3',
     Ring1 = { Name = 'Rajas Ring', Augment = STP20 },
-    Ring2 = { Name = 'Epona\'s Ring', Augment = TA8 },
+    Ring2={Name='Hetairoi Ring', Augment=TA12},
     Back = { Name = 'Canny Cape', Augment = TA8 },
     Waist = { Name = 'Windbuffet Belt +1', Augment = TA12 },
     Legs = 'Pill. Culottes +3',
-    Feet = { Name = 'Plun. Poulaines +1', Augment = TA8 },
+    Feet = RELIC_FEET
 })
 
 -- Every day defensive things
@@ -72,17 +71,16 @@ sets['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {
 -- Every day idle things: Move speed, regen, refresh
 sets['Idle'] = gFunc.Combine(sets.AllJobs['DT'], {
     Feet = AF_FEET,
-    Ear2 = "Moonshade Earring"
+    Ear1 = {Name="Opal Earring",Augment=REFRESH80},
+    Ear2 = {Name="Opal Earring",Augment=REGEN80},
 })
 
 sets['Idle']['Balanced'] = gFunc.Combine(sets['Idle'], {
     Feet = AF_FEET,
-    Ear2 = "Moonshade Earring"
 })
 
 sets['Idle']['Defensive'] = gFunc.Combine(sets['Idle']['Balanced'], {
     Feet = AF_FEET,
-    Ear2 = "Moonshade Earring"
 })
 
 sets['Resting']={}
@@ -127,6 +125,18 @@ sets['WeaponSkills'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
     Ammo = { Name = 'Fire Bomblet', Augment = { [1] = 'Weapon Skill Acc.+2', [2] = 'Weapon skill damage +5%', [3] = 'DMG:+2', [4] = 'Attack+7', [5] = 'Accuracy+7' } }, --5% WSD
     Hands= "Meg. Gloves +2", --WSD (All hits) +7%
     Head = AF_HEAD, --WSD+6%
+    Legs = RELIC_LEGS, --WSD+3%
+    Back={Name="Laic Mantle",Augment=SAVETP200}
+})
+sets['WeaponSkills']['MAB'] = gFunc.Combine(sets['WeaponSkills'],{
+    Ammo={Name='Erlene\'s Notebook', Augment=MAB32},
+    Ring2={Name="Acumen Ring", Augment=MAB32},
+    Head="Wayfarer Circlet",
+    Body="Sombra Harness",
+    -- Legs = "Limbo Trousers",
+    Feet="Sombra Leggings",
+    Back={Name='Toro Cape', Augment=MAB40},
+    Waist={Name='Eschan Stone',Augment=MAB40},
 })
 sets['WeaponSkills']["Evisceration"] = gFunc.Combine(sets['WeaponSkills'], {
     Ammo={Name="Yetshila +1", Augments={[1]='"Triple Atk."+4', [2]="Critical Hit Rate +10"}}, --12% Crit Rate, 6% Damage
@@ -144,16 +154,13 @@ sets['WeaponSkills']["Rudra's Storm"] = gFunc.Combine(sets['WeaponSkills'], {
     Body = AF_BODY, --TA+7%
     Legs = AF_LEGS, --TA 5%
     Feet = RELIC_FEET, -- TA+3%+8%(Aug) +TA damage+7%
-    Ear1 = { Name = 'Mache Earring +1', Augment = TA8 },
-    Ear2 = { Name = 'Mache Earring +1', Augment = TA8 },
-    Back = { Name = 'Canny Cape', Augment = TA8 }, --10% TA (2% + 8%)
-    Neck = { Name = 'Tlamiztli Collar', Augment = TA8 },   
+    -- Back = { Name = 'Canny Cape', Augment = TA8 }, --10% TA (2% + 8%)
+    Neck = { Name = 'Tlamiztli Collar', Augment = TA12 },   
     Ring1 = { Name = 'Regal Ring', Augment= TA8},
-    Ring2 = { Name = 'Epona\'s Ring', Augment= TA8}, --11% TA (3%+8%)
 
 })
-sets['WeaponSkills']["Aeolian Edge"] = gFunc.Combine(sets.THF['MAB'], {
-    Head="Chimera Hairpin"
+sets['WeaponSkills']["Aeolian Edge"] = gFunc.Combine(sets['WeaponSkills']['MAB'], {
+    Head="Chimera Hairpin",
 })
 sets['WeaponSkills']["Exenterator"] = gFunc.Combine(sets['WeaponSkills'], {})
 
