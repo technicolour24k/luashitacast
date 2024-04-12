@@ -45,6 +45,15 @@ function commonCommandRules (sets, cmd)
         else
             errorLog("Missing second parameter: repetitions. Number expected.")
         end
+
+    end
+    if (cmd[1]=="blu") then
+        infoLog("Received: "..cmd[1].."["..cmd[2].."]")
+        infoLog("Spell: "..bluspells[cmd[2]].spell)
+        infoLog("Target: "..bluspells[cmd[2]].target)
+        sendCommand('/blusets setn 20 '..bluspells[cmd[2]].spell)
+        coroutine.sleep(0.1)
+        sendCommand('/ma "'..bluspells[cmd[2]].spell..'"<'..bluspells[cmd[2]].target..'>')
     end
 
     -- Function to recursively display the names of subtables
@@ -329,12 +338,6 @@ function commonPrecastRules (sets, spell, skill, type)
 	end
 
     equip(sets.AllJobs['FastCast'][skill])
-
-    if (action.Skill == "Blue Magic") then
-        sendCommand('/blusets setn 1 '..action.Name)
-        coroutine.sleep(0.1)
-        sendCommand('/ma "'..action.Name..'" <t>')
-    end
 end
 
 --commonPreshotRules documentation
