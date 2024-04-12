@@ -123,7 +123,7 @@ sets['WeaponSkills']["Rudra's Storm"] = gFunc.Combine(sets['WeaponSkills'], {
     Ear1 = { Name = 'Mache Earring +1', Augment = TA8 },
     Ear2 = { Name = 'Mache Earring +1', Augment = TA8 },
     Back = { Name = 'Canny Cape', Augment = TA8 }, --10% TA (2% + 8%)
-    Neck = { Name = 'Tlamiztli Collar', Augment = TA8 },   
+    Neck = { Name = 'Clotharius Torque', Augment = TA12 },   
     Ring1 = { Name = 'Regal Ring', Augment= TA8},
     Ring2 = { Name = 'Epona\'s Ring', Augment= TA8}, --11% TA (3%+8%)
 

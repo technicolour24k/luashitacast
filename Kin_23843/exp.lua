@@ -75,6 +75,18 @@ local sets = {
         Waist={ Name="Friar's Rope", Augment = "Sword enhancement spell damage +40" },		
         Legs = { Name = 'Vagabond\'s Hose', Augment = "Sword enhancement spell damage +40"},
         Feet = { Name = 'Vagabond\'s Boots', Augment = "Sword enhancement spell damage +40"},
+    },
+    ['ws']={},
+    ['Earth Crusher'] = {
+        Neck = { Name = 'Miner\'s Pendant', Augment = { [1] = 'Magic Damage +48', [2] = 'Mag. Acc+48' } },
+        Body = 'Chocobo Shirt',
+        Ear1="Moldavite Earring",
+        -- Ring1 = { Name = 'Hermit\'s Ring', Augment = { [1] = 'INT+12', [2] = '"Refresh"+20' } },
+        Ring1 = { Name = 'Eremite\'s Ring +1', Augment = { [1] = '"Mag.Atk.Bns."+32', [2] = 'Mag. Acc.+32' } },
+        Ring2 = { Name = 'Eremite\'s Ring +1', Augment = { [1] = '"Mag.Atk.Bns."+32', [2] = 'Mag. Acc.+32' } },
+        Waist = { Name = 'Silver Mog. Belt', Augment = { [1] = 'Magic Damage +48', [2] = 'Mag. Acc+48' } },
+        Legs = { Name = 'Vagabond\'s Hose', Augment = 'Spell interruption rate down -40%' },
+        Feet = { Name = 'Vagabond\'s Boots', Augment = 'Spell interruption rate down -40%' },
     }
 
 };
@@ -148,6 +160,12 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
+    local action = gData.GetAction();
+
+    if (action.Name ~= nil) then
+        gFunc.EquipSet(action.Name)
+    end
+
 end
 
 return profile;

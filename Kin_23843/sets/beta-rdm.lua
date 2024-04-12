@@ -247,7 +247,7 @@ sets.WeaponSkills['Savage Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['
     Legs=AF_LEGS,
     Feet=AF_FEET,
     Ammo="Floestone",
-    Neck="Tlamiztli Collar",
+    Neck={Name="Clotharius Torque",Augment=TA12},
     Ear1="Regal Earring",
     Ear2="Mache Earring +1",
     Back="Laic Mantle",

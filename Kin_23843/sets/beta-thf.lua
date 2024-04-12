@@ -29,7 +29,7 @@ sets['Engaged']['Daggers'] ={
 -- Every day killing things
 sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
     -- Feet = { Name = 'Savateur\'s Gaiters', Augment = { [1] = '"Store TP"+10', [2] = '"Subtle Blow"+30' } },
-    Waist = { Name = 'Windbuffet Belt +1', Augment = '"Triple Atk."+8' },
+    Waist = { Name = 'Windbuffet Belt +1', Augment = TA8 },
 })
 
 -- Every day attacky things!
@@ -129,12 +129,12 @@ sets.WeaponSkills["Rudra's Storm"] = gFunc.Combine(sets.AllJobs['WeaponSkills'][
     Legs = AF_LEGS, --TA 5%
     Feet = RELIC_FEET, -- TA+3%+8%(Aug) +TA damage+7%
     Ammo = { Name = 'Fire Bomblet', Augment = { [1] = 'Weapon Skill Acc.+2', [2] = 'Weapon skill damage +5%', [3] = 'DMG:+2', [4] = 'Attack+7', [5] = 'Accuracy+7' } }, --5% WSD
-    Ear1 = { Name = 'Mache Earring +1', Augment = '"Triple Atk."+8' },
-    Ear2 = { Name = 'Mache Earring +1', Augment = '"Triple Atk."+8' },
-    Back = { Name = 'Canny Cape', Augment = '"Triple Atk."+8' }, --10% TA (2% + 8%)
-    Neck = { Name = 'Tlamiztli Collar', Augment = '"Triple Atk."+8' },   
-    Ring1 = { Name = 'Regal Ring', Augment= '"Triple Atk."+8'},
-    Ring2 = { Name = 'Epona\'s Ring', Augment= '"Triple Atk."+8'}, --11% TA (3%+8%)
+    Ear1 = { Name = 'Mache Earring +1', Augment = TA8 },
+    Ear2 = { Name = 'Mache Earring +1', Augment = TA8 },
+    Back = { Name = 'Canny Cape', Augment = TA8 }, --10% TA (2% + 8%)
+    Neck = { Name = 'Clotharius Torque', Augment = TA12 },   
+    Ring1 = { Name = 'Regal Ring', Augment= TA8},
+    Ring2 = { Name = 'Epona\'s Ring', Augment= TA8}, --11% TA (3%+8%)
 
 })
 sets.WeaponSkills["Aeolian Edge"] = gFunc.Combine(sets.THF['MAB'], {})

@@ -33,7 +33,7 @@ sets['Engaged']['Balanced'] = gFunc.Combine(sets['Engaged'], {
 
 -- Every day attacky things!
 sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
-    Neck = { Name = 'Tlamiztli Collar', Augment = TA8 },
+    Neck = { Name = 'Clotharius Torque', Augment = TA12 },
     Ear1 = { Name = 'Mache Earring +1', Augment = TA8 },
     Ear2 = { Name = 'Cessance Earring'},
     Ring1 = { Name = 'Regal Ring', Augment = TA8 },

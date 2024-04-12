@@ -35,7 +35,7 @@ sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
     Range = 'Exalted C.bow',
     Ammo = "Beryllium Bolt",
     Head = 'Pill. Bonnet +3',
-    Neck = { Name = 'Tlamiztli Collar', Augment = TA12 },
+    Neck = { Name = 'Clotharius Torque', Augment = TA12 },
     Ear1 = { Name = 'Mache Earring +1', Augment = TA8 },
     Ear2 = { Name = 'Mache Earring +1', Augment = TA8 },
     Body = 'Plunderer\'s Vest +2',
@@ -95,6 +95,7 @@ sets.THF['MAB'] = gFunc.Combine(sets.AllJobs['MAB'], {
 
 sets.THF['Magic'] = {}
 sets.THF['Magic']['Cure'] = gFunc.Combine(sets.AllJobs['Midcast']['Cure'], {})
+sets.THF['Magic']['White Wind'] = gFunc.Combine(sets.AllJobs['Midcast']['Cure'], {})
 sets.THF['Magic']['BLU_Physical'] = {}
 sets.THF['Magic']['BLU_Buffs'] = {}
 sets.THF['Magic']['BLU_Nukes'] = gFunc.Combine(sets.THF['MAB'], {})
@@ -107,6 +108,9 @@ sets.THF['Magic']['Helixes']['Dark Arts'] = gFunc.Combine(sets.THF['Magic']['Hel
 sets.THF['Magic']['Enspells'] = gFunc.Combine(sets.AllJobs['Midcast']['Enspell'], {})
 
 sets.THF['DayWeatherBonus'] = {}
+
+sets.THF['Magic']['Stoneskin'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingPotency'],{})
+sets.THF['Magic']['Diamondhide'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingPotency'],{})
 
 --------------------------------------
 --           BEGIN JA GEARSETS      --
@@ -123,7 +127,7 @@ sets.JobAbility['Collaborator'] = gFunc.Combine(sets.AllJobs['JobAbility'],{Head
 --------------------------------------
 sets['WeaponSkills'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
     Ammo = { Name = 'Fire Bomblet', Augment = { [1] = 'Weapon Skill Acc.+2', [2] = 'Weapon skill damage +5%', [3] = 'DMG:+2', [4] = 'Attack+7', [5] = 'Accuracy+7' } }, --5% WSD
-    Hands= "Meg. Gloves +2", --WSD (All hits) +7%
+    Hands= {Name="Meg. Gloves +2",Augment=TA12}, --WSD (All hits) +7%
     Head = AF_HEAD, --WSD+6%
     Legs = RELIC_LEGS, --WSD+3%
     Back={Name="Laic Mantle",Augment=SAVETP200}
@@ -155,7 +159,6 @@ sets['WeaponSkills']["Rudra's Storm"] = gFunc.Combine(sets['WeaponSkills'], {
     Legs = AF_LEGS, --TA 5%
     Feet = RELIC_FEET, -- TA+3%+8%(Aug) +TA damage+7%
     -- Back = { Name = 'Canny Cape', Augment = TA8 }, --10% TA (2% + 8%)
-    Neck = { Name = 'Tlamiztli Collar', Augment = TA12 },   
     Ring1 = { Name = 'Regal Ring', Augment= TA8},
 
 })

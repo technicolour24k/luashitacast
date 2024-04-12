@@ -10,9 +10,10 @@ sets.AllJobs['Midcast']={}
 sets.AllJobs['JobAbility']={}
 sets.AllJobs['WeaponSkills']={}
 sets.AllJobs['WeaponSkills']['WSD']={
-    Ammo= {Name="Floestone", Augment=TPBONUS200},
+    Ammo= {Name="Floestone", Augment=TA12},
     Ear1={Name="Balder Earring", Augment=SAVETP200},
     Ear2={Name="Balder Earring", Augment=SAVETP200},
+    Neck={Name="Clotharius Torque",Augment=TA12},
     Ring1={Name='Dark Ring', Augment={[1]='Weapon skill damage +10%', [2]='Accuracy+7', [3]='Eva.+5', [4]='Attack+7', [5]='Mag. Eva.+5'}},
     Ring2={Name='Hetairoi Ring', Augment=TA12},
     Waist={Name="Windbuffet Belt +1",Augment=TA12},

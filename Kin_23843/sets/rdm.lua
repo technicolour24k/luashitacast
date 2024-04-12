@@ -214,6 +214,7 @@ sets.RDM['Magic']['Dispel'] = gFunc.Combine(sets.RDM['Magic']['Enfeebling Magic'
 sets.RDM['Magic']['Drain'] = gFunc.Combine(sets.AllJobs['Midcast']['DrainAspir'],{
     Head={Name="Appetence Crown", Augment=DRAINASPIR40},
     Waist={Name="Fucho-no-Obi",Augment=DRAINASPIR40},
+    Feet={Name="Merlinic Crackows",Augment=DRAINASPIR40},
 })
 sets.RDM['Magic']['Drain II'] = gFunc.Combine(sets.RDM['Magic']['Drain'],{})
 sets.RDM['Magic']['Aspir'] = gFunc.Combine(sets.RDM['Magic']['Drain'],{})
@@ -322,7 +323,7 @@ sets.WeaponSkills['Savage Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['
     Legs=AF_LEGS,
     Feet="Jhakri Pigaches +2",
     Ammo="Floestone",
-    Neck="Tlamiztli Collar",
+    Neck={Name="Clotharius Torque",Augment=TA12},
     Ear1="Regal Earring",
     Ear2="Mache Earring +1",
     Back={Name="Laic Mantle",Augment=SAVETP200}

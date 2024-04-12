@@ -147,7 +147,7 @@ sets.WeaponSkills["True Strike"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['W
 sets.WeaponSkills["Skullbreaker"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
 sets.WeaponSkills["Judgment"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
 sets.WeaponSkills["Black Halo"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
-    Neck = {Name="Tlamiztli Collar",Augment = TA12},
+    Neck = {Name="Clotharius Torque",Augment = TA12},
     Waist = {Name="Windbuffet Belt +1",Augment = TA12 },
     Back = {Name="Buquwik Cape"},
 })
