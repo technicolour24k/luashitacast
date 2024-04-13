@@ -154,6 +154,7 @@ sets['WeaponSkills']["Evisceration"] = gFunc.Combine(sets['WeaponSkills'], {
 sets['WeaponSkills']["Dancing Edge"] = gFunc.Combine(sets['WeaponSkills'], {})
 sets['WeaponSkills']["Mercy Stroke"] = gFunc.Combine(sets['WeaponSkills'], {})
 sets['WeaponSkills']["Mandalic Stab"] = gFunc.Combine(sets['WeaponSkills'], {})
+sets['WeaponSkills']["Shark Bite"] = gFunc.Combine(sets['WeaponSkills'], {})
 sets['WeaponSkills']["Rudra's Storm"] = gFunc.Combine(sets['WeaponSkills'], {
     Body = AF_BODY, --TA+7%
     Legs = AF_LEGS, --TA 5%

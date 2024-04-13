@@ -71,10 +71,8 @@ profile.HandleMidcast = function()
     commonMidcastRules(sets, gData.GetAction().Name, gData.GetAction().Skill, gData.GetAction().Type)
 
     if (player.MainJobSync < 99) then
-        if (debugEnabled()) then
-            debugLog("Main level: "..player.MainJobLevel)
-            debugLog("Sync'd Level: "..player.MainJobSync)
-        end
+        debugLog("Main level: "..player.MainJobLevel)
+        debugLog("Sync'd Level: "..player.MainJobSync)
         if (spellContains(action.Name, "helix")) then
             equip(sets.AllJobs['Midcast']['Helixes'])
         end

@@ -48,9 +48,9 @@ function commonCommandRules (sets, cmd)
 
     end
     if (cmd[1]=="blu") then
-        infoLog("Received: "..cmd[1].."["..cmd[2].."]")
-        infoLog("Spell: "..bluspells[cmd[2]].spell)
-        infoLog("Target: "..bluspells[cmd[2]].target)
+        debugLog("Received: "..cmd[1].."["..cmd[2].."]")
+        debugLog("Spell: "..bluspells[cmd[2]].spell)
+        debugLog("Target: "..bluspells[cmd[2]].target)
         sendCommand('/blusets setn 20 '..bluspells[cmd[2]].spell)
         coroutine.sleep(0.1)
         sendCommand('/ma "'..bluspells[cmd[2]].spell..'"<'..bluspells[cmd[2]].target..'>')
@@ -113,18 +113,17 @@ function commonCommandRules (sets, cmd)
             ['Dark'] = "Enblizzard"
         }
 
-        if (debugEnabled()) then
-            debugLog("=================  Enspell checks  =================")
-            debugLog("Day Element: "..env.DayElement)
-            debugLog("Weather Element: "..env.WeatherElement)
-            debugLog("Day opposition: "..env.DayElement.." : " .. dayWeatherElementOpposites[env.DayElement])
-            debugLog("Weather opposition: "..env.WeatherElement.." : " .. dayWeatherElementOpposites[env.WeatherElement])
-            if (dayWeatherElementOpposites[env.DayElement] ~= env.WeatherElement) then
-                debugLog("Day & Weather Opposite: false")
-            else
-                debugLog("Day & Weather Opposite: true")
-            end
+        debugLog("=================  Enspell checks  =================")
+        debugLog("Day Element: "..env.DayElement)
+        debugLog("Weather Element: "..env.WeatherElement)
+        debugLog("Day opposition: "..env.DayElement.." : " .. dayWeatherElementOpposites[env.DayElement])
+        debugLog("Weather opposition: "..env.WeatherElement.." : " .. dayWeatherElementOpposites[env.WeatherElement])
+        if (dayWeatherElementOpposites[env.DayElement] ~= env.WeatherElement) then
+            debugLog("Day & Weather Opposite: false")
+        else
+            debugLog("Day & Weather Opposite: true")
         end
+
         if (dayWeatherElementOpposites[env.DayElement] ~= env.WeatherElement) then
             if (string.find(env.Weather, "x2")) then
                 chosenEnspell = enspellElements[env.WeatherElement]
@@ -263,44 +262,39 @@ function commonIdleRules (sets)
 
     if ((buffIsActive("Light Arts")) or (buffIsActive("Addendum: White"))) then
         activeArts = "Light Arts"
-        if (debugEnabled()) then debugLog("Light Arts found - setting activeArts to" ..activeArts) end
+        debugLog("Light Arts found - setting activeArts to" ..activeArts)
     elseif ((buffIsActive("Dark Arts")) or (buffIsActive("Addendum: Black"))) then
         activeArts = "Dark Arts"
-        if (debugEnabled()) then debugLog("Dark Arts found - setting activeArts to" ..activeArts) end
+        debugLog("Dark Arts found - setting activeArts to" ..activeArts)
     end
 
     local temp = evaluateVariableValue(statusType)
-    equipAppropriateGear()
-    
-    if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]") end
+    equipAppropriateGear()   
+    debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]")
 
     if (player.Status=="Engaged") then
-        if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..weapons.."]") end
+        debugLog("Equipping sets["..player.Status.."]["..weapons.."]")
         equipAppropriateGear()
-        if(debugEnabled()) then debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]") end
+        debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]")
 
         if (thOn) then
             equip(sets['Engaged']['TH'])
         end
 
-        if(debugEnabled()) then
-            debugLog("Player Main Level: "..player.MainJobSync )
-            debugLog("Player Subjob: "..player.SubJob)
-        end
+        debugLog("Player Main Level: "..player.MainJobSync )
+        debugLog("Player Subjob: "..player.SubJob)
         equip(sets[player.Status][weapons])
 
         if ((player.MainJobSync  < 99) and (player.SubJob == "MNK")) then
-            if (debugEnabled()) then
-                debugLog("player.MainJobSync is under 99 ["..player.MainJobSync.."]")
-                debugLog("player.SubJob is "..player.SubJob)
-            end
+            debugLog("player.MainJobSync is under 99 ["..player.MainJobSync.."]")
+            debugLog("player.SubJob is "..player.SubJob)
             equip(sets.default['90'])
             
             if (player.MainJobSync  > 69) then
-                if (debugEnabled()) then debugLog("player.MainJobSync is over 69 ["..player.MainJobSync.."]") end
+                debugLog("player.MainJobSync is over 69 ["..player.MainJobSync.."]")
                 equip(sets.default['70'])
             elseif (player.MainJobSync  > 49) then
-                if (debugEnabled()) then debugLog("player.MainJobSync is over 49 ["..player.MainJobSync.."]") end
+                debugLog("player.MainJobSync is over 49 ["..player.MainJobSync.."]")
                 equip(sets.default['50'])
             end
         end
@@ -358,23 +352,21 @@ function commonMidcastRules (sets, spell, skill, type)
     player = gData.GetPlayer()
     action = gData.GetAction()
     
-    if (debugEnabled()) then
-        debugLog("============ commonMidcastRules: Variables passed in ============")
-        debugLog("spell:"..spell)
-        debugLog("skill:"..skill)
-        debugLog("type:"..type)
-        debugLog("============ Raw Data Dump ============")
-        debugLog("gData.GetAction().Name: "..gData.GetAction().Name)
-        debugLog("gData.GetAction().Skill:"..gData.GetAction().Skill)
-        debugLog("gData.GetAction().Type:"..gData.GetAction().Type)
-        debugLog("gData.GetAction().Element:"..gData.GetAction().Element)
-        debugLog("============ Action reference Data Dump ============")
-        debugLog("action.Name: "..action.Name)
-        debugLog("action.Skill:"..action.Skill)
-        debugLog("action.Type:"..action.Type)
-        debugLog("action.Element:"..action.Element)
-        debugLog("sets."..player.MainJob.."['Magic']["..action.Skill.."]")
-    end
+    debugLog("============ commonMidcastRules: Variables passed in ============")
+    debugLog("spell:"..spell)
+    debugLog("skill:"..skill)
+    debugLog("type:"..type)
+    debugLog("============ Raw Data Dump ============")
+    debugLog("gData.GetAction().Name: "..gData.GetAction().Name)
+    debugLog("gData.GetAction().Skill:"..gData.GetAction().Skill)
+    debugLog("gData.GetAction().Type:"..gData.GetAction().Type)
+    debugLog("gData.GetAction().Element:"..gData.GetAction().Element)
+    debugLog("============ Action reference Data Dump ============")
+    debugLog("action.Name: "..action.Name)
+    debugLog("action.Skill:"..action.Skill)
+    debugLog("action.Type:"..action.Type)
+    debugLog("action.Element:"..action.Element)
+    debugLog("sets."..player.MainJob.."['Magic']["..action.Skill.."]")
     
     if (itemInArray(autoCancelList,spell)) then
         cancelBuff(action.Name, action.CastTime, gSettings.FastCast)
@@ -386,32 +378,32 @@ function commonMidcastRules (sets, spell, skill, type)
         
     if (sets[player.MainJob]['Magic'][skill]) then
         equip(sets[player.MainJob]['Magic'][skill])
-        if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']["..skill.."]") end
+        debugLog("Equipping sets["..player.MainJob.."]['Magic']["..skill.."]")
     elseif (sets.AllJobs['Midcast'][skill]) then
         equip(sets.AllJobs['Midcast'][skill])
-        if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']["..skill.."]") end
+        debugLog("Equipping sets.AllJobs['Midcast']["..skill.."]")
     end
 
     if (sets[player.MainJob]['Magic'][spell]) then
         equip(sets[player.MainJob]['Magic'][spell])
-        if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']["..spell.."]") end
+        debugLog("Equipping sets["..player.MainJob.."]['Magic']["..spell.."]")
     elseif sets.AllJobs['Midcast'][spell] then
         equip(sets.AllJobs['Midcast'][spell])
-        if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']["..spell.."]") end
+        debugLog("Equipping sets.AllJobs['Midcast']["..spell.."]")
     end
     if ((spellContains(spell, "Cure")) or (spellContains(spell,"Cura"))) then
         equip(sets[player.MainJob]['Magic'].Cure)
-        if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic'].Cure") end
+        debugLog("Equipping sets["..player.MainJob.."]['Magic'].Cure")
     end
 
     if (itemInArray(enspells,spell)) then
         equip(sets.AllJobs['Midcast']['Enspell'])
-        if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']['Enspell']") end
+        debugLog("Equipping sets.AllJobs['Midcast']['Enspell']")
     end
 
     if (itemInArray(conserveMP_list,spell)) then
         equip(sets.AllJobs['ConserveMP'])
-        if (debugEnabled()) then debugLog("Equipping sets.AllJobs['ConserveMP']") end
+        debugLog("Equipping sets.AllJobs['ConserveMP']")
 
     end
 
@@ -419,26 +411,26 @@ function commonMidcastRules (sets, spell, skill, type)
         if (itemInArray(BLU_Nukes,spell)) then
             if (sets[player.MainJob]['Magic']['BLU_Nukes']) then
                 equip(sets[player.MainJob]['Magic']['BLU_Nukes'])
-                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']['BLU_Nukes']") end
+                debugLog("Equipping sets["..player.MainJob.."]['Magic']['BLU_Nukes']")
             elseif (sets.AllJobs['Midcast']['BLU_Nukes']) then
                 equip(sets.AllJobs['Midcast']['BLU_Nukes'])
-                if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']['BLU_Nukes']") end
+                debugLog("Equipping sets.AllJobs['Midcast']['BLU_Nukes']")
             end
         elseif (itemInArray(BLU_Buffs,spell)) then
             if (sets[player.MainJob]['Magic']['BLU_Buffs']) then
                 equip(sets[player.MainJob]['Magic']['BLU_Buffs'])
-                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']['BLU_Buffs']") end
+                debugLog("Equipping sets["..player.MainJob.."]['Magic']['BLU_Buffs']")
             elseif (sets.AllJobs['Midcast']['BLU_Buffs']) then
                 equip(sets.AllJobs['Midcast']['BLU_Buffs'])
-                if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']['BLU_Buffs']") end
+                debugLog("Equipping sets.AllJobs['Midcast']['BLU_Buffs']")
             end
         elseif (itemInArray(BLU_Physical,spell)) then
             if (sets[player.MainJob]['Magic']['BLU_Physical']) then
                 equip(sets[player.MainJob]['Magic']['BLU_Physical'])
-                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']['BLU_Physical']") end
+                debugLog("Equipping sets["..player.MainJob.."]['Magic']['BLU_Physical']")
             elseif (sets.AllJobs['Midcast']['BLU_Physical']) then
                 equip(sets.AllJobs['Midcast']['BLU_Physical'])
-                if (debugEnabled()) then debugLog("Equipping sets.AllJobs['Midcast']['BLU_Physical']") end
+                debugLog("Equipping sets.AllJobs['Midcast']['BLU_Physical']")
             end
         end
     end
@@ -447,11 +439,11 @@ function commonMidcastRules (sets, spell, skill, type)
 		if (itemInArray(Helixes,spell)) then
 			if activeArts == "default" then
 				equip(sets[player.MainJob]['Magic']['Helixes'])
-                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']['Helixes']") end
+                debugLog("Equipping sets["..player.MainJob.."]['Magic']['Helixes']")
 
 			else
 				equip(sets[player.MainJob]['Magic']['Helixes'][activeArts])
-                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Magic']['Helixes']["..activeArts.."]") end
+                debugLog("Equipping sets["..player.MainJob.."]['Magic']['Helixes']["..activeArts.."]")
 			end
 		end
 	end
@@ -461,7 +453,7 @@ function commonMidcastRules (sets, spell, skill, type)
             -- equip(sets[player.MainJob]['Nuke'])
             -- if (sets[player.MainJob]['Nuke'][action.Element]) then
                 equip(sets[player.MainJob]['Nuke'][action.Element])
-                if (debugEnabled()) then debugLog("Equipping sets["..player.MainJob.."]['Nuke']["..action.Element.."]") end
+                debugLog("Equipping sets["..player.MainJob.."]['Nuke']["..action.Element.."]")
             -- end
         end
     end

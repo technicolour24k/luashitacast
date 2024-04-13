@@ -40,7 +40,9 @@ function infoLog(text)
 end
 
 function debugLog(text)
-    gFunc.Echo(3, "[Debug] "..text)
+	if (debugEnabled()) then
+    	gFunc.Echo(3, "[Debug] "..text)
+	end
 end
 
 function errorLog(text)
@@ -186,13 +188,11 @@ end
 function weatherCheck(ele, skill)
     local env = gData.GetEnvironment()
     
-	if (debugEnabled()) then
-		debugLog("=== weatherCheck ===")
-		debugLog("Skill: "..skill)
-		debugLog("Element: "..ele)
-		debugLog("Weather Element: "..env.WeatherElement)
-		debugLog("Day Element: ".. env.DayElement)
-	end
+	debugLog("=== weatherCheck ===")
+	debugLog("Skill: "..skill)
+	debugLog("Element: "..ele)
+	debugLog("Weather Element: "..env.WeatherElement)
+	debugLog("Day Element: ".. env.DayElement)
 
     if not (skill) then skill = null end
 
@@ -212,13 +212,13 @@ function equipAppropriateGear()
 	if (player.Status == "Idle") then
 		equip(sets.AllJobs['Regen'])
 		equip(sets['Idle'][idleType])
-		if (debugEnabled()) then debugLog("Equipping sets[Idle]["..idleType.."]") end
+		debugLog("Equipping sets[Idle]["..idleType.."]")
 	end
 
 	if (player.Status=="Engaged") then
 		equip(sets['Engaged'][weapons])
 		equip(sets['Engaged'][engagedType])
-		if (debugEnabled()) then debugLog("Equipping sets[Engaged]["..engagedType.."]") end
+		debugLog("Equipping sets[Engaged]["..engagedType.."]")
 	end
 end
 
