@@ -251,6 +251,12 @@ end
 function recraft(count)
 	infoLog("[Recraft] Initiating Recraft for "..count.." attempts")
 	for i = 1, count, 1 do
+		if not buffIsActive("Food") then
+			sendCommand('/get "Coconut Rusk" Case')
+			coroutine.sleep(2)
+			sendCommand('/item "Coconut Rusk" <me>')
+			coroutine.sleep(2)
+		end
 		infoLog("[Recraft] Recrafting: "..i.." of "..count)
 		sendCommand('/lastsynth')
 		wait(27)
