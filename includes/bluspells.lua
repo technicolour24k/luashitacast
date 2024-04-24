@@ -1,631 +1,181 @@
 bluspells = {
-    ['ww'] = {
-        spell="White Wind",
-        target="me"
-    },
-    ['floe'] = {
-        spell="Spectral Floe",
-        target="t"
-    },
-    ['haste'] = {
-        spell="Erratic Flutter",
-        target="me"
-    },
-    ['blink']={
-        spell="Occultation",
-        target="me"
-    },
-    ['ss']={
-        spell="Diamondhide",
-        target="me"
-    },
-    ['stoneskin'] = {
-        spell="Diamondhide",
-        target="me"
-    },
-    ['flower'] = {
-        spell="Dream Flower",
-        target="t"
-    },
-    ['sop'] = {
-        spell="Sopoforic",
-        target="t"
-    },
-    ['sheepsong'] = {
-        spell="Sheep Song",
-        target="t"
-    },
-    ['yawn'] = {
-        spell="Yawn",
-        target="t"
-    },
-    ["venomshell"] = {
-        spell = "Venom Shell",
-        target = "t"
-    },
-    ["maelstrom"] = {
-        spell = "Maelstrom",
-        target = "t"
-    },
-    ["metallicbody"] = {
-        spell = "Metallic Body",
-        target = "me"
-    },
-    ["screwdriver"] = {
-        spell = "Screwdriver",
-        target = "t"
-    },
-    ["mpdrainkiss"] = {
-        spell = "MP Drainkiss",
-        target = "t"
-    },
-    ["deathray"] = {
-        spell = "Death Ray",
-        target = "t"
-    },
-    ["sandspin"] = {
-        spell = "Sandspin",
-        target = "t"
-    },
-    ["smiteofrage"] = {
-        spell = "Smite of Rage",
-        target = "t"
-    },
-    ["bludgeon"] = {
-        spell = "Bludgeon",
-        target = "t"
-    },
-    ["refueling"] = {
-        spell = "Refueling",
-        target = "me"
-    },
-    ["icebreak"] = {
-        spell = "Ice Break",
-        target = "t"
-    },
-    ["blitzstrahl"] = {
-        spell = "Blitzstrahl",
-        target = "t"
-    },
-    ["selfdestruct"] = {
-        spell = "Self-Destruct",
-        target = "t"
-    },
-    ["mysteriouslight"] = {
-        spell = "Mysterious Light",
-        target = "t"
-    },
-    ["coldwave"] = {
-        spell = "Cold Wave",
-        target = "t"
-    },
-    ["poisonbreath"] = {
-        spell = "Poison Breath",
-        target = "t"
-    },
-    ["stinkinggas"] = {
-        spell = "Stinking Gas",
-        target = "t"
-    },
-    ["mementomori"] = {
-        spell = "Memento Mori",
-        target = "me"
-    },
-    ["terrortouch"] = {
-        spell = "Terror Touch",
-        target = "t"
-    },
-    ["spinalcleave"] = {
-        spell = "Spinal Cleave",
-        target = "t"
-    },
-    ["bloodsaber"] = {
-        spell = "Blood Saber",
-        target = "t"
-    },
-    ["digest"] = {
-        spell = "Digest",
-        target = "t"
-    },
-    ["mandibularbite"] = {
-        spell = "Mandibular Bite",
-        target = "t"
-    },
-    ["cursedsphere"] = {
-        spell = "Cursed Sphere",
-        target = "t"
-    },
-    ["sickleslash"] = {
-        spell = "Sickle Slash",
-        target = "t"
-    },
-    ["cocoon"] = {
-        spell = "Cocoon",
-        target = "me"
-    },
-    ["filamentedhold"] = {
-        spell = "Filamented Hold",
-        target = "t"
-    },
-    ["pollen"] = {
-        spell = "Pollen",
-        target = "t"
-    },
-    ["powerattack"] = {
-        spell = "Power Attack",
-        target = "t"
-    },
-    ["deathscissors"] = {
-        spell = "Death Scissors",
-        target = "t"
-    },
-    ["magnetitecloud"] = {
-        spell = "Magnetite Cloud",
-        target = "t"
-    },
-    ["eyesonme"] = {
-        spell = "Eyes on Me",
-        target = "t"
-    },
-    ["freneticrip"] = {
-        spell = "Frenetic Rip",
-        target = "t"
-    },
-    ["frightfulroar"] = {
-        spell = "Frightful Roar",
-        target = "t"
-    },
-    ["hecatombwave"] = {
-        spell = "Hecatomb Wave",
-        target = "t"
-    },
-    ["bodyslam"] = {
-        spell = "Body Slam",
-        target = "t"
-    },
-    ["radiantbreath"] = {
-        spell = "Radiant Breath",
-        target = "t"
-    },
-    ["helldive"] = {
-        spell = "Helldive",
-        target = "t"
-    },
-    ["jetstream"] = {
-        spell = "Jet Stream",
-        target = "t"
-    },
-    ["blooddrain"] = {
-        spell = "Blood Drain",
-        target = "t"
-    },
-    ["soundblast"] = {
-        spell = "Sound Blast",
-        target = "t"
-    },
-    ["feathertickle"] = {
-        spell = "Feather Tickle",
-        target = "t"
-    },
-    ["featherbarrier"] = {
-        spell = "Feather Barrier",
-        target = "me"
-    },
-    ["jettatura"] = {
-        spell = "Jettatura",
-        target = "t"
-    },
-    ["footkick"] = {
-        spell = "Foot Kick",
-        target = "t"
-    },
-    ["wildcarrot"] = {
-        spell = "Wild Carrot",
-        target = "t"
-    },
-    ["voracioustrunk"] = {
-        spell = "Voracious Trunk",
-        target = "t"
-    },
-    ["healingbreeze"] = {
-        spell = "Healing Breeze",
-        target = "me"
-    },
-    ["chaoticeye"] = {
-        spell = "Chaotic Eye",
-        target = "t"
-    },
-    ["ramcharge"] = {
-        spell = "Ram Charge",
-        target = "t"
-    },
-    ["clawcyclone"] = {
-        spell = "Claw Cyclone",
-        target = "t"
-    },
-    ["lowing"] = {
-        spell = "Lowing",
-        target = "t"
-    },
-    ["dimensionaldeath"] = {
-        spell = "Dimensional Death",
-        target = "t"
-    },
-    ["heatbreath"] = {
-        spell = "Heat Breath",
-        target = "t"
-    },
-    ["blankeye"] = {
-        spell = "Blank Gaze",
-        target = "t"
-    },
-    ["magicfruit"] = {
-        spell = "Magic Fruit",
-        target = "t"
-    },
-    ["uppercut"] = {
-        spell = "Uppercut",
-        target = "t"
-    },
-    ["1000needles"] = {
-        spell = "1000 Needles",
-        target = "t"
-    },
-    ["pineconebomb"] = {
-        spell = "Pinecone Bomb",
-        target = "t"
-    },
-    ["sproutsmack"] = {
-        spell = "Sprout Smack",
-        target = "t"
-    },
-    ["soporific"] = {
-        spell = "Soporific",
-        target = "t"
-    },
-    ["queasyshroom"] = {
-        spell = "Queasyshroom",
-        target = "t"
-    },
-    ["wildoats"] = {
-        spell = "Wild Oats",
-        target = "t"
-    },
-    ["badbreath"] = {
-        spell = "Bad Breath",
-        target = "t"
-    },
-    ["geistwall"] = {
-        spell = "Geist Wall",
-        target = "t"
-    },
-    ["awfuleye"] = {
-        spell = "Awful Eye",
-        target = "t"
-    },
-    ["frostbreath"] = {
-        spell = "Frost Breath",
-        target = "t"
-    },
-    ["infrasonics"] = {
-        spell = "Infrasonics",
-        target = "t"
-    },
-    ["disseverment"] = {
-        spell = "Disseverment",
-        target = "t"
-    },
-    ["actinicburst"] = {
-        spell = "Actinic Burst",
-        target = "t"
-    },
-    ["reactorcool"] = {
-        spell = "Reactor Cool",
-        target = "me"
-    },
-    ["salinecoat"] = {
-        spell = "Saline Coat",
-        target = "me"
-    },
-    ["plasmacharge"] = {
-        spell = "Plasma Charge",
-        target = "me"
-    },
-    ["temporalshift"] = {
-        spell = "Temporal Shift",
-        target = "t"
-    },
-    ["verticalcleave"] = {
-        spell = "Vertical Cleave",
-        target = "t"
-    },
-    ["blastbomb"] = {
-        spell = "Blastbomb",
-        target = "t"
-    },
-    ["battledance"] = {
-        spell = "Battle Dance",
-        target = "t"
-    },
-    ["sandspray"] = {
-        spell = "Sandspray",
-        target = "t"
-    },
-    ["grandslam"] = {
-        spell = "Grand Slam",
-        target = "t"
-    },
-    ["headbutt"] = {
-        spell = "Head Butt",
-        target = "t"
-    },
-    ["bombtoss"] = {
-        spell = "Bomb Toss",
-        target = "t"
-    },
-    ["frypan"] = {
-        spell = "Frypan",
-        target = "t"
-    },
-    ["flyinghippress"] = {
-        spell = "Flying Hip Press",
-        target = "t"
-    },
-    ["hydroshot"] = {
-        spell = "Hydro Shot",
-        target = "t"
-    },
-    ["diamondhide"] = {
-        spell = "Diamondhide",
-        target = "me"
-    },
-    ["enervation"] = {
-        spell = "Enervation",
-        target = "t"
-    },
-    ["lightofpenance"] = {
-        spell = "Light of Penance",
-        target = "t"
-    },
-    ["warmup"] = {
-        spell = "Warm-up",
-        target = "me"
-    },
-    ["firespit"] = {
-        spell = "Firespit",
-        target = "t"
-    },
-    ["featherstorm"] = {
-        spell = "Feather Storm",
-        target = "t"
-    },
-    ["tailslap"] = {
-        spell = "Tail Slap",
-        target = "t"
-    },
-    ["hystericbarrage"] = {
-        spell = "Hysteric Barrage",
-        target = "t"
-    },
-    ["amplification"] = {
-        spell = "Amplification",
-        target = "me"
-    },
-    ["cannonball"] = {
-        spell = "Cannonball",
-        target = "t"
-    },
-    ["mindblast"] = {
-        spell = "Mind Blast",
-        target = "t"
-    },
-    ["exuviation"] = {
-        spell = "Exuviation",
-        target = "t"
-    },
-    ['magicHammer'] = {
-        spell = "Magic Hammer",
-        target = "t"
-    },
-    ['zephyrMantle'] = {
-        spell = "Zephyr Mantle",
-        target = "me"
-    },
-    ['regurgitation'] = {
-        spell = "Regurgitation",
-        target = "t"
-    },
-    ['seedspray'] = {
-        spell = "Seedspray",
-        target = "t"
-    },
-    ['corrosiveOoze'] = {
-        spell = "Corrosive Ooze",
-        target = "t"
-    },
-    ['spiralSpin'] = {
-        spell = "Spiral Spin",
-        target = "t"
-    },
-    ['asuranClaws'] = {
-        spell = "Asuran Claws",
-        target = "t"
-    },
-    ['subZeroSmash'] = {
-        spell = "Sub Zero Smash",
-        target = "t"
-    },
-    ['triumphantRoar'] = {
-        spell = "Triumphant Roar",
-        target = "t"
-    },
-    ['acridStream'] = {
-        spell = "Acrid Stream",
-        target = "t"
-    },
-    ['blazingBound'] = {
-        spell = "Blazing Bound",
-        target = "t"
-    },
-    ['pleniluneEmbrace'] = {
-        spell = "Plenilune Embrace",
-        target = "t"
-    },
-    ['demoralizingRoar'] = {
-        spell = "Demoralizing Roar",
-        target = "t"
-    },
-    ['cimicineDischarge'] = {
-        spell = "Cimicine Discharge",
-        target = "t"
-    },
-    ['animatingWail'] = {
-        spell = "Animating Wail",
-        target = "me"
-    },
-    ['batteryCharge'] = {
-        spell = "Battery Charge",
-        target = "me"
-    },
-    ['leafstorm'] = {
-        spell = "Leafstorm",
-        target = "t"
-    },
-    ['regeneration'] = {
-        spell = "Regeneration",
-        target = "t"
-    },
-    ['finalSting'] = {
-        spell = "Final Sting",
-        target = "t"
-    },
-    ['goblinRush'] = {
-        spell = "Goblin Rush",
-        target = "t"
-    },
-    ['vanityDive'] = {
-        spell = "Vanity Dive",
-        target = "t"
-    },
-    ['magicBarrier'] = {
-        spell = "Magic Barrier",
-        target = "me"
-    },
-    ['whirlOfRage'] = {
-        spell = "Whirl Of Rage",
-        target = "t"
-    },
-    ['benthicTyphoon'] = {
-        spell = "Benthic Typhoon",
-        target = "t"
-    },
-    ['auroralDrape'] = {
-        spell = "Auroral Drape",
-        target = "t"
-    },
-    ['osmosis'] = {
-        spell = "Osmosis",
-        target = "t"
-    },
-    ['quadContinuum'] = {
-        spell = "Quad Continuum",
-        target = "t"
-    },
-    ['fantod'] = {
-        spell = "Fantod",
-        target = "me"
-    },
-    ['thermalPulse'] = {
-        spell = "Thermal Pulse",
-        target = "t"
-    },
-    ['emptyThrash'] = {
-        spell = "Empty Thrash",
-        target = "t"
-    },
-    ['dreamFlower'] = {
-        spell = "Dream Flower",
-        target = "t"
-    },
-    ['occultation'] = {
-        spell = "Occultation",
-        target = "me"
-    },
-    ['chargedWhisker'] = {
-        spell = "Charged Whisker",
-        target = "t"
-    },
-    ['windsOfPromy'] = {
-        spell = "Winds Of Promy",
-        target = "t"
-    },
-    ['deltaThrust'] = {
-        spell = "Delta Thrust",
-        target = "t"
-    },
-    ['evryoneGrudge'] = {
-        spell = "Evryone Grudge",
-        target = "t"
-    },
-    ['reavingWind'] = {
-        spell = "Reaving Wind",
-        target = "t"
-    },
-    ['barrierTusk'] = {
-        spell = "Barrier Tusk",
-        target = "me"
-    },
-    ['mortalRay'] = {
-        spell = "Mortal Ray",
-        target = "t"
-    },
-    ['waterBomb'] = {
-        spell = "Water Bomb",
-        target = "t"
-    },
-    ['heavyStrike'] = {
-        spell = "Heavy Strike",
-        target = "t"
-    },
-    ['darkOrb'] = {
-        spell = "Dark Orb",
-        target = "t"
-    },
-    ['whitewind'] = {
-        spell = "White Wind",
-        target = "me"
-    },
-    ['suddenlunge'] = {
-        spell = "Sudden Lunge",
-        target = "t"
-    },
-    ['quadrastrike'] = {
-        spell = "Quadrastrike",
-        target = "t"
-    },
-    ['vaporSpray'] = {
-        spell = "Vapor Spray",
-        target = "t"
-    },
-    ['thunderBreath'] = {
-        spell = "Thunder Breath",
-        target = "t"
-    },
-    ['orcishCounterstance'] = {
-        spell = "Orcish Counterstance",
-        target = "me"
-    },
-    ['amorphicSpikes'] = {
-        spell = "Amorphic Spikes",
-        target = "t"
-    },
-    ['windBreath'] = {
-        spell = "Wind Breath",
-        target = "t"
-    },
-    ['barbedCrescent'] = {
-        spell = "Barbed Crescent",
-        target = "t"
-    },
+    ['ww'] = {spell="White Wind",target="me",casttime = 4.5},
+    ['haste'] = {spell="Erratic Flutter",target="me",casttime = 1},
+    ['blink']={spell="Occultation",target="me",casttime = 1.5},
+    ['ss']={spell="Diamondhide",target="me",casttime = 7},
+    ['stoneskin'] = {spell="Diamondhide",target="me",casttime = 7},
+    ['flower'] = {spell="Dream Flower",target="t",casttime = 2},
+    ['sop'] = {spell="Soporific",target="t",casttime = 3},
+    ['sheepsong'] = {spell="Sheep Song",target="t",casttime = 3},
+    ['yawn'] = {spell="Yawn",target="t",casttime = 3},
+    ['thunder']={spell="Anvil Lightning", target="t",casttime=5},
+    ['fire']={spell="Searing Tempest",target="t",casttime=5},
+    ['ice'] = {spell="Spectral Floe",target="t",casttime = 5},
+    ['wind'] = {spell="Silent Storm",target="t",casttime=5},
+    ['water']={spell="Scouring Spate",target="t",casttime=5},
+    ['earth']={spell="Entomb",target="t",casttime=5},
+    ['dark']={spell="Tenebral Crush",target="t",casttime=5},
+    ['crush']={spell="Tenebral Crush",target="t",casttime=5},
+    ['tenebralcrush']={spell="Tenebral Crush",target="t",casttime=5},
+    ['break'] = {spell="Entomb",target="t",casttime=5},
+    ['entomb'] = {spell="Entomb",target="t",casttime=5},
+    ['spate']={spell="Scouring Spate",target="t",casttime=5},
+    ['scouringspate']={spell="Scouring Spate",target="t",casttime=5},
+    ['storm'] = {spell="Silent Storm",target="t",casttime=5},
+    ['silentstorm'] = {spell="Silent Storm",target="t",casttime=5},
+    ['floe'] = {spell="Spectral Floe",target="t",casttime = 5},
+    ['spectralfloe'] = {spell="Spectral Floe",target="t",casttime = 5},
+    ['tempest']={spell="Searing Tempest",target="t",casttime=5},
+    ['searingtempest']={spell="Searing Tempest",target="t",casttime=5},
+    ['anvillightning']={spell="Anvil Lightning", target="t",casttime=5},
+    ['anvil']={spell="Anvil Lightning", target="t",casttime=5},
+    ["venomshell"] = {spell = "Venom Shell",target = "t",casttime = 3},
+    ["maelstrom"] = {spell = "Maelstrom",target = "t",casttime = 6},
+    ["metallicbody"] = {spell = "Metallic Body",target = "me",casttime = 3},
+    ["screwdriver"] = {spell = "Screwdriver",target = "t",casttime = 0.5},
+    ["mpdrainkiss"] = {spell = "MP Drainkiss",target = "t",casttime = 4},
+    ["deathray"] = {spell = "Death Ray",target = "t",casttime = 4.5},
+    ["sandspin"] = {spell = "Sandspin",target = "t",casttime = 1.5},
+    ["smiteofrage"] = {spell = "Smite of Rage",target = "t",casttime = 0.5},
+    ["bludgeon"] = {spell = "Bludgeon",target = "t",casttime = 0.5},
+    ["refueling"] = {spell = "Refueling",target = "me",casttime = 1.5},
+    ["icebreak"] = {spell = "Ice Break",target = "t",casttime = 5.25},
+    ["blitzstrahl"] = {spell = "Blitzstrahl",target = "t",casttime = 4.5},
+    ["selfdestruct"] = {spell = "Self-Destruct",target = "t",casttime = 3.25},
+    ["mysteriouslight"] = {spell = "Mysterious Light",target = "t",casttime = 3.75},
+    ["coldwave"] = {spell = "Cold Wave",target = "t",casttime = 4},
+    ["poisonbreath"] = {spell = "Poison Breath",target = "t",casttime = 3},
+    ["stinkinggas"] = {spell = "Stinking Gas",target = "t",casttime = 4},
+    ["mementomori"] = {spell = "Memento Mori",target = "me",casttime = 3.5},
+    ["terrortouch"] = {spell = "Terror Touch",target = "t",casttime = 3.25},
+    ["spinalcleave"] = {spell = "Spinal Cleave",target = "t",casttime = 0.5},
+    ["bloodsaber"] = {spell = "Blood Saber",target = "t",casttime = 4},
+    ["digest"] = {spell = "Digest",target = "t",casttime = 4},
+    ["mandibularbite"] = {spell = "Mandibular Bite",target = "t",casttime = 0.5},
+    ["cursedsphere"] = {spell = "Cursed Sphere",target = "t",casttime = 3},
+    ["sickleslash"] = {spell = "Sickle Slash",target = "t",casttime = 0.5},
+    ["cocoon"] = {spell = "Cocoon",target = "me",casttime = 1.75},
+    ["filamentedhold"] = {spell = "Filamented Hold",target = "t",casttime = 2},
+    ["pollen"] = {spell = "Pollen",target = "me",casttime = 2},
+    ["powerattack"] = {spell = "Power Attack",target = "t",casttime = 0.5},
+    ["deathscissors"] = {spell = "Death Scissors",target = "t",casttime = 0.5},
+    ["magnetitecloud"] = {spell = "Magnetite Cloud",target = "t",casttime = 4.5},
+    ["eyesonme"] = {spell = "Eyes on Me",target = "t",casttime = 4.5},
+    ["freneticrip"] = {spell = "Frenetic Rip",target = "t",casttime = 0.5},
+    ["frightfulroar"] = {spell = "Frightful Roar",target = "t",casttime = 2},
+    ["hecatombwave"] = {spell = "Hecatomb Wave",target = "t",casttime = 5.25},
+    ["bodyslam"] = {spell = "Body Slam",target = "t",casttime = 1},
+    ["radiantbreath"] = {spell = "Radiant Breath",target = "t",casttime = 5.25},
+    ["helldive"] = {spell = "Helldive",target = "t",casttime = 0.5},
+    ["jetstream"] = {spell = "Jet Stream",target = "t",casttime = 0.5},
+    ["blooddrain"] = {spell = "Blood Drain",target = "t",casttime = 4},
+    ["soundblast"] = {spell = "Sound Blast",target = "t",casttime = 4},
+    ["feathertickle"] = {spell = "Feather Tickle",target = "t",casttime = 4},
+    ["featherbarrier"] = {spell = "Feather Barrier",target = "me",casttime = 2},
+    ["jettatura"] = {spell = "Jettatura",target = "t",casttime = 0.5},
+    ["footkick"] = {spell = "Foot Kick",target = "t",casttime = 3},
+    ["wildcarrot"] = {spell = "Wild Carrot",target = "stpt",casttime = 0.5},
+    ["voracioustrunk"] = {spell = "Voracious Trunk",target = "t",casttime = 10},
+    ["healingbreeze"] = {spell = "Healing Breeze",target = "me",casttime = 4.5},
+    ["chaoticeye"] = {spell = "Chaotic Eye",target = "t",casttime = 3},
+    ["ramcharge"] = {spell = "Ram Charge",target = "t",casttime = 0.5},
+    ["clawcyclone"] = {spell = "Claw Cyclone",target = "t",casttime = 1},
+    ["lowing"] = {spell = "Lowing",target = "t",casttime = 7},
+    ["dimensionaldeath"] = {spell = "Dimensional Death",target = "t",casttime = 0.5},
+    ["heatbreath"] = {spell = "Heat Breath",target = "t",casttime = 7.5},
+    ["blankeye"] = {spell = "Blank Gaze",target = "t",casttime = 3},
+    ["magicfruit"] = {spell = "Magic Fruit",target = "stpt",casttime = 2.5},
+    ["uppercut"] = {spell = "Uppercut",target = "t",casttime = 0.5},
+    ["1000needles"] = {spell = "1000 Needles",target = "t",casttime = 12},
+    ["pineconebomb"] = {spell = "Pinecone Bomb",target = "t",casttime = 2.5},
+    ["sproutsmack"] = {spell = "Sprout Smack",target = "t",casttime = 0.5},
+    ["soporific"] = {spell = "Soporific",target = "t",casttime = 3},
+    ["queasyshroom"] = {spell = "Queasyshroom",target = "t",casttime = 2},
+    ["wildoats"] = {spell = "Wild Oats",target = "t",casttime = 0.5},
+    ["badbreath"] = {spell = "Bad Breath",target = "t",casttime = 8.75},
+    ["geistwall"] = {spell = "Geist Wall",target = "t",casttime = 3},
+    ["awfuleye"] = {spell = "Awful Eye",target = "t",casttime = 2.5},
+    ["frostbreath"] = {spell = "Frost Breath",target = "t",casttime = 6.5},
+    ["infrasonics"] = {spell = "Infrasonics",target = "t",casttime = 3},
+    ["disseverment"] = {spell = "Disseverment",target = "t",casttime = 0.5},
+    ["actinicburst"] = {spell = "Actinic Burst",target = "t",casttime = 0.5},
+    ["reactorcool"] = {spell = "Reactor Cool",target = "me",casttime = 3},
+    ["salinecoat"] = {spell = "Saline Coat",target = "me",casttime = 3},
+    ["plasmacharge"] = {spell = "Plasma Charge",target = "me",casttime = 3},
+    ["temporalshift"] = {spell = "Temporal Shift",target = "t",casttime = 0.5},
+    ["verticalcleave"] = {spell = "Vertical Cleave",target = "t",casttime = 0.5},
+    ["blastbomb"] = {spell = "Blastbomb",target = "t",casttime = 2.25},
+    ["battledance"] = {spell = "Battle Dance",target = "t",casttime = 1},
+    ["sandspray"] = {spell = "Sandspray",target = "t",casttime = 3},
+    ["grandslam"] = {spell = "Grand Slam",target = "t",casttime = 1},
+    ["headbutt"] = {spell = "Head Butt",target = "t",casttime = 0.5},
+    ["bombtoss"] = {spell = "Bomb Toss",target = "t",casttime = 3.75},
+    ["frypan"] = {spell = "Frypan",target = "t",casttime = 1},
+    ["flyinghippress"] = {spell = "Flying Hip Press",target = "t",casttime = 5.75},
+    ["hydroshot"] = {spell = "Hydro Shot",target = "t",casttime = 0.5},
+    ["diamondhide"] = {spell = "Diamondhide",target = "me",casttime = 7},
+    ["enervation"] = {spell = "Enervation",target = "t",casttime = 3.5},
+    ["lightofpenance"] = {spell = "Light of Penance",target = "t",casttime = 3},
+    ["warmup"] = {spell = "Warm-up",target = "me",casttime = 3},
+    ["firespit"] = {spell = "Firespit",target = "t",casttime = 6.5},
+    ["featherstorm"] = {spell = "Feather Storm",target = "t",casttime = 0.5},
+    ["tailslap"] = {spell = "Tail Slap",target = "t",casttime = 1},
+    ["hystericbarrage"] = {spell = "Hysteric Barrage",target = "t",casttime = 0.5},
+    ["amplification"] = {spell = "Amplification",target = "me",casttime = 4},
+    ["cannonball"] = {spell = "Cannonball",target = "t",casttime = 0.5},
+    ["mindblast"] = {spell = "Mind Blast",target = "t",casttime = 3},
+    ["exuviation"] = {spell = "Exuviation",target = "t",casttime = 3},
+    ['magichammer'] = {spell = "Magic Hammer",target = "t",casttime = 4},
+    ['zephyrmantle'] = {spell = "Zephyr Mantle",target = "me",casttime = 4},
+    ['regurgitation'] = {spell = "Regurgitation",target = "t",casttime = 3},
+    ['seedspray'] = {spell = "Seedspray",target = "t",casttime = 2.5},
+    ['corrosiveooze'] = {spell = "Corrosive Ooze",target = "t",casttime = 3.5},
+    ['spiralspin'] = {spell = "Spiral Spin",target = "t",casttime = 2.5},
+    ['asuranclaws'] = {spell = "Asuran Claws",target = "t",casttime = 2},
+    ['subzerosmash'] = {spell = "Sub-Zero Smash",target = "t",casttime = 1},
+    ['triumphantroar'] = {spell = "Triumphant Roar",target = "t",casttime = 1.75},
+    ['acridstream'] = {spell = "Acrid Stream",target = "t",casttime = 3},
+    ['blazingbound'] = {spell = "Blazing Bound",target = "t",casttime = 4},
+    ['pleniluneembrace'] = {spell = "Plenilune Embrace",target = "stpt",casttime = 2.75},
+    ['demoralizingroar'] = {spell = "Demoralizing Roar",target = "t",casttime = 2.75},
+    ['cimicinedischarge'] = {spell = "Cimicine Discharge",target = "t",casttime = 1.5},
+    ['animatingwail'] = {spell = "Animating Wail",target = "me",casttime = 2},
+    ['batterycharge'] = {spell = "Battery Charge",target = "me",casttime = 3.5},
+    ['leafstorm'] = {spell = "Leafstorm",target = "t",casttime = 6},
+    ['regeneration'] = {spell = "Regeneration",target = "me",casttime = 1.5},
+    ['finalsting'] = {spell = "Final Sting",target = "t",casttime = 5},
+    ['goblinrush'] = {spell = "Goblin Rush",target = "t",casttime = 0.5},
+    ['vanitydive'] = {spell = "Vanity Dive",target = "t",casttime = 0.5},
+    ['magicbarrier'] = {spell = "Magic Barrier",target = "me",casttime = 5},
+    ['whirlofrage'] = {spell = "Whirl Of Rage",target = "t",casttime = 1},
+    ['benthictyphoon'] = {spell = "Benthic Typhoon",target = "t",casttime = 0.5},
+    ['auroraldrape'] = {spell = "Auroral Drape",target = "t",casttime = 4},
+    ['osmosis'] = {spell = "Osmosis",target = "t",casttime = 6},
+    ['quadcontinuum'] = {spell = "Quad. Continuum",target = "t",casttime = 1},
+    ['fantod'] = {spell = "Fantod",target = "me",casttime = 0.5},
+    ['thermalpulse'] = {spell = "Thermal Pulse",target = "t",casttime = 5.5},
+    ['emptythrash'] = {spell = "Empty Thrash",target = "t",casttime = 0.5},
+    ['dreamflower'] = {spell = "Dream Flower",target = "t",casttime = 2},
+    ['occultation'] = {spell = "Occultation",target = "me",casttime = 1.5},
+    ['chargedwhisker'] = {spell = "Charged Whisker",target = "t",casttime = 5},
+    ['windsofpromy'] = {spell = "Winds Of Promy.",target = "t",casttime = 2.5},
+    ['deltathrust'] = {spell = "Delta Thrust",target = "t",casttime = 0.5},
+    ['evryonegrudge'] = {spell = "Evryone. Grudge",target = "t",casttime = 6},
+    ['reavingwind'] = {spell = "Reaving Wind",target = "t",casttime = 4},
+    ['barriertusk'] = {spell = "Barrier Tusk",target = "me",casttime = 5},
+    ['mortalray'] = {spell = "Mortal Ray",target = "t",casttime = 8.5},
+    ['waterbomb'] = {spell = "Water Bomb",target = "t",casttime = 2.5},
+    ['heavystrike'] = {spell = "Heavy Strike",target = "t",casttime = 0.5},
+    ['darkorb'] = {spell = "Dark Orb",target = "t",casttime = 7},
+    ['whitewind'] = {spell = "White Wind",target = "me",casttime = 4.5},
+    ['suddenlunge'] = {spell = "Sudden Lunge",target = "t",casttime = 0.5},
+    ['quadrastrike'] = {spell = "Quadrastrike",target = "t",casttime = 0.5},
+    ['vaporspray'] = {spell = "Vapor Spray",target = "t",casttime = 3},
+    ['thunderbreath'] = {spell = "Thunder Breath",target = "t",casttime = 7},
+    ['orcishcounterstance'] = {spell = "O. Counterstance",target = "me",casttime = 4},
+    ['amorphicspikes'] = {spell = "Amorphic Spikes",target = "t",casttime = 0.5},
+    ['windbreath'] = {spell = "Wind Breath",target = "t",casttime = 1},
+    ['barbedcrescent'] = {spell = "Barbed Crescent",target = "t",casttime = 0.5},
+    ['natmeditation'] = {spell="Nat. Meditation",target="me",casttime=1},
 }
 infoLog("Blue Spell list loaded")
