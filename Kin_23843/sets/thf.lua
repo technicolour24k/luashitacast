@@ -5,7 +5,7 @@ AF_LEGS = "Pill. Culottes +3"
 AF_FEET = "Pill. Poulaines +3"
 RELIC_HEAD = "Plun. Bonnet +1"
 RELIC_BODY = "Plun. Vest +1"
-RELIC_HANDS = "Plun. Armlets +2"
+RELIC_HANDS = "Plun. Armlets +3"
 RELIC_LEGS = {Name="Plun. Culottes +2",Augment={}}
 RELIC_FEET = {Name="Plun. Poulaines +2",Augment=TA8}
 EMPYREAN_HEAD = { Name="Skulker's Bonnet +1", Augment = {[1]='DEX+4',[2]='"Triple Atk."+6'} }
@@ -65,6 +65,12 @@ sets['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {
 	Feet = EMPYREAN_FEET,
 })
 
+sets.AllJobs['Midcast']['Dia'] = gFunc.Combine(sets['Engaged']['TH'], {})
+sets.AllJobs['Midcast']['Dia II'] = gFunc.Combine(sets['Engaged']['TH'], {})
+sets.AllJobs['Midcast']['Dia III'] = gFunc.Combine(sets['Engaged']['TH'], {})
+sets.AllJobs['Midcast']['Diaga'] = gFunc.Combine(sets['Engaged']['TH'], {})
+sets.AllJobs['Midcast']['Diaga III'] = gFunc.Combine(sets['Engaged']['TH'], {})
+
 --------------------------------------
 --          BEGIN IDLE GEARSETS     --
 --------------------------------------
@@ -100,6 +106,10 @@ sets.THF['Magic']['BLU_Physical'] = {}
 sets.THF['Magic']['BLU_Buffs'] = {}
 sets.THF['Magic']['BLU_Nukes'] = gFunc.Combine(sets.THF['MAB'], {})
 sets.THF['Magic']['Elemental Magic'] = gFunc.Combine(sets.THF['MAB'], {})
+sets.THF['Magic']['Enhancing Magic'] = gFunc.Combine(sets.AllJobs['Midcast']['Enhancing Magic'],{
+    Legs = {Name="Rawhide Trousers",Augment=ENHDUR40}
+})
+
 
 sets.THF['Magic']['Helixes'] = gFunc.Combine(sets.THF['Magic']['Elemental Magic'], {})
 sets.THF['Magic']['Helixes']['Light Arts'] = gFunc.Combine(sets.THF['Magic']['Helixes'], {})
@@ -109,8 +119,11 @@ sets.THF['Magic']['Enspells'] = gFunc.Combine(sets.AllJobs['Midcast']['Enspell']
 
 sets.THF['DayWeatherBonus'] = {}
 
-sets.THF['Magic']['Stoneskin'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingPotency'],{})
-sets.THF['Magic']['Diamondhide'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingPotency'],{})
+sets.THF['Magic']['EnhancingPotency'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingPotency'],{
+    Legs = {Name="Rawhide Trousers",Augment=ENHANCE20}
+})
+sets.THF['Magic']['Stoneskin'] = gFunc.Combine(sets.THF['Magic']['EnhancingPotency'],{})
+sets.THF['Magic']['Diamondhide'] = gFunc.Combine(sets.THF['Magic']['EnhancingPotency'],{})
 
 --------------------------------------
 --           BEGIN JA GEARSETS      --
@@ -130,12 +143,11 @@ sets['WeaponSkills'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
     Hands= {Name="Meg. Gloves +2",Augment=TA12}, --WSD (All hits) +7%
     Head = AF_HEAD, --WSD+6%
     Legs = RELIC_LEGS, --WSD+3%
-    Back={Name="Laic Mantle",Augment=SAVETP200}
+    Back = { Name = 'Toutatis\'s Cape', Augment=TA12}, --TA Damage+20%
 })
 sets['WeaponSkills']['MAB'] = gFunc.Combine(sets['WeaponSkills'],{
     Ammo={Name='Erlene\'s Notebook', Augment=MAB32},
     Ring2={Name="Acumen Ring", Augment=MAB32},
-    Head="Wayfarer Circlet",
     Body="Sombra Harness",
     -- Legs = "Limbo Trousers",
     Feet="Sombra Leggings",
@@ -159,7 +171,6 @@ sets['WeaponSkills']["Rudra's Storm"] = gFunc.Combine(sets['WeaponSkills'], {
     Body = AF_BODY, --TA+7%
     Legs = AF_LEGS, --TA 5%
     Feet = RELIC_FEET, -- TA+3%+8%(Aug) +TA damage+7%
-    -- Back = { Name = 'Canny Cape', Augment = TA8 }, --10% TA (2% + 8%)
     Ring1 = { Name = 'Regal Ring', Augment= TA8},
 
 })
