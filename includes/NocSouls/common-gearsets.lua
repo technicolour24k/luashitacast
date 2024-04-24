@@ -9,7 +9,7 @@ sets.AllJobs['Midcast']={}
 
 sets.AllJobs['JobAbility']={}
 sets.AllJobs['WeaponSkills']={}
-sets.AllJobs['WeaponSkills']['WSD']={
+sets.AllJobs['WeaponSkills']['WSD']={ --54% TA on all jobs
     Ammo= {Name="Floestone", Augment=TA12},
     Ear1={Name="Balder Earring", Augment=SAVETP200},
     Ear2={Name="Balder Earring", Augment=SAVETP200},
@@ -38,7 +38,7 @@ sets.AllJobs['TP']={
     Ammo={Name='Staunch Tathlum', Augment=PARRY24},
     Head={Name="Volte Cap",Augment=MEVA48},
     Neck={Name='Loricate Torque +1', Augment=STP60}, -- Subtle Blow capped (60/50)
-    Ear1={Name='Puissant Pearl', Augment=PARRY24},
+    Ear1={Name='Eabani Earring', Augment=MEVA48},
     Ear2={Name='Hearty Earring',},
     Body={Name="Volte Jupon",Augment=MEVA48},
     Hands={Name="Volte Bracers",Augment=MEVA48},
@@ -228,7 +228,10 @@ sets.AllJobs['Midcast']['Temper']=gFunc.Combine(sets.AllJobs['Midcast']['Enhanci
 
 sets.AllJobs['Midcast']['BLU_Physical']=gFunc.Combine(sets.AllJobs['Midcast']['Blue Magic'],{})
 sets.AllJobs['Midcast']['BLU_Buffs']=gFunc.Combine(sets.AllJobs['Midcast']['Blue Magic'],{})
-sets.AllJobs['Midcast']['BLU_Nukes']=gFunc.Combine(sets.AllJobs['Midcast']['Blue Magic'],{})
+sets.AllJobs['Midcast']['BLU_Nukes']=gFunc.Combine(sets.AllJobs['MAB'],{})
+sets.AllJobs['Midcast']['Dark Orb'] = gFunc.Combine(sets.AllJobs['Midcast']['BLU_Nukes'], {
+    Head = "Pixie Hairpin +1",
+})
 
 sets.AllJobs['Midcast']['Cure']={
     Neck={Name="Phalaina Locket", Augment=CUREPOT16},
@@ -249,6 +252,13 @@ sets.AllJobs['TH']={
     Feet="Volte Boots",
     Waist={Name="Chaac Belt",Augment=SAVETP200}
 }
+
+sets.AllJobs['Midcast']['Dia'] = gFunc.Combine(sets.AllJobs['TH'], {})
+sets.AllJobs['Midcast']['Dia II'] = gFunc.Combine(sets.AllJobs['TH'], {})
+sets.AllJobs['Midcast']['Dia III'] = gFunc.Combine(sets.AllJobs['TH'], {})
+sets.AllJobs['Midcast']['Diaga'] = gFunc.Combine(sets.AllJobs['TH'], {})
+sets.AllJobs['Midcast']['Diaga III'] = gFunc.Combine(sets.AllJobs['TH'], {})
+
 
 sets.AllJobs['Nexus']={
     Back="Nexus Cape"

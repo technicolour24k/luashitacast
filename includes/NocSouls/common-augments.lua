@@ -24,6 +24,7 @@ SIR40 = 'Spell interruption rate down -40%'
 TA8 = '"Triple Atk."+8'
 TA12='"Triple Atk."+12'
 TPBONUS200 = 'TP Bonus +200'
+CRIT20 = 'Crit.hit rate+20'
 
 -- WS utility augs
 SAVETP200 = 'Save TP +200'
