@@ -12,6 +12,9 @@ config.oneClickRemedies = true --Activate remedies with a single command - defin
 config.debug = true
 config.info = true
 config.error = true
+config.autosignet = false
+signetTrack = false
+signetCheckDelay = 300 --5min
 
 thOn = false --TH Gear equip selection
 
@@ -65,3 +68,7 @@ obiList = T{"Healing Magic","Elemental Magic","Dark Magic","Blue Magic"}
 
 --Setup list of buffs to be autocancelled
 autoCancelList = T{"Enstone", "Enwater", "Enaero", "Enfire", "Enblizzard", "Enthunder", "Stoneskin", "Blaze Spikes","Ice Spikes", "Shock Spikes", "Sneak", "Spectral Jig"}
+
+TOAUZones = T{"Aht Urhgan Whitegate", "Al Zahbi","The Colosseum","Nashmau","Bhaflau Thickets","Caedarva Mire","Mount Zhayolm","Wajaom Woodlands","Halvung","Alzadaal Undersea Ruins","Aydeewa Subterrane","Arrapago Reef","Mamook","Hazhalm Testing Grounds","Navukgo Execution Chamber","Talacca Cove","The Ashu Talif","Ilrusi Atoll","Lebros Cavern","Leujaoam Sanctum","Mamool Ja Training Grounds","Nyzul Isle","Periqia","Arrapago Remnants","Bhaflau Remnants","Silver Sea Remnants","Zhayolm Remnants"}
+
+WOTGZones = T{"Castle Oztroja [S]", "Garlaige Citadel [S]", "Meriphataud Mountains [S]", "Sauromugue Champaign [S]", "Beadeaux [S]", "Crawlers' Nest [S]", "Pashhow Marshlands [S]", "Rolanberry Fields [S]", "Vunkerl Inlet [S]", "Beaucedine Glacier [S]", "Bastok Markets [S]", "Grauberg [S]", "North Gustaberg [S]", "Ruhotz Silvermines", "Batallia Downs [S]", "The Eldieme Necropolis [S]", "La Vaule [S]", "Jugner Forest [S]", "East Ronfaure [S]", "Everbloom Hollow", "Southern San d'Oria [S]", "Fort Karugo-Narugo [S]", "Ghoyu's Reverie", "Windurst Waters [S]", "West Sarutabaruta [S]", "The Threshold", "Walk of Echoes", "Provenance", "Xarcabard [S]", "Castle Zvahl Baileys [S]", "Castle Zvahl Keep [S]", "Throne Room [S]"}
