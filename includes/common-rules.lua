@@ -53,7 +53,11 @@ function commonCommandRules (sets, cmd)
         debugLog("Target: "..bluspells[cmd[2]].target)
         sendCommand('/blusets setn 20 '..bluspells[cmd[2]].spell)
         coroutine.sleep(0.1)
-        sendCommand('/ma "'..bluspells[cmd[2]].spell..'"<'..bluspells[cmd[2]].target..'>')
+        sendCommand('/ma "'..bluspells[cmd[2]].spell..'" <'..bluspells[cmd[2]].target..'>')
+        coroutine.sleep(bluspells[cmd[2]].casttime * 0.5)
+        debugLog("Cast time: "..bluspells[cmd[2]].casttime)
+        debugLog("Expected delay: ".. bluspells[cmd[2]].casttime*0.5)
+        sendCommand('/blusets set 20 ""')
     end
 
     -- Function to recursively display the names of subtables
@@ -137,6 +141,13 @@ function commonCommandRules (sets, cmd)
             coroutine.sleep(5)
         end
         sendCommand('/ma "'..chosenEnspell..'" <me>')
+    end
+
+    if (cmd[1]=='blu-buffs') then
+        for i=1, #bluBuffs, 1 do
+            sendCommand('/blu '..bluBuffs[i])
+            coroutine.sleep(5)
+        end
     end
 
     if (cmd[1] == 'ws-chain') then
@@ -231,6 +242,7 @@ end
 -- @param skill: The skill of the action [recommend: gData.GetAction().Skill]
 -- @param type: The 'type' of skill [recommend: gData.GetAction().Type]
 function commonIdleRules (sets)
+    currentZone = gData.GetEnvironment().Area
     statusType = string.lower(player.Status) .."Type"
 
     -- Adding packet checks..
@@ -268,9 +280,9 @@ function commonIdleRules (sets)
         debugLog("Dark Arts found - setting activeArts to" ..activeArts)
     end
 
-    local temp = evaluateVariableValue(statusType)
+    -- local temp = evaluateVariableValue(statusType)
     equipAppropriateGear()   
-    debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]")
+    -- debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]")
 
     if (player.Status=="Engaged") then
         debugLog("Equipping sets["..player.Status.."]["..weapons.."]")
@@ -279,6 +291,9 @@ function commonIdleRules (sets)
 
         if (thOn) then
             equip(sets['Engaged']['TH'])
+            coroutine.sleep(10)
+            thOn = false
+            sendCommand('/s !th')
         end
 
         debugLog("Player Main Level: "..player.MainJobSync )
@@ -302,14 +317,36 @@ function commonIdleRules (sets)
         if (meme) then
             equip(sets.Meme)
         else
-            if not (sets.Zones[gData.GetEnvironment().Area]) then
+            if not (sets.Zones[currentZone]) then
                 -- equip(sets[player.Status][evaluateVariableValue(statusType)])
             else
-                equip(sets.Zones[gData.GetEnvironment().Area])
+                equip(sets.Zones[currentZone])
             end
         end 
     end
-    -- equipAppropriateGear()
+
+    --Auto-Signet
+    if ((config.autosignet) and not (signetTrack)) then          
+        if (itemInArray(TOAUZones, currentZone)) then
+            if not (buffIsActive("Sanction")) then
+                infoLog("Aht Urhgan Area detected: Sanction not active. Activating..")
+                sendCommand('/s !sanction')                        
+            end
+        elseif (itemInArray(WOTGZones, currentZone)) then
+            if not (buffIsActive("Sigil")) then
+                infoLog("Shadowreign Area detected: Sigil not active. Activating..")
+                sendCommand('/s !sigil')
+            end
+        else
+            if not (buffIsActive("Signet")) then
+                infoLog("Not in AU or WOTG Zone: Signet not active. Activating..")
+                sendCommand('/s !signet')
+            end
+        end
+        signetTrack = true
+        coroutine.sleep(signetCheckDelay)
+        signetTrack = false
+    end
 end
 
 -- commonUnknownRules documentation
@@ -374,6 +411,8 @@ function commonMidcastRules (sets, spell, skill, type)
         cancelBuff(action.Name, action.CastTime, gSettings.FastCast, "34")
         cancelBuff(action.Name, action.CastTime, gSettings.FastCast, "35")
         cancelBuff(action.Name, action.CastTime, gSettings.FastCast, "38")
+    elseif (action.Name=="Diamondhide") then
+        cancelBuff(action.Name, action.CastTime, gSettings.FastCast, "Stoneskin")
     end
         
     if (sets[player.MainJob]['Magic'][skill]) then
@@ -384,13 +423,6 @@ function commonMidcastRules (sets, spell, skill, type)
         debugLog("Equipping sets.AllJobs['Midcast']["..skill.."]")
     end
 
-    if (sets[player.MainJob]['Magic'][spell]) then
-        equip(sets[player.MainJob]['Magic'][spell])
-        debugLog("Equipping sets["..player.MainJob.."]['Magic']["..spell.."]")
-    elseif sets.AllJobs['Midcast'][spell] then
-        equip(sets.AllJobs['Midcast'][spell])
-        debugLog("Equipping sets.AllJobs['Midcast']["..spell.."]")
-    end
     if ((spellContains(spell, "Cure")) or (spellContains(spell,"Cura"))) then
         equip(sets[player.MainJob]['Magic'].Cure)
         debugLog("Equipping sets["..player.MainJob.."]['Magic'].Cure")
@@ -458,6 +490,13 @@ function commonMidcastRules (sets, spell, skill, type)
         end
     end
     
+    if (sets[player.MainJob]['Magic'][spell]) then
+        equip(sets[player.MainJob]['Magic'][spell])
+        debugLog("Equipping sets["..player.MainJob.."]['Magic']["..spell.."]")
+    elseif sets.AllJobs['Midcast'][spell] then
+        equip(sets.AllJobs['Midcast'][spell])
+        debugLog("Equipping sets.AllJobs['Midcast']["..spell.."]")
+    end
     weatherCheck(action.Element, action.Skill) -- Calling skill is checked by weatherCheck
 
 end
