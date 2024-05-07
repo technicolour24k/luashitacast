@@ -25,6 +25,7 @@ TA8 = '"Triple Atk."+8'
 TA12='"Triple Atk."+12'
 TPBONUS200 = 'TP Bonus +200'
 CRIT20 = 'Crit.hit rate+20'
+DMG64 = 'DMG:+64'
 
 -- WS utility augs
 SAVETP200 = 'Save TP +200'
@@ -48,6 +49,7 @@ REGPOT20 = {}
 PARRY24 = 'Parrying rate+24%'
 COUNTER40 = '"Counter"+40'
 MEVA48 = { [1] = 'Mag. Eva.+48', [2] = 'Eva.+48' }
+MDB60 = '"Mag.Def.Bns."+60'
 
 -- Stat bonus augs
 INT32 = 'INT+32'

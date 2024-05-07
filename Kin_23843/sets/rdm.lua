@@ -283,10 +283,19 @@ sets.JobAbility['Stymie'] = {}
 --------------------------------------
 --           BEGIN WS GEARSETS      --
 --------------------------------------
-sets.WeaponSkills["Evisceration"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
-sets.WeaponSkills["Mercy Stroke"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
-sets.WeaponSkills["Aeolian Edge"] = gFunc.Combine(sets.RDM['MAB'],{})
-sets.WeaponSkills["Exenterator"] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
+sets.RDM['WeaponSkills'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {})
+sets.RDM['WeaponSkills']['MAB'] = gFunc.Combine(sets.RDM['WeaponSkills'], {
+    Head=EMPYREAN_HEAD, --25 MAB
+    Body={Name="Gyve Doublet", Augment=MAB32}, --52 MAB
+    Hands="Jhakri Cuffs +2", --40 MAB
+    Legs={Name="Gyve Trousers", Augment=MAB32},--40 MAB
+    Feet={Name="Vitiation Boots +2", Augment=MAB32}, -- 48 MAB, +3 is used for Enfeebling Magic sets
+    Waist={Name="Eschan Stone",Augment=MAB40},
+})
+sets.WeaponSkills["Evisceration"] = gFunc.Combine(sets.RDM['WeaponSkills'], {})
+sets.WeaponSkills["Mercy Stroke"] = gFunc.Combine(sets.RDM['WeaponSkills'], {})
+sets.WeaponSkills["Aeolian Edge"] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'],{})
+sets.WeaponSkills["Exenterator"] = gFunc.Combine(sets.RDM['WeaponSkills'], {})
 
 --FTP Replicating WS
 sets.WeaponSkills['Requiescat'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['Fotia'], {})
@@ -294,39 +303,35 @@ sets.WeaponSkills['Chant du Cygne'] = gFunc.Combine(sets.AllJobs['WeaponSkills']
 sets.WeaponSkills['Swift Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['Fotia'], {})
 sets.WeaponSkills['Vorpal Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['Fotia'], {})
 -- MAB modded WS
-sets.WeaponSkills['Sanguine Blade'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Uriel Blade'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Red Lotus Blade'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Burning Blade'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Shining Blade'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Seraph Blade'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Tartarus Torpor'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Earth Crusher'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Omniscience'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Rock Crusher'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Starburst'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Sunburst'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Seraph Blade'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Shining Strike'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Red Lotus Blade'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Burning Blade'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Flash Nova'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Shining Blade'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Seraph Strike'] = gFunc.Combine(sets.RDM['MAB'], {})
-sets.WeaponSkills['Spirits Within'] = gFunc.Combine(sets.RDM['MAB'], {})
+sets.WeaponSkills['Sanguine Blade'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Uriel Blade'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Red Lotus Blade'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Burning Blade'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Shining Blade'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Seraph Blade'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Tartarus Torpor'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Earth Crusher'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Omniscience'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Rock Crusher'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Starburst'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Sunburst'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Seraph Blade'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Shining Strike'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Red Lotus Blade'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Burning Blade'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Flash Nova'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Shining Blade'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Seraph Strike'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
+sets.WeaponSkills['Spirits Within'] = gFunc.Combine(sets.RDM['WeaponSkills']['MAB'], {})
 
 -- Standard mods
-sets.WeaponSkills['Savage Blade'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'],{--50% STR, 50% MND - Equal footing for both
+sets.WeaponSkills['Savage Blade'] = gFunc.Combine(sets.RDM['WeaponSkills'],{--50% STR, 50% MND - Equal footing for both
     Head=RELIC_HEAD,
     Body="Ayanmo Corazza +2",
     Hands="Jhakri Cuffs +2",
     Legs=AF_LEGS,
     Feet="Jhakri Pigaches +2",
-    Ammo="Floestone",
-    Neck={Name="Clotharius Torque",Augment=TA12},
-    Ear1="Regal Earring",
-    Ear2="Mache Earring +1",
-    Back={Name="Laic Mantle",Augment=SAVETP200}
+    Back={Name="Laic Mantle",Augment=TA12}
 }) 
 sets.WeaponSkills['Knights of Round'] = {}
 

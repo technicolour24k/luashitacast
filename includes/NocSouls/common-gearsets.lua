@@ -39,12 +39,12 @@ sets.AllJobs['TP']={
     Head={Name="Volte Cap",Augment=MEVA48},
     Neck={Name='Loricate Torque +1', Augment=STP60}, -- Subtle Blow capped (60/50)
     Ear1={Name='Eabani Earring', Augment=MEVA48},
-    Ear2={Name='Hearty Earring',},
+    Ear2={Name='Hearty Earring',Augment=MEVA48},
     Body={Name="Volte Jupon",Augment=MEVA48},
     Hands={Name="Volte Bracers",Augment=MEVA48},
     Legs={Name="Volte Hose", Augment=MEVA48},
-    Feet="Volte Boots",
-    Back={Name='Moonbeam Cape', Augment=PARRY24},
+    Feet={Name="Volte Boots",Augment=MEVA48},
+    Back={Name='Moonbeam Cape', Augment=MDB60},
     Ring1={Name='Defending Ring', Augment=COUNTER40},
     Ring2={Name='Patricius Ring', Augment=COUNTER40},
     Waist={Name="Resolute Belt", Augment=MEVA48},
@@ -138,9 +138,6 @@ sets.AllJobs['Midcast']['Enhancing Magic']={
 sets.AllJobs['Midcast']['Divine Magic']={}
 sets.AllJobs['Midcast']['Healing Magic']={}
 sets.AllJobs['Midcast']['EnhancingPotency']=gFunc.Combine(sets.AllJobs['Midcast']['Enhancing Magic'],{
-    Main={Name="Lady Bell",Augment=ENHANCE20},
-    -- Sub={Name="",Augment=ENHANCE20},
-    Range={Name="Silver Gun",Augment=ENHANCE20},
     Head={Name="Cache-Nez",Augment=ENHANCE20},
     Neck= {Name="Enhancing Torque", Augment=ENHANCE20},
     Ear1={Name="Andoaa Earring",Augment=ENHANCE20},
@@ -154,6 +151,12 @@ sets.AllJobs['Midcast']['EnhancingPotency']=gFunc.Combine(sets.AllJobs['Midcast'
     Legs={Name="Fisherman's Hose",Augment=ENHANCE20},
     Feet={Name="Fisherman's Boots",Augment=ENHANCE20},
 })
+sets.AllJobs['Midcast']['MaxEnhancingPotency'] = gFunc.Combine(sets.AllJobs['Midcast']['EnhancingPotency'],{
+    Main={Name="Lady Bell",Augment=ENHANCE20},
+    -- Sub={Name="",Augment=ENHANCE20},
+    Range={Name="Silver Gun",Augment=ENHANCE20},
+})
+
 sets.AllJobs['Midcast']['Enfeebling Magic']=gFunc.Combine(sets.AllJobs['MaxMAcc'],{})
 sets.AllJobs['Midcast']['Elemental Magic']=gFunc.Combine(sets.AllJobs['MAB'], {})
 sets.AllJobs['Midcast']['Dark Magic']={}

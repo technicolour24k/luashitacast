@@ -288,17 +288,11 @@ function commonIdleRules (sets)
         debugLog("Equipping sets["..player.Status.."]["..weapons.."]")
         equipAppropriateGear()
         debugLog("Equipping sets["..player.Status.."]["..evaluateVariableValue(statusType).."]")
-
-        if (thOn) then
-            equip(sets['Engaged']['TH'])
-            coroutine.sleep(10)
-            thOn = false
-            sendCommand('/s !th')
-        end
-
         debugLog("Player Main Level: "..player.MainJobSync )
         debugLog("Player Subjob: "..player.SubJob)
-        equip(sets[player.Status][weapons])
+        if (thOn) then
+            equip(sets['Engaged']['TH'])
+        end
 
         if ((player.MainJobSync  < 99) and (player.SubJob == "MNK")) then
             debugLog("player.MainJobSync is under 99 ["..player.MainJobSync.."]")
@@ -519,6 +513,10 @@ function commonWeaponskillRules (sets, spell, skill, type)
     if (sets.WeaponSkills[spell]) then
 	    equip(sets.WeaponSkills[spell])
 	end
+
+    if (debugEnabled()) then
+        sendCommand('/s !stats')
+    end
 end
 
 infoLog('Loaded common rules')

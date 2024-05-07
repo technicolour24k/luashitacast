@@ -183,12 +183,12 @@ sets.BLM['Magic']['Enfeebling Magic'] = gFunc.Combine(sets.BLM['Magic']['Enfeebl
     Legs={Name="Psycloth Lappas", Augment=ENFEEBLE20},
     Feet=RELIC_FEET, --Enfeebling Potency+ 5(AF+2) or 10 (AF+3)
 })
-sets.BLM['Magic']['Elemental Magic'] = gFunc.Combine(sets.BLM['MAB'], {})
+sets.BLM['Magic']['Elemental Magic'] = gFunc.Combine(sets.BLM['MAB'], {
+    Main="Hvergelmir"
+})
 sets.BLM['Magic']['Dark Magic'] = gFunc.Combine(sets.BLM['MAB'],{})
 
-sets.BLM['Magic']['Dispel'] = gFunc.Combine(sets.BLM['Magic']['Enfeebling Magic'], {
-    Neck="Dls. Torque +1"
-})
+sets.BLM['Magic']['Dispel'] = gFunc.Combine(sets.BLM['Magic']['Enfeebling Magic'], {})
 
 sets.BLM['Magic']['Drain'] = gFunc.Combine(sets.AllJobs['Midcast']['DrainAspir'],{
     Head={Name="Appetence Crown", Augment=DRAINASPIR40},

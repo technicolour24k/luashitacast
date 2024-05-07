@@ -22,7 +22,7 @@ sets.THF={}
 sets['Engaged'] = gFunc.Combine(sets.AllJobs['TP'],{})
 -- Weapon options, unlikely to change for THF
 sets['Engaged']['Daggers'] ={
-    Main = { Name = 'Twashtar', Augment = 'DMG:+32' },
+    Main = { Name = 'Twashtar', Augment = DMG64 },
     Sub = { Name = 'Sandung', Augment = 'DMG:+32' },
 }
 
@@ -42,7 +42,7 @@ sets['Engaged']['Aggressive'] = gFunc.Combine(sets['Engaged'], {
     Hands = 'Pill. Armlets +3',
     Ring1 = { Name = 'Rajas Ring', Augment = STP20 },
     Ring2={Name='Hetairoi Ring', Augment=TA12},
-    Back = { Name = 'Canny Cape', Augment = TA8 },
+    Back = { Name = 'Toutatis\'s Cape', Augment=TA12}, --TA Damage+20%
     Waist = { Name = 'Windbuffet Belt +1', Augment = TA12 },
     Legs = 'Pill. Culottes +3',
     Feet = RELIC_FEET
@@ -60,7 +60,8 @@ sets['Engaged']['MEva'] = gFunc.Combine(sets['Engaged'], {
 
 -- Specific set for TH
 sets['Engaged']['TH'] = gFunc.Combine(sets.AllJobs['TH'], {
-    Sub = "Sandung",
+    Main = "Sandung",
+    Sub = 'Thief\'s Knife',
 	Hands = RELIC_HANDS,
 	Feet = EMPYREAN_FEET,
 })
@@ -147,9 +148,9 @@ sets['WeaponSkills'] = gFunc.Combine(sets.AllJobs['WeaponSkills']['WSD'], {
 })
 sets['WeaponSkills']['MAB'] = gFunc.Combine(sets['WeaponSkills'],{
     Ammo={Name='Erlene\'s Notebook', Augment=MAB32},
+    Head={Name="Herculean Helm", Augment=MAB32},
     Ring2={Name="Acumen Ring", Augment=MAB32},
-    Body="Sombra Harness",
-    -- Legs = "Limbo Trousers",
+    Body={Name="Sombra Harness",Augment=MAB32},
     Feet="Sombra Leggings",
     Back={Name='Toro Cape', Augment=MAB40},
     Waist={Name='Eschan Stone',Augment=MAB40},
@@ -175,7 +176,7 @@ sets['WeaponSkills']["Rudra's Storm"] = gFunc.Combine(sets['WeaponSkills'], {
 
 })
 sets['WeaponSkills']["Aeolian Edge"] = gFunc.Combine(sets['WeaponSkills']['MAB'], {
-    Head="Chimera Hairpin",
+    -- Head="Chimera Hairpin",
 })
 sets['WeaponSkills']["Exenterator"] = gFunc.Combine(sets['WeaponSkills'], {})
 
