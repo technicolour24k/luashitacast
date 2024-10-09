@@ -67,7 +67,7 @@ function commonCommandRules (sets, cmd)
         for key, value in pairs(tbl) do
             local name = prefix .. key
             if type(value) == "table" then
-                debugLog("Sub-table found:", name)
+                debugLog("Sub-table found:"..name)
                 printSubTableNames(value, name .. ".")
             end
         end
@@ -308,15 +308,11 @@ function commonIdleRules (sets)
             end
         end
     else
-        if (meme) then
-            equip(sets.Meme)
+        if not (sets.Zones[currentZone]) then
+            -- equip(sets[player.Status][evaluateVariableValue(statusType)])
         else
-            if not (sets.Zones[currentZone]) then
-                -- equip(sets[player.Status][evaluateVariableValue(statusType)])
-            else
-                equip(sets.Zones[currentZone])
-            end
-        end 
+            equip(sets.Zones[currentZone])
+        end
     end
 
     --Auto-Signet

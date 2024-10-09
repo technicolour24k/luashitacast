@@ -1,0 +1,11 @@
+{
+    "Lua.diagnostics.globals": [
+        "gSettings",
+        "gData",
+        "gFunc",
+        "AshitaCore"
+    ],
+    "Lua.diagnostics.disable": [
+        "lowercase-global"
+    ]
+}
