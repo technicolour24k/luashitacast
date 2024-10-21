@@ -25,7 +25,7 @@ activeArts = "default"
 
 enspells = {"Enstone", "Enwater", "Enaero", "Enfire", "Enblizzard", "Enthunder", "Enlight","Endark", "Auspice"} --Store enspells for easily cancelling
 conserveMP_list = --Store spells that get no benefit from Potency or anything outside ConserveMP
-    T{
+    {
     "Protect","Protect II","Protect III","Protect IV","Protect V","Protectra","Protectra II","Protectra III","Protectra IV","Protectra V",
     "Shell","Shell II","Shell III","Shell IV","Shell V","Shellra","Shellra II","Shellra III","Shellra IV","Shellra V",
     "Haste","Haste II",
@@ -34,7 +34,7 @@ conserveMP_list = --Store spells that get no benefit from Potency or anything ou
     "Refresh","Refresh II"
 }
 
-eleWheel_list = T{
+eleWheel_list = {
     "Hyoton: Ichi", "Hyoton: Ni", "Hyoton: San",
     "Katon: Ichi", "Katon: Ni", "Katon: San",
     "Doton: Ichi", "Doton: Ni", "Doton: San",
@@ -43,14 +43,14 @@ eleWheel_list = T{
     "Huton: Ichi", "Huton: Ni", "Huton: San"					
 }
 
-CureSpells = T{	'Cure', 'Cure II', 'Cure III', 'Cure IV', 'Cure V', 'Cure VI',
+CureSpells = {	'Cure', 'Cure II', 'Cure III', 'Cure IV', 'Cure V', 'Cure VI',
                 'Curaga', 'Curaga II', 'Curaga III', 'Curaga IV', 'Curaga V',
                 'Cura', 'Cura II', 'Cura III'}
 
-StatSpells = T{	'Poisona', 'Paralyna', 'Blindna', 'Silena', 'Stona', 'Viruna', 'Erase'}
-RegenSpells = T{'Regen', 'Regen II', 'Regen III', 'Regen IV', 'Regen V'}
-Helixes = T{'Geohelix','Hydrohelix','Anemohelix','Pyrohelix','Cryohelix','Ionohelix','Noctohelix','Luminohelix'}
-Storms = T{'Sandstorm','Rainstorm','Windstorm','Firestorm','Hailstorm','Thunderstorm','Voidstorm','Aurorastorm'}
+StatSpells = {	'Poisona', 'Paralyna', 'Blindna', 'Silena', 'Stona', 'Viruna', 'Erase'}
+RegenSpells = {'Regen', 'Regen II', 'Regen III', 'Regen IV', 'Regen V'}
+Helixes = {'Geohelix','Hydrohelix','Anemohelix','Pyrohelix','Cryohelix','Ionohelix','Noctohelix','Luminohelix'}
+Storms = {'Sandstorm','Rainstorm','Windstorm','Firestorm','Hailstorm','Thunderstorm','Voidstorm','Aurorastorm'}
 NIN_nukes= {"Raiton: Ichi","Raiton: Ni","Raiton: San","Hyoton: Ichi","Hyoton: Ni","Hyoton: San","Huton: Ichi","Huton: Ni","Huton: San","Suiton: Ichi","Suiton: Ni","Suiton: San","Katon: Ichi","Katon: Ni","Katon: San","Doton: Ichi","Doton: Ni","Doton: San"}
 
 BLU_Buffs = {"Nat. Meditation","Occultation","Erratic Flutter","Diamondhide","Magic Fruit"}
@@ -63,12 +63,12 @@ remedyOintment_list = {"Disease", "Plague"}
 panacea_list = {"Bind", "Bio", "Burn", "Choke", "Dia", "Flash", "Frost", "Gravity", "Rasp", "Slow", "Stun", "Weight", "Attack Down", "Defense Down", "STR Down", "AGI Down", "DEX Down", "VIT Down","INT Down", "MND Down", "Max HP Down","Max MP Down"}
 holyWater_list = {"Curse","Doom"}
 
-magicList = T{"White Magic", "Black Magic", "Summoning", "Ninjutsu", "Bard Song", "Blue Magic"}
-obiList = T{"Healing Magic","Elemental Magic","Dark Magic","Blue Magic"}
+magicList = {"White Magic", "Black Magic", "Summoning", "Ninjutsu", "Bard Song", "Blue Magic"}
+obiList = {"Healing Magic","Elemental Magic","Dark Magic","Blue Magic"}
 
 --Setup list of buffs to be autocancelled
-autoCancelList = T{"Enstone", "Enwater", "Enaero", "Enfire", "Enblizzard", "Enthunder", "Stoneskin", "Blaze Spikes","Ice Spikes", "Shock Spikes", "Sneak", "Spectral Jig"}
+autoCancelList = {"Enstone", "Enwater", "Enaero", "Enfire", "Enblizzard", "Enthunder", "Stoneskin", "Blaze Spikes","Ice Spikes", "Shock Spikes", "Sneak", "Spectral Jig"}
 
-TOAUZones = T{"Aht Urhgan Whitegate", "Al Zahbi","The Colosseum","Nashmau","Bhaflau Thickets","Caedarva Mire","Mount Zhayolm","Wajaom Woodlands","Halvung","Alzadaal Undersea Ruins","Aydeewa Subterrane","Arrapago Reef","Mamook","Hazhalm Testing Grounds","Navukgo Execution Chamber","Talacca Cove","The Ashu Talif","Ilrusi Atoll","Lebros Cavern","Leujaoam Sanctum","Mamool Ja Training Grounds","Nyzul Isle","Periqia","Arrapago Remnants","Bhaflau Remnants","Silver Sea Remnants","Zhayolm Remnants"}
+TOAUZones = {"Aht Urhgan Whitegate", "Al Zahbi","The Colosseum","Nashmau","Bhaflau Thickets","Caedarva Mire","Mount Zhayolm","Wajaom Woodlands","Halvung","Alzadaal Undersea Ruins","Aydeewa Subterrane","Arrapago Reef","Mamook","Hazhalm Testing Grounds","Navukgo Execution Chamber","Talacca Cove","The Ashu Talif","Ilrusi Atoll","Lebros Cavern","Leujaoam Sanctum","Mamool Ja Training Grounds","Nyzul Isle","Periqia","Arrapago Remnants","Bhaflau Remnants","Silver Sea Remnants","Zhayolm Remnants"}
 
-WOTGZones = T{"Castle Oztroja [S]", "Garlaige Citadel [S]", "Meriphataud Mountains [S]", "Sauromugue Champaign [S]", "Beadeaux [S]", "Crawlers' Nest [S]", "Pashhow Marshlands [S]", "Rolanberry Fields [S]", "Vunkerl Inlet [S]", "Beaucedine Glacier [S]", "Bastok Markets [S]", "Grauberg [S]", "North Gustaberg [S]", "Ruhotz Silvermines", "Batallia Downs [S]", "The Eldieme Necropolis [S]", "La Vaule [S]", "Jugner Forest [S]", "East Ronfaure [S]", "Everbloom Hollow", "Southern San d'Oria [S]", "Fort Karugo-Narugo [S]", "Ghoyu's Reverie", "Windurst Waters [S]", "West Sarutabaruta [S]", "The Threshold", "Walk of Echoes", "Provenance", "Xarcabard [S]", "Castle Zvahl Baileys [S]", "Castle Zvahl Keep [S]", "Throne Room [S]"}
+WOTGZones = {"Castle Oztroja [S]", "Garlaige Citadel [S]", "Meriphataud Mountains [S]", "Sauromugue Champaign [S]", "Beadeaux [S]", "Crawlers' Nest [S]", "Pashhow Marshlands [S]", "Rolanberry Fields [S]", "Vunkerl Inlet [S]", "Beaucedine Glacier [S]", "Bastok Markets [S]", "Grauberg [S]", "North Gustaberg [S]", "Ruhotz Silvermines", "Batallia Downs [S]", "The Eldieme Necropolis [S]", "La Vaule [S]", "Jugner Forest [S]", "East Ronfaure [S]", "Everbloom Hollow", "Southern San d'Oria [S]", "Fort Karugo-Narugo [S]", "Ghoyu's Reverie", "Windurst Waters [S]", "West Sarutabaruta [S]", "The Threshold", "Walk of Echoes", "Provenance", "Xarcabard [S]", "Castle Zvahl Baileys [S]", "Castle Zvahl Keep [S]", "Throne Room [S]"}
