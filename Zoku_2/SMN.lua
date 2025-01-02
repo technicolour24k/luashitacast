@@ -23,7 +23,7 @@ profile.HandleItem = function() end
 profile.HandlePrecast = function() end
 
 profile.HandleMidcast = function()
-    tlp.actions.cancelBuff()
+    tlp.actions.cancelBuff(gData.GetAction().Name,gData.GetAction().CastTime)
 end
 profile.HandlePreshot = function() end
 profile.HandleMidshot = function() end
