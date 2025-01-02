@@ -12,6 +12,7 @@ profile.Packer = {}
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = true
+    gSettings.FastCast = 0
     tlp.logging.info("Good news everyone!")
 end
 
@@ -23,7 +24,7 @@ profile.HandleItem = function() end
 profile.HandlePrecast = function() end
 
 profile.HandleMidcast = function()
-    tlp.actions.cancelBuff(gData.GetAction().Name,gData.GetAction().CastTime)
+    tlp.actions.cancelBuff(gData.GetAction().Name,gData.GetAction().CastTime, gSettings.FastCast)
 end
 profile.HandlePreshot = function() end
 profile.HandleMidshot = function() end
