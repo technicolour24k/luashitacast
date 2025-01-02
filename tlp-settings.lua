@@ -10,7 +10,7 @@ tlp.settings.config = tlp.settings.config or {
 tlp.settings.user = tlp.settings.user or {
     silentLoad = false,  -- Default: false, always show loading messages
     oneClickRemedies = true, -- Default: true, enable one-button status removals
-    statusItems = {
+    statusItems = { -- Items and the statuses they heal :D
         { name = "Holy Water", statuses = { "Curse", "Doom" } },
         { name = "Hallowed Water", statuses = { "Curse", "Doom" } },
         { name = "Remedy", statuses = { "Blind", "Paralysis", "Silence", "Poison" } },
@@ -23,11 +23,11 @@ tlp.settings.user = tlp.settings.user or {
             "Max HP Down", "Max MP Down" 
         } }
     },
-    blockEnemyImmunities = true, -- Default: true, actively try to stop casting against things that are immune
-    autoCancelList = {  -- List of buffs to be automatically cancelled
-        "Enstone", "Enwater", "Enaero", "Enfire", "Enblizzard", "Enthunder",
-        "Stoneskin", "Blaze Spikes", "Ice Spikes", "Shock Spikes", "Sneak", "Spectral Jig"
-    },
-    cancellationMargin = 0.2, -- This is a multiplier for the amount of extra margin to give the tlp.actions.cancelBuff function. 0.2 = Cancelling at 80% 0.4 = 60%, 0.5 = 50%, etc
+    -- blockEnemyImmunities = true, -- Default: true, actively try to stop casting against things that are immune
+    -- autoCancelList = {  -- List of buffs to be automatically cancelled
+    --     "Enstone", "Enwater", "Enaero", "Enfire", "Enblizzard", "Enthunder",
+    --     "Stoneskin", "Blaze Spikes", "Ice Spikes", "Shock Spikes", "Sneak", "Spectral Jig"
+    -- },
+    -- cancellationMargin = 0.2, -- This is a multiplier for the amount of extra margin to give the tlp.actions.cancelBuff function. 0.2 = Cancelling at 80% 0.4 = 60%, 0.5 = 50%, etc
 }
 
