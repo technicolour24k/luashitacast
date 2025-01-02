@@ -13,7 +13,6 @@ profile.Packer = {}
 profile.OnLoad = function()
     gSettings.AllowAddSet = true
     tlp.logging.info("Good news everyone!")
-    tlp.logging.info()
 end
 
 -- Additional handlers...
