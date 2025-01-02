@@ -21,7 +21,10 @@ profile.HandleDefault = function() end
 profile.HandleAbility = function() end
 profile.HandleItem = function() end
 profile.HandlePrecast = function() end
-profile.HandleMidcast = function() end
+
+profile.HandleMidcast = function()
+    tlp.actions.cancelBuff()
+end
 profile.HandlePreshot = function() end
 profile.HandleMidshot = function() end
 profile.HandleWeaponskill = function() end

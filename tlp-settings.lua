@@ -24,5 +24,9 @@ tlp.settings.user = tlp.settings.user or {
         } }
     },
     blockEnemyImmunities = true, -- Default: true, actively try to stop casting against things that are immune
+    autoCancelList = {  -- List of buffs to be automatically canceled
+        "Enstone", "Enwater", "Enaero", "Enfire", "Enblizzard", "Enthunder",
+        "Stoneskin", "Blaze Spikes", "Ice Spikes", "Shock Spikes", "Sneak", "Spectral Jig"
+    },
 }
 
