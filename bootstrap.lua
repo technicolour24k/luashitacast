@@ -42,14 +42,13 @@ end
 -- Load user config
 load_user_config()
 
-
 -- Framework setup using user-defined branch
 local ver = tlp.settings.config.version or "main"
 local base_url = "https://raw.githubusercontent.com/technicolour24k/thelacpack/" .. ver .. "/"
 
 -- Function to fetch and load a remote Lua file
 local function fetch_and_load(file_name)
-    local url = base_url .. file_name .."?nocache=" .. os.time()
+    local url = base_url .. file_name
     local response, status = http.request(url)
     if status == 200 then
         local chunk, err = load(response, file_name)

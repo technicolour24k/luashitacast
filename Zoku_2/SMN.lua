@@ -13,7 +13,7 @@ profile.Packer = {}
 profile.OnLoad = function()
     gSettings.AllowAddSet = true
     gSettings.FastCast = 0
-    -- tlp.logging.info("Good news everyone!")
+    tlp.logging.info("Good news everyone!")
 end
 
 -- Additional handlers...
@@ -26,7 +26,7 @@ profile.HandlePrecast = function() end
 profile.HandleMidcast = function()
     tlp.xi.actions.cancelBuff(gData.GetAction().Name,gData.GetAction().CastTime, gSettings.FastCast)
     local result = tlp.xi.world.dayWeatherCheck(gData.GetAction().Element, gData.GetAction().Skill)
-    tlp.logging.info(string.format("Result.isWeatherMatch:%s | Result.isDayMatch:%s | Result.weatherMultiplier:%s", result.isWeatherMatch, result.isDayMatch, result.weatherMultiplier))
+    tlp.logging.debug(string.format("Result.isWeatherMatch:%s | Result.isDayMatch:%s | Result.weatherMultiplier:%s", result.isWeatherMatch, result.isDayMatch, result.weatherMultiplier))
 end
 profile.HandlePreshot = function() end
 profile.HandleMidshot = function() end
