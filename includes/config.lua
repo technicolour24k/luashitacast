@@ -40,7 +40,7 @@ eleWheel_list = {
     "Doton: Ichi", "Doton: Ni", "Doton: San",
     "Raiton: Ichi", "Raiton: Ni", "Raiton: San",
     "Suiton: Ichi", "Suiton: Ni", "Suiton: San",
-    "Huton: Ichi", "Huton: Ni", "Huton: San"					
+    "Huton: Ichi", "Huton: Ni", "Huton: San"
 }
 
 CureSpells = {	'Cure', 'Cure II', 'Cure III', 'Cure IV', 'Cure V', 'Cure VI',

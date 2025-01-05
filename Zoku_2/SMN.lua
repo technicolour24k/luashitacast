@@ -24,6 +24,7 @@ profile.HandleItem = function() end
 profile.HandlePrecast = function() end
 
 profile.HandleMidcast = function()
+    tlp.xi.actions.spellContains(gData.GetAction().Name, "Fire")
     tlp.xi.actions.cancelBuff(gData.GetAction().Name,gData.GetAction().CastTime, gSettings.FastCast)
     local result = tlp.xi.world.dayWeatherCheck(gData.GetAction().Element, gData.GetAction().Skill)
     tlp.logging.debug(string.format("Result.isWeatherMatch:%s | Result.isDayMatch:%s | Result.weatherMultiplier:%s", result.isWeatherMatch, result.isDayMatch, result.weatherMultiplier))
