@@ -67,6 +67,7 @@ fetch_and_load("utils/utils.lua")
 fetch_and_load("utils/actions.lua")
 fetch_and_load("utils/world.lua")
 fetch_and_load("utils/logging.lua")
+fetch_and_load("rules/midcast.lua")
 
 -- Load data files
 fetch_and_load("data/enemy-immunities.lua")
