@@ -1,8 +1,5 @@
     -- Load the bootstrap
     gFunc.LoadFile("../bootstrap.lua")
-    
--- Use the bootstrap's fetch_and_load to include framework files
--- bootstrap.fetch_and_load("summoner_utils.lua")
 
 -- Define the profile
 local profile = {}
@@ -10,11 +7,18 @@ local sets = {}
 profile.Sets = sets
 profile.Packer = {}
 
-sets.Cure = {
-    Main="Dagger",
-    Head="Hike Khat",
-    Body="Kingdom Aketon"
-}
+sets.precast = {}
+
+sets.midcast = {}
+sets.midcast['Healing Magic'] = {
+        Main="Dagger",
+        Body="Kingdom Aketon"
+    }
+sets.midcast['Cure'] = gFunc.Combine(sets.midcast['Healing Magic'], {
+        Head="Hike Khat",
+    })
+
+
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = true
@@ -22,7 +26,6 @@ profile.OnLoad = function()
     tlp.logging.info("Good news everyone!")
 end
 
--- Additional handlers...
 profile.HandleCommand = function(args) end
 profile.HandleDefault = function() end
 profile.HandleAbility = function() end
